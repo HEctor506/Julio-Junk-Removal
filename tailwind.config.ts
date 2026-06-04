@@ -1,0 +1,86 @@
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: '#00355f',
+        'primary-container': '#0f4c81',
+        'on-primary': '#ffffff',
+        'on-primary-container': '#8ebdf9',
+        'primary-fixed': '#d2e4ff',
+        'primary-fixed-dim': '#a0c9ff',
+        secondary: '#9d4300',
+        'secondary-container': '#fd761a',
+        'on-secondary': '#ffffff',
+        'on-secondary-container': '#5c2400',
+        background: '#f9f9ff',
+        surface: '#f9f9ff',
+        'surface-dim': '#cfdaf2',
+        'surface-bright': '#f9f9ff',
+        'surface-container-low': '#f0f3ff',
+        'surface-container': '#e7eeff',
+        'surface-container-high': '#dee8ff',
+        'surface-container-highest': '#d8e3fb',
+        'surface-container-lowest': '#ffffff',
+        'on-surface': '#111c2d',
+        'on-surface-variant': '#42474f',
+        'inverse-surface': '#263143',
+        'inverse-on-surface': '#ecf1ff',
+        outline: '#727780',
+        'outline-variant': '#c2c7d1',
+        'surface-tint': '#2d6197',
+        tertiary: '#003c27',
+        'tertiary-container': '#005539',
+        'on-tertiary': '#ffffff',
+        'on-tertiary-container': '#3dd197',
+      },
+      fontFamily: {
+        display: ['Montserrat', 'sans-serif'],
+        headline: ['Montserrat', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+        label: ['Inter', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['56px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'display-mobile': ['36px', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '1.2', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '1.4', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '1.6', fontWeight: '400' }],
+        'body-md': ['16px', { lineHeight: '1.5', fontWeight: '400' }],
+        'label-bold': ['14px', { lineHeight: '1.0', letterSpacing: '0.05em', fontWeight: '600' }],
+      },
+      spacing: {
+        section: '120px',
+        'section-mobile': '80px',
+        container: '1280px',
+        gutter: '24px',
+        'margin-mobile': '16px',
+        'margin-desktop': '40px',
+      },
+      borderRadius: {
+        DEFAULT: '0.25rem',
+        lg: '0.5rem',
+        xl: '0.75rem',
+        '2xl': '1rem',
+        '3xl': '1.5rem',
+      },
+      boxShadow: {
+        card: '0px 4px 20px rgba(15, 76, 129, 0.05)',
+        'card-hover': '0px 12px 32px rgba(15, 76, 129, 0.12)',
+        xl: '0px 20px 40px rgba(15, 76, 129, 0.15)',
+      },
+      maxWidth: {
+        container: '1280px',
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;

@@ -1,0 +1,245 @@
+{
+  "meta": {
+    "title": "Julio Junk Removal | Servicio el Mismo Día en {city}",
+    "titleDefault": "Julio Junk Removal | Retiro de Chatarra Rápido y Económico",
+    "description": "Retiro de chatarra rápido y económico en {city}. Estimados gratis, licenciados y asegurados. Muebles, electrodomésticos, escombros y más. ¡Llama ahora!"
+  },
+  "nav": {
+    "brand": "JULIO JUNK",
+    "home": "Inicio",
+    "services": "Servicios",
+    "pricing": "Precios",
+    "about": "Nosotros",
+    "cta": "LLAMAR AHORA",
+    "langSwitch": "EN"
+  },
+  "hero": {
+    "badge": "SERVICIO #1 EN LA ZONA",
+    "h1Line1": "Retiro de Chatarra",
+    "h1Line2": "Rápido y Económico",
+    "subtitle": "Retiro de chatarra el mismo día para casas, negocios y obras de construcción. Nosotros levantamos, cargamos y llevamos para que tú no tengas que hacerlo.",
+    "ctaPrimary": "Obtener Estimado Gratis",
+    "ctaSecondary": "Llamar Ahora",
+    "trust1": "500+ Clientes Satisfechos",
+    "trust2": "Transportistas Eco-Certificados",
+    "trust3": "Disponibles 7 Días a la Semana"
+  },
+  "trustBar": {
+    "stat1Value": "2,000+",
+    "stat1Label": "Trabajos Completados",
+    "stat2Value": "98%",
+    "stat2Label": "Tasa de Satisfacción",
+    "stat3Value": "< 1 Hora",
+    "stat3Label": "Tiempo de Respuesta",
+    "stat4Value": "Licenciados",
+    "stat4Label": "y Asegurados"
+  },
+  "services": {
+    "h2": "Servicios Completos de Retiro",
+    "subtitle": "Ningún trabajo es muy grande o pequeño. Desde artículos individuales hasta limpiezas completas de propiedad.",
+    "items": {
+      "residential": {
+        "h3": "Retiro Residencial",
+        "copy": "Retiro de artículos no deseados de tu hogar de forma rápida y eficiente.",
+        "items": ["Muebles viejos", "Sofás y colchones", "Electrodomésticos", "TVs y electrónicos", "Limpieza de garaje", "Limpieza de ático", "Limpieza de sótano"]
+      },
+      "commercial": {
+        "h3": "Retiro Comercial",
+        "copy": "Servicios de retiro confiables para negocios y propiedades comerciales.",
+        "items": ["Limpieza de oficinas", "Retiro de mobiliario de oficina", "Limpieza de bodegas", "Limpieza de locales", "Limpieza para administradores de propiedades", "Desecho de inventario"]
+      },
+      "yard": {
+        "h3": "Retiro de Residuos de Jardín",
+        "copy": "Mantén tus espacios exteriores limpios y ordenados.",
+        "items": ["Ramas de árboles", "Residuos de jardín", "Hojas y desechos verdes", "Cercas viejas", "Residuos de jardinería"]
+      },
+      "construction": {
+        "h3": "Retiro de Escombros de Construcción",
+        "copy": "Limpieza rápida para proyectos de remodelación y construcción.",
+        "items": ["Tablaroca", "Madera y tablones", "Materiales de piso y azulejo", "Residuos de renovación", "Desechos de construcción"]
+      },
+      "cleanout": {
+        "h3": "Servicios de Limpieza Total",
+        "copy": "Soluciones completas de limpieza de propiedades para cualquier situación.",
+        "items": ["Limpieza de casas", "Limpieza de garajes", "Limpieza de unidades de almacenamiento", "Limpieza de herencias", "Limpieza de ejecuciones hipotecarias", "Limpieza por desalojo"]
+      },
+      "furniture": {
+        "h3": "Retiro de Muebles",
+        "copy": "Retiramos muebles de todos los tamaños de forma segura y eficiente.",
+        "items": ["Sofás y seccionales", "Camas y colchones", "Mesas y sillas", "Cómodas", "Muebles de oficina"]
+      },
+      "appliances": {
+        "h3": "Retiro de Electrodomésticos",
+        "copy": "Desecho responsable y reciclaje de electrodomésticos viejos.",
+        "items": ["Refrigeradores", "Lavadoras", "Secadoras", "Estufas y hornos", "Lavavajillas", "Congeladores"]
+      },
+      "recycling": {
+        "h3": "Reciclaje y Donaciones",
+        "copy": "Nos esforzamos por mantener los artículos reutilizables fuera de los rellenos sanitarios.",
+        "items": ["Desecho ecológico", "Servicios de reciclaje", "Entregas a organizaciones benéficas"]
+      }
+    }
+  },
+  "about": {
+    "h2": "¿Por Qué Elegir Julio Junk Removal?",
+    "paragraph": "Entendemos que la chatarra se acumula, pero retirarla no debería ser un dolor de cabeza. Julio Junk ofrece una experiencia de retiro premium, sin preocupaciones.",
+    "benefits": [
+      { "title": "Servicio el Mismo Día", "copy": "Reserva antes del mediodía, listo antes del anochecer." },
+      { "title": "Estimados Gratis", "copy": "Precio transparente, sin sorpresas." },
+      { "title": "Precios Accesibles", "copy": "Tarifas competitivas para trabajo de calidad." },
+      { "title": "Licenciados y Asegurados", "copy": "Protección total para tu propiedad." },
+      { "title": "Disponibles 7 Días", "copy": "Incluidos fines de semana y días festivos." },
+      { "title": "Servicio Eco-Amigable", "copy": "Donamos y reciclamos antes de ir al relleno sanitario." },
+      { "title": "Rápido y Confiable", "copy": "Llegamos a tiempo, cada vez." },
+      { "title": "Residencial y Comercial", "copy": "Sin importar el tamaño del trabajo." }
+    ],
+    "statValue": "98%",
+    "statLabel": "de satisfacción en más de 2,000 trabajos."
+  },
+  "howItWorks": {
+    "h2": "Cómo Funciona",
+    "subtitle": "La forma más fácil de recuperar tu espacio.",
+    "steps": [
+      { "number": "1", "title": "Solicita", "copy": "Llama o haz clic para obtener tu estimado gratuito y sin compromiso." },
+      { "number": "2", "title": "Programa", "copy": "Elige una ventana de dos horas que funcione mejor para tu agenda." },
+      { "number": "3", "title": "Retiramos", "copy": "Llegamos, confirmamos el precio final y nos llevamos todo." },
+      { "number": "4", "title": "Limpio", "copy": "Barremos el área y te dejamos con un espacio fresco y despejado." }
+    ]
+  },
+  "pricing": {
+    "h2": "Precios Simples y Transparentes",
+    "subtitle": "Cobramos según el volumen — cuánto espacio ocupa en nuestro camión. Sin costos ocultos, sin sorpresas.",
+    "tiers": [
+      {
+        "name": "Artículo Individual",
+        "example": "Un sofá, refrigerador, colchón o artículo similar.",
+        "cta": "Obtener Precio"
+      },
+      {
+        "name": "Carga Mediana",
+        "example": "Hasta ¼ del camión — ideal para limpieza de garaje o cuartos.",
+        "cta": "Obtener Precio",
+        "popular": true
+      },
+      {
+        "name": "Carga Completa",
+        "example": "Camión completo — perfecto para limpiezas completas de propiedad.",
+        "cta": "Obtener Precio"
+      }
+    ],
+    "includes": "Todos los precios incluyen mano de obra, transporte y costos de desecho. Estimado gratis en el lugar, sin obligación de contratar.",
+    "cta": "Obtener Mi Estimado Gratis",
+    "footNote": "¿Trabajo grande o comercial? Llámanos para una cotización personalizada."
+  },
+  "testimonials": {
+    "h2": "Lo Que Dicen Nuestros Clientes",
+    "subtitle": "Por eso somos el servicio mejor calificado en la zona.",
+    "badge": "4.9/5 Estrellas",
+    "badgeSub": "Basado en 240+ reseñas de Google",
+    "reviews": [
+      {
+        "text": "¡Julio y su equipo fueron increíbles! Llegaron puntualmente, fueron muy respetuosos con nuestro hogar y vaciaron nuestro sótano en menos de dos horas. ¡Los recomiendo ampliamente!",
+        "author": "Sarah Mitchell",
+        "role": "Propietaria"
+      },
+      {
+        "text": "Como administrador de propiedades, necesito proveedores confiables. Julio Junk es mi primera opción para cada limpieza. Son eficientes, profesionales y su precio siempre es justo.",
+        "author": "James Davis",
+        "role": "Administrador de Propiedades"
+      },
+      {
+        "text": "Necesitaba retirar una gran pila de residuos de jardín y escombros de construcción. Me dieron precio por teléfono y estaban aquí en 4 horas. ¡Servicio excepcional!",
+        "author": "Robert King",
+        "role": "Contratista General"
+      }
+    ]
+  },
+  "serviceAreas": {
+    "h2": "Áreas que Atendemos",
+    "paragraph": "Ofrecemos servicio de retiro de chatarra en toda el área y comunidades circundantes. ¿No estás seguro si llegamos a tu zona? ¡Llámanos!",
+    "label": "Servicio disponible en:",
+    "cities": ["Ciudad 1", "Ciudad 2", "Ciudad 3", "Ciudad 4", "Ciudad 5", "Ciudad 6"],
+    "cta": "¿Atiendes mi área? Llámanos",
+    "note": "También atendemos comunidades adicionales — no dudes en preguntar."
+  },
+  "faq": {
+    "h2": "Preguntas Frecuentes",
+    "items": [
+      {
+        "q": "¿Cómo cobran el servicio de retiro?",
+        "a": "Cobramos según el volumen que ocupa tu chatarra en nuestro camión. El precio incluye mano de obra, transporte y costos de desecho. Ofrecemos estimados gratuitos y sin obligación en el lugar."
+      },
+      {
+        "q": "¿Qué artículos NO pueden llevarse?",
+        "a": "No podemos retirar materiales peligrosos como químicos, gasolina, aceite, pinturas, solventes o asbesto. Para todo lo demás — muebles, llantas, electrónicos — ¡estamos listos!"
+      },
+      {
+        "q": "¿Necesito estar presente durante el retiro?",
+        "a": "Preferimos que estés presente para confirmar los artículos y el precio final, pero no es estrictamente necesario. Si los artículos están accesibles y el pago está coordinado, nos encargamos de todo."
+      },
+      {
+        "q": "¿Qué pasa con mi chatarra después de retirarla?",
+        "a": "Estamos comprometidos con prácticas eco-amigables. Clasificamos todo lo que retiramos — donamos los artículos utilizables a organizaciones benéficas locales y reciclamos tanto como sea posible."
+      },
+      {
+        "q": "¿Ofrecen servicio el mismo día?",
+        "a": "¡Sí! Ofrecemos servicio el mismo día cuando hay disponibilidad. Reserva antes del mediodía y podemos llegar antes del anochecer. Llama para confirmar disponibilidad."
+      },
+      {
+        "q": "¿Están licenciados y asegurados?",
+        "a": "Absolutamente. Julio Junk Removal está completamente licenciado y asegurado. Tu propiedad está protegida durante todo el proceso de retiro."
+      },
+      {
+        "q": "¿Atienden fines de semana?",
+        "a": "¡Sí! Operamos los 7 días de la semana, incluyendo fines de semana y la mayoría de los días festivos. Llama para programar cuando sea conveniente para ti."
+      },
+      {
+        "q": "¿Cuánto tiempo tarda el servicio?",
+        "a": "La mayoría de los trabajos residenciales se completan en 1–2 horas. Las limpiezas más grandes o trabajos comerciales pueden tomar más tiempo. Te daremos una estimación de tiempo cuando programes."
+      }
+    ]
+  },
+  "finalCta": {
+    "h2": "¿Listo para Recuperar Tu Espacio Hoy?",
+    "paragraph": "Obtén un estimado gratuito en minutos. Sin presión, solo un servicio profesional de retiro de chatarra a tu puerta.",
+    "ctaPrimary": "Obtener Mi Estimado Gratis",
+    "ctaSecondary": "{phone}",
+    "note": "También disponible por WhatsApp · Respuesta en menos de 1 hora"
+  },
+  "footer": {
+    "tagline": "Servicios de retiro de chatarra para propiedades residenciales y comerciales. Hacemos que ordenar sea sin esfuerzo.",
+    "servicesTitle": "Servicios",
+    "companyTitle": "Empresa",
+    "serviceLinks": [
+      { "label": "Retiro Residencial", "href": "#services" },
+      { "label": "Retiro Comercial", "href": "#services" },
+      { "label": "Limpieza de Propiedades", "href": "#services" },
+      { "label": "Retiro de Muebles", "href": "#services" },
+      { "label": "Retiro de Electrodomésticos", "href": "#services" },
+      { "label": "Escombros de Construcción", "href": "#services" }
+    ],
+    "companyLinks": [
+      { "label": "Sobre Nosotros", "href": "#about" },
+      { "label": "Contáctanos", "href": "#contact" },
+      { "label": "Áreas de Servicio", "href": "#service-areas" },
+      { "label": "Política de Privacidad", "href": "/privacy" }
+    ],
+    "copyright": "© 2025 Julio Junk Removal. Licenciado y Eco-Certificado."
+  },
+  "contactForm": {
+    "h2": "Obtén Tu Estimado Gratis",
+    "subtitle": "Completa el formulario y te contactamos en menos de 1 hora.",
+    "namePlaceholder": "Nombre Completo",
+    "phonePlaceholder": "Número de Teléfono",
+    "emailPlaceholder": "Correo Electrónico",
+    "messagePlaceholder": "Describe lo que necesitas retirar...",
+    "submit": "Enviar Solicitud",
+    "submitting": "Enviando...",
+    "successTitle": "¡Solicitud Recibida!",
+    "successMessage": "Te contactaremos en menos de 1 hora para confirmar tu cita.",
+    "errorMessage": "Algo salió mal. Por favor llámanos directamente."
+  },
+  "whatsapp": {
+    "ariaLabel": "Chatear por WhatsApp"
+  }
+}

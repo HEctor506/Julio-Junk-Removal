@@ -1,0 +1,245 @@
+{
+  "meta": {
+    "title": "Julio Junk Removal | Same-Day Service in {city}",
+    "titleDefault": "Julio Junk Removal | Fast & Affordable Junk Removal",
+    "description": "Fast & affordable junk removal in {city}. Free estimates, licensed & insured. Furniture, appliances, construction debris and more. Call now!"
+  },
+  "nav": {
+    "brand": "JULIO JUNK",
+    "home": "Home",
+    "services": "Services",
+    "pricing": "Pricing",
+    "about": "About Us",
+    "cta": "CALL NOW",
+    "langSwitch": "ES"
+  },
+  "hero": {
+    "badge": "#1 RATED REMOVAL SERVICE",
+    "h1Line1": "Fast & Affordable",
+    "h1Line2": "Junk Removal",
+    "subtitle": "Same-day junk removal for homes, businesses, and construction projects. We lift, load, and haul so you don't have to.",
+    "ctaPrimary": "Get Free Estimate",
+    "ctaSecondary": "Call Now",
+    "trust1": "500+ Happy Clients",
+    "trust2": "Eco-Certified Haulers",
+    "trust3": "Available 7 Days a Week"
+  },
+  "trustBar": {
+    "stat1Value": "2,000+",
+    "stat1Label": "Jobs Completed",
+    "stat2Value": "98%",
+    "stat2Label": "Satisfaction Rate",
+    "stat3Value": "< 1 Hour",
+    "stat3Label": "Response Time",
+    "stat4Value": "Licensed",
+    "stat4Label": "& Insured"
+  },
+  "services": {
+    "h2": "Comprehensive Removal Services",
+    "subtitle": "No job is too big or small. From single items to full property cleanouts.",
+    "items": {
+      "residential": {
+        "h3": "Residential Junk Removal",
+        "copy": "We remove unwanted items from your home quickly and efficiently.",
+        "items": ["Old furniture", "Sofas & mattresses", "Appliances", "TVs & electronics", "Garage cleanouts", "Attic cleanouts", "Basement cleanouts"]
+      },
+      "commercial": {
+        "h3": "Commercial Junk Removal",
+        "copy": "Reliable junk removal for businesses and commercial properties.",
+        "items": ["Office cleanouts", "Office furniture removal", "Warehouse cleanouts", "Retail store cleanouts", "Property management cleanouts", "Inventory disposal"]
+      },
+      "yard": {
+        "h3": "Yard Waste Removal",
+        "copy": "Keep your outdoor spaces clean and clutter-free.",
+        "items": ["Tree branches", "Yard debris", "Leaves & green waste", "Old fencing", "Landscaping debris"]
+      },
+      "construction": {
+        "h3": "Construction Debris Removal",
+        "copy": "Fast cleanup for remodeling and construction projects.",
+        "items": ["Drywall", "Wood & lumber", "Tile & flooring materials", "Renovation debris", "Construction waste"]
+      },
+      "cleanout": {
+        "h3": "Cleanout Services",
+        "copy": "Complete property cleanout solutions for any situation.",
+        "items": ["House cleanouts", "Garage cleanouts", "Storage unit cleanouts", "Estate cleanouts", "Foreclosure cleanouts", "Eviction cleanouts"]
+      },
+      "furniture": {
+        "h3": "Furniture Removal",
+        "copy": "We safely remove furniture of all sizes.",
+        "items": ["Sofas & sectionals", "Beds & mattresses", "Tables & chairs", "Dressers", "Office furniture"]
+      },
+      "appliances": {
+        "h3": "Appliance Removal",
+        "copy": "Responsible disposal and recycling of old appliances.",
+        "items": ["Refrigerators", "Washing machines", "Dryers", "Stoves & ovens", "Dishwashers", "Freezers"]
+      },
+      "recycling": {
+        "h3": "Recycling & Donation",
+        "copy": "We strive to keep reusable items out of landfills whenever possible.",
+        "items": ["Eco-friendly disposal", "Recycling services", "Donation drop-offs"]
+      }
+    }
+  },
+  "about": {
+    "h2": "Why Choose Julio Junk Removal?",
+    "paragraph": "We understand that junk accumulates, but removing it shouldn't be a headache. Julio Junk provides a premium, worry-free removal experience.",
+    "benefits": [
+      { "title": "Same-Day Service", "copy": "Book by noon, gone by dusk." },
+      { "title": "Free Estimates", "copy": "Upfront pricing, no surprises." },
+      { "title": "Affordable Pricing", "copy": "Competitive rates for quality work." },
+      { "title": "Licensed & Insured", "copy": "Full protection for your property." },
+      { "title": "7 Days a Week", "copy": "Including weekends and holidays." },
+      { "title": "Eco-Friendly Service", "copy": "We donate and recycle before heading to the landfill." },
+      { "title": "Fast & Reliable", "copy": "We show up on time, every time." },
+      { "title": "Residential & Commercial", "copy": "No matter the size of the job." }
+    ],
+    "statValue": "98%",
+    "statLabel": "Client satisfaction rate across 2,000+ jobs."
+  },
+  "howItWorks": {
+    "h2": "How It Works",
+    "subtitle": "The easiest way to reclaim your space.",
+    "steps": [
+      { "number": "1", "title": "Request", "copy": "Call or click to get your free, no-obligation estimate." },
+      { "number": "2", "title": "Schedule", "copy": "Pick a two-hour window that works best for your schedule." },
+      { "number": "3", "title": "Removed", "copy": "We arrive, confirm the final price, and haul everything away." },
+      { "number": "4", "title": "Clean", "copy": "We sweep the area, leaving you with a fresh, clear space." }
+    ]
+  },
+  "pricing": {
+    "h2": "Simple, Transparent Pricing",
+    "subtitle": "We charge by volume — how much space it takes in our truck. No hidden fees, no surprises.",
+    "tiers": [
+      {
+        "name": "Single Item",
+        "example": "A single sofa, refrigerator, mattress, or similar item.",
+        "cta": "Get a Price"
+      },
+      {
+        "name": "Medium Load",
+        "example": "Up to ¼ truck — great for garage or room cleanouts.",
+        "cta": "Get a Price",
+        "popular": true
+      },
+      {
+        "name": "Full Load",
+        "example": "Full truck — perfect for complete property cleanouts.",
+        "cta": "Get a Price"
+      }
+    ],
+    "includes": "All prices include labor, transport, and disposal fees. Free on-site estimate, no obligation to book.",
+    "cta": "Get My Free Estimate",
+    "footNote": "Large or commercial job? Call us for a custom quote."
+  },
+  "testimonials": {
+    "h2": "What Our Customers Say",
+    "subtitle": "See why we're the top-rated removal service in the area.",
+    "badge": "4.9/5 Stars",
+    "badgeSub": "Based on 240+ Google Reviews",
+    "reviews": [
+      {
+        "text": "Julio and his team were fantastic! They arrived exactly on time, were incredibly respectful of our home, and cleared our entire basement in under two hours. Highly recommend!",
+        "author": "Sarah Mitchell",
+        "role": "Homeowner"
+      },
+      {
+        "text": "As a property manager, I need reliable vendors. Julio Junk is my go-to for every cleanout. They are efficient, professional, and their pricing is always fair. Five stars every time.",
+        "author": "James Davis",
+        "role": "Property Manager"
+      },
+      {
+        "text": "Needed a massive pile of yard waste and old construction debris removed. They gave me a quote over the phone and were here within 4 hours. Exceptional service!",
+        "author": "Robert King",
+        "role": "General Contractor"
+      }
+    ]
+  },
+  "serviceAreas": {
+    "h2": "Areas We Serve",
+    "paragraph": "We provide junk removal services throughout the area and surrounding communities. Not sure if we reach your location? Give us a call!",
+    "label": "Service available in:",
+    "cities": ["City 1", "City 2", "City 3", "City 4", "City 5", "City 6"],
+    "cta": "Do you serve my area? Call us",
+    "note": "We also serve additional communities — don't hesitate to ask."
+  },
+  "faq": {
+    "h2": "Frequently Asked Questions",
+    "items": [
+      {
+        "q": "How do you charge for junk removal?",
+        "a": "We charge based on the volume of junk you need removed — how much space it takes up in our truck. The price includes all labor, transport, and disposal fees. We provide free, no-obligation on-site estimates."
+      },
+      {
+        "q": "What items can you NOT take?",
+        "a": "We cannot haul hazardous materials such as chemicals, gasoline, oil, paints, solvents, or asbestos. For everything else — furniture, tires, electronics — we've got you covered!"
+      },
+      {
+        "q": "Do I need to be present during the removal?",
+        "a": "We prefer you to be there to confirm items and the final price, but it's not strictly required. If items are accessible (curbside or in a driveway) and payment is arranged, we can handle everything while you're away."
+      },
+      {
+        "q": "What happens to my junk after it's removed?",
+        "a": "We're committed to eco-friendly practices. We sort through everything we haul — donating usable items to local charities and recycling as much as possible before heading to the landfill."
+      },
+      {
+        "q": "Do you offer same-day service?",
+        "a": "Yes! We offer same-day service based on availability. Book before noon and we can be there before dusk. Call to confirm availability."
+      },
+      {
+        "q": "Are you licensed and insured?",
+        "a": "Absolutely. Julio Junk Removal is fully licensed and insured. Your property is protected throughout the entire removal process."
+      },
+      {
+        "q": "Do you work on weekends?",
+        "a": "Yes! We operate 7 days a week, including weekends and most holidays. Call to schedule at your convenience."
+      },
+      {
+        "q": "How long does the service take?",
+        "a": "Most residential jobs are completed in 1–2 hours. Larger cleanouts or commercial jobs may take longer. We'll give you a time estimate when you schedule."
+      }
+    ]
+  },
+  "finalCta": {
+    "h2": "Ready to Reclaim Your Space Today?",
+    "paragraph": "Get a free estimate in minutes. No pressure, just professional junk removal service at your door.",
+    "ctaPrimary": "Get My Free Estimate",
+    "ctaSecondary": "{phone}",
+    "note": "Also available on WhatsApp · Response in under 1 hour"
+  },
+  "footer": {
+    "tagline": "Junk removal services for residential and commercial properties. We make decluttering effortless.",
+    "servicesTitle": "Services",
+    "companyTitle": "Company",
+    "serviceLinks": [
+      { "label": "Residential Removal", "href": "#services" },
+      { "label": "Commercial Removal", "href": "#services" },
+      { "label": "Estate Cleanouts", "href": "#services" },
+      { "label": "Furniture Removal", "href": "#services" },
+      { "label": "Appliance Removal", "href": "#services" },
+      { "label": "Construction Debris", "href": "#services" }
+    ],
+    "companyLinks": [
+      { "label": "About Us", "href": "#about" },
+      { "label": "Contact Us", "href": "#contact" },
+      { "label": "Service Areas", "href": "#service-areas" },
+      { "label": "Privacy Policy", "href": "/privacy" }
+    ],
+    "copyright": "© 2025 Julio Junk Removal. Licensed & Eco-Certified."
+  },
+  "contactForm": {
+    "h2": "Get Your Free Estimate",
+    "subtitle": "Fill out the form and we'll get back to you within 1 hour.",
+    "namePlaceholder": "Full Name",
+    "phonePlaceholder": "Phone Number",
+    "emailPlaceholder": "Email Address",
+    "messagePlaceholder": "Describe what you need removed...",
+    "submit": "Send Request",
+    "submitting": "Sending...",
+    "successTitle": "Request Received!",
+    "successMessage": "We'll contact you within 1 hour to confirm your appointment.",
+    "errorMessage": "Something went wrong. Please call us directly."
+  },
+  "whatsapp": {
+    "ariaLabel": "Chat on WhatsApp"
+  }
+}
