@@ -10,6 +10,7 @@
     "services": "Servicios",
     "pricing": "Precios",
     "about": "Nosotros",
+    "contact": "Contacto",
     "cta": "LLAMAR AHORA",
     "langSwitch": "EN"
   },
@@ -74,7 +75,7 @@
         "items": ["Refrigeradores", "Lavadoras", "Secadoras", "Estufas y hornos", "Lavavajillas", "Congeladores"]
       },
       "recycling": {
-        "h3": "Reciclaje y Donaciones",
+        "h3": "Servicios de Reciclaje y Donaciones",
         "copy": "Nos esforzamos por mantener los artículos reutilizables fuera de los rellenos sanitarios.",
         "items": ["Desecho ecológico", "Servicios de reciclaje", "Entregas a organizaciones benéficas"]
       }
@@ -154,28 +155,12 @@
       }
     ]
   },
-  "serviceAreas": {
-    "h2": "Áreas que Atendemos",
-    "paragraph": "Ofrecemos servicio de retiro de chatarra en toda el área y comunidades circundantes. ¿No estás seguro si llegamos a tu zona? ¡Llámanos!",
-    "label": "Servicio disponible en:",
-    "cities": ["Ciudad 1", "Ciudad 2", "Ciudad 3", "Ciudad 4", "Ciudad 5", "Ciudad 6"],
-    "cta": "¿Atiendes mi área? Llámanos",
-    "note": "También atendemos comunidades adicionales — no dudes en preguntar."
-  },
   "faq": {
     "h2": "Preguntas Frecuentes",
     "items": [
       {
         "q": "¿Cómo cobran el servicio de retiro?",
         "a": "Cobramos según el volumen que ocupa tu chatarra en nuestro camión. El precio incluye mano de obra, transporte y costos de desecho. Ofrecemos estimados gratuitos y sin obligación en el lugar."
-      },
-      {
-        "q": "¿Qué artículos NO pueden llevarse?",
-        "a": "No podemos retirar materiales peligrosos como químicos, gasolina, aceite, pinturas, solventes o asbesto. Para todo lo demás — muebles, llantas, electrónicos — ¡estamos listos!"
-      },
-      {
-        "q": "¿Necesito estar presente durante el retiro?",
-        "a": "Preferimos que estés presente para confirmar los artículos y el precio final, pero no es estrictamente necesario. Si los artículos están accesibles y el pago está coordinado, nos encargamos de todo."
       },
       {
         "q": "¿Qué pasa con mi chatarra después de retirarla?",

@@ -10,6 +10,7 @@
     "services": "Services",
     "pricing": "Pricing",
     "about": "About Us",
+    "contact": "Contact",
     "cta": "CALL NOW",
     "langSwitch": "ES"
   },
@@ -74,7 +75,7 @@
         "items": ["Refrigerators", "Washing machines", "Dryers", "Stoves & ovens", "Dishwashers", "Freezers"]
       },
       "recycling": {
-        "h3": "Recycling & Donation",
+        "h3": "Recycling & Donation Services",
         "copy": "We strive to keep reusable items out of landfills whenever possible.",
         "items": ["Eco-friendly disposal", "Recycling services", "Donation drop-offs"]
       }
@@ -154,28 +155,13 @@
       }
     ]
   },
-  "serviceAreas": {
-    "h2": "Areas We Serve",
-    "paragraph": "We provide junk removal services throughout the area and surrounding communities. Not sure if we reach your location? Give us a call!",
-    "label": "Service available in:",
-    "cities": ["City 1", "City 2", "City 3", "City 4", "City 5", "City 6"],
-    "cta": "Do you serve my area? Call us",
-    "note": "We also serve additional communities — don't hesitate to ask."
-  },
+
   "faq": {
     "h2": "Frequently Asked Questions",
     "items": [
       {
         "q": "How do you charge for junk removal?",
         "a": "We charge based on the volume of junk you need removed — how much space it takes up in our truck. The price includes all labor, transport, and disposal fees. We provide free, no-obligation on-site estimates."
-      },
-      {
-        "q": "What items can you NOT take?",
-        "a": "We cannot haul hazardous materials such as chemicals, gasoline, oil, paints, solvents, or asbestos. For everything else — furniture, tires, electronics — we've got you covered!"
-      },
-      {
-        "q": "Do I need to be present during the removal?",
-        "a": "We prefer you to be there to confirm items and the final price, but it's not strictly required. If items are accessible (curbside or in a driveway) and payment is arranged, we can handle everything while you're away."
       },
       {
         "q": "What happens to my junk after it's removed?",

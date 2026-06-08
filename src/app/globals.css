@@ -45,4 +45,62 @@
   .card {
     @apply bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-200;
   }
+
+  /* Shimmer / pulse for primary CTA buttons */
+  .btn-shimmer {
+    @apply relative overflow-hidden;
+    background: linear-gradient(
+      90deg,
+      #fd761a 0%,
+      #ff9a50 40%,
+      #fd761a 60%,
+      #fd761a 100%
+    );
+    background-size: 200% auto;
+    animation: shimmer 2.4s linear infinite;
+  }
+
+  /* Section accent underline (used in footer column headers) */
+  .footer-col-title::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2px;
+    background-color: #fd761a;
+    margin-top: 0.5rem;
+    border-radius: 1px;
+  }
 }
+
+/* ── Keyframes ── */
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* Infinite horizontal scroll for testimonials carousel */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  animation: ticker 35s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+
+
+
+/* ── Services horizontal scroll carousel ── */
+.services-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.services-scroll::-webkit-scrollbar {
+  display: none;
+}
+
