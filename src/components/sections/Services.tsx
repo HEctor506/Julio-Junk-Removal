@@ -41,11 +41,14 @@ const mobileTitleVariants = {
 function ServiceCard({
   serviceKey,
   data,
+  isExpanded,
+  onToggle,
 }: {
   serviceKey: ServiceKey;
   data: ServiceItemData;
+  isExpanded: boolean;
+  onToggle: () => void;
 }) {
-  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <>
@@ -71,7 +74,7 @@ function ServiceCard({
         className="md:hidden snap-start shrink-0 relative overflow-hidden rounded-2xl w-[260px] h-[380px] text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary-container focus-visible:ring-offset-2"
         aria-expanded={isExpanded}
         aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${data.h3}`}
-        onClick={() => setIsExpanded((current) => !current)}
+        onClick={onToggle}
         whileTap={{ scale: 0.985 }}
       >
         <ServiceImage serviceKey={serviceKey} alt="" />
@@ -134,6 +137,7 @@ function ServiceCopy({ data, hideTitle = false }: { data: ServiceItemData; hideT
 export default function Services() {
   const t = useTranslations('services');
   const getItem = (key: ServiceKey): ServiceItemData => t.raw(`items.${key}`) as ServiceItemData;
+  const [expandedKey, setExpandedKey] = useState<ServiceKey | null>(null);
 
   return (
     <section id="services" className="section-padding container-max" aria-labelledby="services-heading">
@@ -165,6 +169,8 @@ export default function Services() {
               key={key}
               serviceKey={key}
               data={data}
+              isExpanded={expandedKey === key}
+              onToggle={() => setExpandedKey(expandedKey === key ? null : key)}
             />
           );
         })}
