@@ -2,6 +2,50 @@
 
 Registro de sesiones de desarrollo. Cada entrada documenta qué se hizo, por qué, y qué quedó pendiente.
 
+### Claude → Implementación principal
+
+Responsable de:
+
+- Desarrollar features
+- Refactors grandes
+- Modificar múltiples archivos
+- Ejecutar la implementación definida
+
+Debe respetar arquitectura y decisiones existentes.
+
+---
+
+### Codex → Asistente dentro del editor
+
+Responsable de:
+
+- Completar código puntual
+- Resolver funciones específicas
+- Hacer ajustes pequeños
+- Ayudar durante implementación
+
+No debe tomar decisiones de arquitectura ni iniciar refactors grandes.
+
+## Actualización de sesiones
+
+Al terminar cada requerimiento actualizar `project_log.md` agregando:
+
+- Fecha
+- Objetivo
+- IA utilizada
+- Cambios realizados
+- Archivos modificados
+- Decisiones tomadas
+- Problemas encontrados
+- Pendientes
+- Commit relacionado
+
+Regla final:
+
+Ninguna sesión se considera terminada hasta actualizar `project_log.md`.
+
+Mantener el log corto, técnico y acumulativo.
+
 ---
 
 ## Sesión 01 — 2026-06-07
@@ -151,3 +195,53 @@ DOCUMENTACIÓN:
   CLAUDE.md                                       ← MODIFICADO
   DEVLOG.md                                       ← NUEVO (este archivo)
 ```
+
+---
+
+## Sesion 02 - 2026-06-11
+
+### Resumen
+Sesion enfocada en refactor puntual de la seccion Services para separar la interaccion desktop/mobile sin cambiar la arquitectura general.
+
+---
+
+### Objetivo
+Conservar el reveal por hover en desktop y cambiar mobile a tap/collapse. El estado inicial en mobile muestra solo el titulo del servicio; al tocar, expande descripcion y CTA con animacion basada en `transform` y `opacity`.
+
+### IA utilizada
+Codex.
+
+### Cambios realizados
+
+#### Services responsive interaction (`src/components/sections/Services.tsx`)
+- Extraido `ServiceCard` para aislar el comportamiento por tarjeta.
+- Desktop mantiene el `whileHover` de Motion sobre `motion.figure`.
+- Mobile usa `motion.button` con estado local `isExpanded` y `aria-expanded`.
+- El titulo mobile queda visible desde el estado inicial.
+- La descripcion y CTA mobile aparecen/desaparecen con `opacity` + `translateY`.
+- El titulo mobile se desplaza con `translateY` al expandir para dejar espacio a la descripcion.
+- Agregado `will-change-transform` en capas animadas para favorecer composicion GPU.
+- Normalizados textos auxiliares de la seccion a ASCII para evitar caracteres rotos.
+
+### Archivos modificados
+- `src/components/sections/Services.tsx`
+- `DEVLOG.md`
+
+### Decisiones tomadas
+- Separar markup desktop/mobile con clases responsive (`hidden md:block`, `md:hidden`) para evitar que el hover de desktop afecte pantallas tactiles.
+- Mantener tarjetas con dimensiones fijas para no provocar saltos de layout durante el collapse/expand.
+- Usar animaciones de composicion (`transform`/`opacity`) en lugar de animar altura.
+
+### Problemas encontrados
+- `npm run lint` no se pudo completar porque Next.js pidio configurar ESLint de forma interactiva.
+- El archivo `DEVLOG.md` ya tenia caracteres mojibake; la entrada nueva se dejo en ASCII.
+
+### Validacion
+- `npx tsc --noEmit` paso sin errores.
+
+### Pendientes
+- Configurar ESLint del proyecto para que `npm run lint` pueda ejecutarse de forma no interactiva.
+- Revision visual manual en navegador para ajustar microposicion del titulo si algun copy real cambia de longitud.
+
+### Commit relacionado
+- Pendiente / no generado en esta sesion.

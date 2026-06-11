@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'motion/react';
 
@@ -27,13 +28,115 @@ const captionVariants = {
   hover: { y: 0 },
 };
 
+const mobileDetailsVariants = {
+  collapsed: { opacity: 0, y: 14 },
+  expanded: { opacity: 1, y: 0 },
+};
+
+const mobileTitleVariants = {
+  collapsed: { y: 0 },
+  expanded: { y: -124 },
+};
+
+function ServiceCard({
+  serviceKey,
+  data,
+}: {
+  serviceKey: ServiceKey;
+  data: ServiceItemData;
+}) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <>
+      <motion.figure
+        className="hidden md:block snap-start shrink-0 relative overflow-hidden rounded-2xl md:w-[320px] md:h-[440px] cursor-pointer"
+        initial="idle"
+        whileHover="hover"
+      >
+        <ServiceImage serviceKey={serviceKey} alt={data.h3} />
+
+        {/* Gradient overlay slides up from below on desktop hover. */}
+        <motion.figcaption
+          className="absolute bottom-0 left-0 right-0 pt-20 px-5 pb-5 bg-gradient-to-t from-black/90 via-black/60 to-transparent text-white will-change-transform"
+          variants={captionVariants}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <ServiceCopy data={data} />
+        </motion.figcaption>
+      </motion.figure>
+
+      <motion.button
+        type="button"
+        className="md:hidden snap-start shrink-0 relative overflow-hidden rounded-2xl w-[260px] h-[380px] text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary-container focus-visible:ring-offset-2"
+        aria-expanded={isExpanded}
+        aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${data.h3}`}
+        onClick={() => setIsExpanded((current) => !current)}
+        whileTap={{ scale: 0.985 }}
+      >
+        <ServiceImage serviceKey={serviceKey} alt="" />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent text-white">
+          <motion.h3
+            className="absolute inset-x-5 bottom-5 text-base font-headline font-bold leading-tight will-change-transform"
+            initial={false}
+            animate={isExpanded ? 'expanded' : 'collapsed'}
+            variants={mobileTitleVariants}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {data.h3}
+          </motion.h3>
+          <motion.div
+            className="absolute inset-x-5 bottom-5 will-change-transform"
+            aria-hidden={!isExpanded}
+            initial={false}
+            animate={isExpanded ? 'expanded' : 'collapsed'}
+            variants={mobileDetailsVariants}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <ServiceCopy data={data} hideTitle />
+          </motion.div>
+        </div>
+      </motion.button>
+    </>
+  );
+}
+
+function ServiceImage({ serviceKey, alt }: { serviceKey: ServiceKey; alt: string }) {
+  return (
+    <img
+      src={SERVICE_IMAGES[serviceKey]}
+      alt={alt}
+      className="absolute inset-0 w-full h-full object-cover"
+      loading="lazy"
+    />
+  );
+}
+
+function ServiceCopy({ data, hideTitle = false }: { data: ServiceItemData; hideTitle?: boolean }) {
+  return (
+    <>
+      {!hideTitle && (
+        <h3 className="text-base font-headline font-bold leading-tight mb-2">
+          {data.h3}
+        </h3>
+      )}
+      <p className="text-sm font-body text-white/80 leading-snug mb-3">
+        {data.copy}
+      </p>
+      <span className="text-xs font-semibold text-secondary-container tracking-wide uppercase">
+        Get a Free Quote
+      </span>
+    </>
+  );
+}
+
 export default function Services() {
   const t = useTranslations('services');
   const getItem = (key: ServiceKey): ServiceItemData => t.raw(`items.${key}`) as ServiceItemData;
 
   return (
     <section id="services" className="section-padding container-max" aria-labelledby="services-heading">
-
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -58,45 +161,18 @@ export default function Services() {
         {SERVICE_KEYS.map((key) => {
           const data = getItem(key);
           return (
-            <motion.figure
+            <ServiceCard
               key={key}
-              className="snap-start shrink-0 relative overflow-hidden rounded-2xl w-[260px] h-[380px] md:w-[320px] md:h-[440px] cursor-pointer"
-              initial="idle"
-              whileHover="hover"
-            >
-              {/* Image */}
-              <img
-                src={SERVICE_IMAGES[key]}
-                alt={data.h3}
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
-
-              {/* Gradient overlay — slides up from below on hover */}
-              <motion.figcaption
-                className="absolute bottom-0 left-0 right-0 pt-20 px-5 pb-5 bg-gradient-to-t from-black/90 via-black/60 to-transparent text-white"
-                variants={captionVariants}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <h3 className="text-base font-headline font-bold leading-tight mb-2">
-                  {data.h3}
-                </h3>
-                <p className="text-sm font-body text-white/80 leading-snug mb-3">
-                  {data.copy}
-                </p>
-                <span className="text-xs font-semibold text-secondary-container tracking-wide uppercase">
-                  Get a Free Quote →
-                </span>
-              </motion.figcaption>
-            </motion.figure>
+              serviceKey={key}
+              data={data}
+            />
           );
         })}
       </div>
 
       <p className="text-center text-sm text-on-surface-variant/40 mt-4 select-none md:hidden">
-        Swipe to explore →
+        Swipe to explore
       </p>
-
     </section>
   );
 }
