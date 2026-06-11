@@ -245,3 +245,62 @@ Codex.
 
 ### Commit relacionado
 - Pendiente / no generado en esta sesion.
+
+---
+
+## Sesion 03 - 2026-06-11
+
+### Resumen
+Dos correcciones puntuales: comportamiento accordion en el carousel mobile de Services, y eliminacion de overflow horizontal en toda la aplicacion.
+
+---
+
+### Cambios realizados
+
+#### 1. Services accordion mobile (`src/components/sections/Services.tsx`)
+- Estado `isExpanded` movido de cada `ServiceCard` al componente padre `Services`.
+- `Services` ahora guarda un unico `expandedKey: ServiceKey | null`.
+- Al tocar una tarjeta se abre y cualquier otra abierta se cierra automaticamente.
+- Tocar la tarjeta ya abierta la cierra (toggle off).
+- Props nuevas en `ServiceCard`: `isExpanded: boolean` y `onToggle: () => void`.
+
+#### 2. Auditoria y correccion de overflow horizontal
+
+**Causas raiz encontradas:**
+
+| Elemento | Causa | Archivo |
+|---|---|---|
+| Blur orb decorativo | `absolute -top-12 -right-12` desbordaba ~32px a la derecha en mobile, ~8px en desktop | `WhyChooseUs.tsx` |
+| Badge de estadistica | `absolute -bottom-8 -left-6` desbordaba 8px a la izquierda en mobile (single-column layout) | `WhyChooseUs.tsx` |
+| Badge "Licensed" | `absolute -bottom-8 -right-6` desbordaba 8px a la derecha en mobile | `AboutStory.tsx` |
+| html sin overflow | `overflow-x-hidden` solo estaba en `body`; Safari iOS lo ignora si `html` no lo tiene tambien | `globals.css` |
+
+**Correcciones aplicadas:**
+
+- `WhyChooseUs.tsx`: blur orb `-right-12` → `right-0` (blur-3xl hace invisible la diferencia visual)
+- `WhyChooseUs.tsx`: badge `-left-6` → `left-0 lg:-left-6` (en lg hay espacio en el gap entre columnas)
+- `AboutStory.tsx`: badge `-right-6` → `right-0 lg:-right-6` (mismo patron)
+- `globals.css`: agregado `overflow-x: hidden` al selector `html`
+
+**Nota tecnica:** los offsets negativos mayores al padding del contenedor (`px-4 = 16px` en mobile) siempre generan overflow. La solucion correcta es limitar el offset negativo al breakpoint donde el elemento esta en una columna interna del grid (lg: en grids de 2 columnas), no en la columna full-width de mobile.
+
+**Lo que NO se toco:**
+- `Testimonials.tsx`: ticker con `w-max` ya estaba correctamente envuelto en `overflow-hidden`.
+- `Services.tsx`: carousel con `-mx-4` es intencional (full-bleed) y tiene `overflow-x-auto`.
+- `FinalCTA.tsx`: orbs decorativos dentro de `overflow-hidden` en su contenedor.
+
+### Archivos modificados
+- `src/components/sections/Services.tsx`
+- `src/components/sections/WhyChooseUs.tsx`
+- `src/components/pages/about/AboutStory.tsx`
+- `src/app/globals.css`
+- `DEVLOG.md`
+
+### Validacion
+- `npx tsc --noEmit` paso sin errores.
+
+### Pendientes
+- Revision visual en navegador mobile real para confirmar que los badges decorativos lucen bien en el nuevo offset.
+
+### Commit relacionado
+- Pendiente.

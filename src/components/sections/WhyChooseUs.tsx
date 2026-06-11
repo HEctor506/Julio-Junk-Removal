@@ -73,7 +73,7 @@ export default function WhyChooseUs() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="absolute -top-12 -right-12 w-64 h-64 bg-secondary-container/15 rounded-full blur-3xl -z-10" aria-hidden="true" />
+            <div className="absolute -top-12 right-0 w-64 h-64 bg-secondary-container/15 rounded-full blur-3xl -z-10" aria-hidden="true" />
             <img
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS4uZmT2sVo6Ld7BQN_jYSzx_rXHWaMih0vTxjEYNZQYkS2Sw3lROGpr75bIzP3-dGbfrGeL4TZk6jAEsmRUK9hNw7bSthnEibW-ojJrWDbe1J2m6V7FvUl4-C8rJuYJ-Du4QwE-ubZ-xCobcycXvVjd71YMOn6gOwwLjHLl4a7TQx8uKNKa69a3OQj_ewZSjIQjyO9xCZLeG4FI5hKXWFMyRUd-mPFzABU8Dc1a_IIdhNRm1oMEtAoUEwasTDdsXTyIsY_8ZJrnw"
               alt="Julio Junk Removal professional team"
@@ -86,7 +86,7 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="absolute -bottom-8 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-outline-variant/20"
+              className="absolute -bottom-8 left-0 lg:-left-6 bg-white p-5 rounded-2xl shadow-xl border border-outline-variant/20"
             >
               <p className="text-headline-lg font-headline font-bold text-secondary-container">{t('statValue')}</p>
               <p className="text-body-md font-body text-on-surface-variant text-sm max-w-[180px]">{t('statLabel')}</p>

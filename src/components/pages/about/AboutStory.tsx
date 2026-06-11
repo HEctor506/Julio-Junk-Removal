@@ -34,7 +34,7 @@ export default function AboutStory() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute -bottom-8 -right-6 bg-white p-5 rounded-2xl shadow-xl border border-outline-variant/20"
+                className="absolute -bottom-8 right-0 lg:-right-6 bg-white p-5 rounded-2xl shadow-xl border border-outline-variant/20"
               >
                 <p className="text-headline-md font-headline font-bold text-secondary-container">Licensed</p>
                 <p className="text-sm text-on-surface-variant">& Fully Insured</p>
