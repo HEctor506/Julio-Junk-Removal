@@ -58,7 +58,7 @@ export default function AboutValues() {
         </div>
       </section>
 
-      <CTA variant="about" />
+
     </>
   );
 }
