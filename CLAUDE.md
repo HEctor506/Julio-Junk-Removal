@@ -2,6 +2,14 @@
 
 Sitio web para el cliente **Julio Junk Removal**, negocio de retiro de chatarra. Objetivo principal: convertir visitas en llamadas. SEO local es crítico.
 
+## ⚠️ Fuente de verdad visual
+
+Antes de hacer cualquier cambio visual (colores, tipografía, espaciado, componentes, animaciones), leer obligatoriamente:
+
+**`design-source/design_v2.md`**
+
+Contiene: paleta oficial (forest `#013e37` + mint `#88deb1`), escala tipográfica, reglas por componente, y el mapping sección a sección de qué cambiar.
+
 ## Stack
 
 - Next.js 14 (App Router)

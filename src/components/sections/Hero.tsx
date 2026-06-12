@@ -119,7 +119,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="max-w-xl text-body-lg text-[#b4e4c8]"
+            className="max-w-xl text-body-lg  md:text-headline-md  font-body font-normal text-[#b4e4c8] [text-shadow:0_2px_14px_rgba(0,0,0,0.55)]"
           >
             {t('subtitle')}
           </motion.p>

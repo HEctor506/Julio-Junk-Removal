@@ -50,11 +50,8 @@ export default async function Footer() {
                 alt=""
                 width={140}
                 height={44}
-                className="h-[100px] w-auto brightness-0 invert"
+                className="h-[210px] w-auto brightness-0 invert"
               />
-              <span className="font-headline font-bold text-xl tracking-tight text-white group-hover:text-secondary-container transition-colors">
-                JULIO JUNK
-              </span>
             </Link>
 
             <p className="text-sm text-white/60 leading-relaxed max-w-xs">

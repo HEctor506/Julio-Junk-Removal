@@ -61,7 +61,7 @@ export default function Nav() {
   };
 
   const linkClass = (href: string) =>
-    `font-headline font-bold text-label-bold tracking-widest uppercase transition-colors duration-200 pb-0.5 border-b-2 ${
+    `font-headline font-bold text-[20px]  tracking-widest uppercase transition-colors duration-200 pb-0.5 border-b-2 ${
       isLinkActive(href)
         ? 'text-secondary-container border-secondary-container'
         : 'text-white/85 hover:text-secondary-container border-transparent'
@@ -76,7 +76,7 @@ export default function Nav() {
       }`}
     >
       {/* Desktop: compact centered layout — links | logo | links */}
-      <div className="hidden md:flex items-center justify-center h-20 px-10 gap-8">
+      <div className="hidden md:flex items-center justify-center h-[100px] px-10 gap-8">
         {/* Left links */}
         <nav className="flex items-center gap-7" aria-label="Main navigation left">
           {leftLinks.map((link) => (
@@ -93,7 +93,7 @@ export default function Nav() {
             alt="Julio Junk Removal"
             width={140}
             height={54}
-            className="h-[140px] w-auto brightness-0 invert"
+            className="h-[190px] w-auto brightness-0 invert"
             priority
           />
         </Link>
