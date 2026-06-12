@@ -78,9 +78,6 @@ La hermana del desarrollador entregará: logotipo, paleta de colores, tipografí
 2. Configurar fuentes con `next/font`
 3. Reemplazar el ícono SVG del nav por el logo real
 
-## Documentación existente
-
-- `ROL1-UX-SEO.md` — copy completo EN/ES para todas las secciones + estrategia SEO local. Leerlo antes de modificar cualquier texto.
 
 ## Datos del cliente aún pendientes
 
@@ -96,3 +93,99 @@ La hermana del desarrollador entregará: logotipo, paleta de colores, tipografí
 ## Google Stitch MCP
 
 Prototipo del sitio en Google Stitch. MCP ya agregado a config local de Claude Code. Usar en sesión nueva para acceder a las pantallas del prototipo.
+
+---
+
+## Sistema i18n — Cómo agregar texto traducible
+
+Todo texto visible al usuario vive en dos archivos JSON. Nunca poner strings en inglés o español directamente en los componentes.
+
+```
+messages/
+├── en.json   ← inglés (idioma por defecto)
+└── es.json   ← español (/es/)
+```
+
+### Flujo estándar: crear texto nuevo
+
+1. **Agregar la clave en `en.json`** (o en `es.json` si empezás por español — lo que prefieras)
+2. **Agregar la misma clave en el otro idioma**
+3. **Usar la clave en el componente**
+
+Ejemplo: agregar un nuevo badge de eyebrow en una sección.
+
+**`messages/en.json`**
+```json
+"mySection": {
+  "eyebrow": "Our Work",
+  "h2": "See What We Do"
+}
+```
+
+**`messages/es.json`**
+```json
+"mySection": {
+  "eyebrow": "Nuestro Trabajo",
+  "h2": "Mira Lo Que Hacemos"
+}
+```
+
+**En el componente:**
+```tsx
+'use client';
+import { useTranslations } from 'next-intl';
+
+export default function MySection() {
+  const t = useTranslations('mySection');
+  return <span>{t('eyebrow')}</span>;
+}
+```
+
+### Agregar una página nueva
+
+1. Crear la carpeta de página: `src/app/[locale]/nueva-pagina/page.tsx`
+2. Crear componentes en: `src/components/pages/nueva-pagina/`
+3. Agregar las claves en ambos JSON bajo un namespace propio: `"nuevaPagina": { ... }`
+4. Agregar el link de navegación al nav en `messages/en.json` y `messages/es.json` bajo `"nav"`
+
+### Interpolación de variables en strings
+
+Cuando el texto necesita un valor dinámico (ciudad, año, teléfono):
+
+**JSON:**
+```json
+"serving": "Serving {city} & Beyond"
+```
+
+**Componente:**
+```tsx
+t('serving', { city: siteConfig.city })
+```
+
+### Arrays (listas de items)
+
+Cuando una clave es un array de objetos o strings, usar `t.raw()` con guard defensivo obligatorio:
+
+```tsx
+const rawItems = t.raw('items');
+const items: MyType[] = Array.isArray(rawItems) ? rawItems : [];
+```
+
+**Por qué el guard:** durante el cambio de idioma (locale switch), Next.js re-renderiza antes de que las nuevas traducciones estén listas. Sin el guard, `t.raw()` puede devolver algo que no es array y romper `.map()`.
+
+### Regla: `useTranslations` vs `getTranslations`
+
+| Situación | Hook a usar |
+|-----------|-------------|
+| Componente con `'use client'` | `useTranslations` de `next-intl` |
+| Componente hijo de uno `'use client'` | `useTranslations` (aunque no tenga estado propio) |
+| Componente `async` server puro (sin padre cliente) | `getTranslations` de `next-intl/server` |
+
+**Regla crítica:** si un componente es importado dentro de un árbol `'use client'` (como Banner dentro de Nav), DEBE usar `useTranslations`, nunca `async/await getTranslations`. De lo contrario React lanza: *"async/await is not yet supported in Client Components"*.
+
+### Qué NO va en los JSON
+
+- URLs de imágenes → hardcoded en el componente
+- Íconos SVG → hardcoded en el componente
+- Hrefs y rutas → hardcoded o via `siteConfig`
+- Datos de config (teléfono, ciudad, etc.) → `src/lib/config.ts` vía env vars

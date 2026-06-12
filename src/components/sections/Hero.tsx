@@ -10,9 +10,9 @@ import { Link } from '@/navigation';
 const MotionImage = motion.create(Image);
 
 const SLIDES = [
-  { src: '/images/hero-1.jpg' },
-  { src: '/images/hero-2.jpg' },
-  { src: '/images/hero-3.png' },
+  { src: '/images/camion.jpg' },
+  { src: '/images/scene12.jpeg' },
+  { src: '/images/image19.jpeg' },
 ];
 
 const AUTOPLAY_INTERVAL = 8500;
@@ -61,7 +61,7 @@ export default function Hero() {
         {/* Dark overlay */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(135deg, rgba(0,53,95,0.7) 0%, rgba(13,24,37,0.6) 100%)' }}
+          style={{ background: 'linear-gradient(135deg, rgba(1,30,22,0.72) 0%, rgba(1,17,13,0.6) 100%)' }}
         />
         {/* Bottom gradient for smooth section transition */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
@@ -119,7 +119,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="max-w-xl text-body-lg text-blue-100"
+            className="max-w-xl text-body-lg text-[#b4e4c8]"
           >
             {t('subtitle')}
           </motion.p>
@@ -133,7 +133,7 @@ export default function Hero() {
           >
             <Link
               href="/contact"
-              className="btn-shimmer text-on-secondary-container px-8 py-5 rounded-xl font-semibold shadow-xl hover:brightness-110 active:scale-95 transition-transform flex items-center justify-center gap-3"
+              className="btn-shimmer px-8 py-5 shadow-xl hover:brightness-110 active:scale-95 transition-transform flex items-center justify-center gap-3"
             >
               {t('ctaPrimary')}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,7 +142,7 @@ export default function Hero() {
             </Link>
             <Link
               href={siteConfig.phoneHref}
-              className="bg-white/15 border-2 border-white/30 text-white px-8 py-5 rounded-xl font-semibold shadow-xl hover:bg-white/25 active:scale-95 transition-all flex items-center justify-center gap-3 backdrop-blur-sm"
+              className="bg-white/15 border-2 border-white/30 text-white px-8 py-5 rounded-full font-headline font-bold shadow-xl hover:bg-white/25 active:scale-95 transition-all flex items-center justify-center gap-3 backdrop-blur-sm"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28l1.5 4.5-2.3 1.1a11 11 0 005.5 5.5l1.1-2.3 4.5 1.5V19a2 2 0 01-2 2h-1C9.7 21 3 14.3 3 6V5z" />

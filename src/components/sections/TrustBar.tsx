@@ -28,7 +28,7 @@ export default function TrustBar() {
               <CountUp from={0} to={2000} separator="," duration={DURATION} />
               <span>+</span>
             </dt>
-            <dd className="text-label-bold font-label font-semibold text-white/80 mt-1 tracking-wide">
+            <dd className="text-label-bold font-label font-semibold text-white/80 mt-1 tracking-wide uppercase">
               {t('stat1Label')}
             </dd>
           </motion.div>
@@ -45,12 +45,12 @@ export default function TrustBar() {
               <CountUp from={0} to={98} duration={DURATION} />
               <span>%</span>
             </dt>
-            <dd className="text-label-bold font-label font-semibold text-white/80 mt-1 tracking-wide">
+            <dd className="text-label-bold font-label font-semibold text-white/80 mt-1 tracking-wide uppercase">
               {t('stat2Label')}
             </dd>
           </motion.div>
 
-          {/* Stat 3: < 1 Hr Response Time */}
+          {/* Stat 3: 10+ Years Experience */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -59,11 +59,10 @@ export default function TrustBar() {
             className="flex flex-col items-center text-center py-2 md:px-6"
           >
             <dt className={valueClass}>
-              <span>{'< '}</span>
-              <CountUp from={0.1} to={1} duration={DURATION} />
-              <span>{' Hr'}</span>
+              <CountUp from={0} to={10} duration={DURATION} />
+              <span>+</span>
             </dt>
-            <dd className="text-label-bold font-label font-semibold text-white/80 mt-1 tracking-wide">
+            <dd className="text-label-bold font-label font-semibold text-white/80 mt-1 tracking-wide uppercase">
               {t('stat3Label')}
             </dd>
           </motion.div>
@@ -79,7 +78,7 @@ export default function TrustBar() {
             <dt className={valueClass}>
               {t('stat4Value')}
             </dt>
-            <dd className="text-label-bold font-label font-semibold text-white/80 mt-1 tracking-wide">
+            <dd className="text-label-bold font-label font-semibold text-white/80 mt-1 tracking-wide uppercase">
               {t('stat4Label')}
             </dd>
           </motion.div>

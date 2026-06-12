@@ -1,19 +1,13 @@
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
-import { Inter, Montserrat } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { siteConfig } from '@/lib/config';
 import '../globals.css';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  display: 'swap',
-});
-
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  variable: '--font-montserrat',
   display: 'swap',
 });
 
@@ -102,7 +96,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${montserrat.variable} scroll-smooth`}
+      className={`${inter.variable} scroll-smooth`}
     >
       <head>
         <script

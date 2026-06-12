@@ -4,11 +4,15 @@
     "titleDefault": "Julio Junk Removal | Retiro de Chatarra Rápido y Económico",
     "description": "Retiro de chatarra rápido y económico en {city}. Estimados gratis, licenciados y asegurados. Muebles, electrodomésticos, escombros y más. ¡Llama ahora!"
   },
+  "banner": {
+    "message": "¿Mudándote pronto? Nosotros nos encargamos de la chatarra antes del gran día."
+  },
   "nav": {
     "brand": "JULIO JUNK",
     "home": "Inicio",
     "services": "Servicios",
     "pricing": "Precios",
+    "reviews": "Reseñas",
     "about": "Nosotros",
     "contact": "Contacto",
     "cta": "LLAMAR AHORA",
@@ -30,12 +34,13 @@
     "stat1Label": "Trabajos Completados",
     "stat2Value": "98%",
     "stat2Label": "Tasa de Satisfacción",
-    "stat3Value": "< 1 Hora",
-    "stat3Label": "Tiempo de Respuesta",
+    "stat3Value": "10+",
+    "stat3Label": "Años de Experiencia",
     "stat4Value": "Licenciados",
     "stat4Label": "y Asegurados"
   },
   "services": {
+    "eyebrow": "Lo Que Ofrecemos",
     "h2": "Servicios Completos de Retiro",
     "subtitle": "Ningún trabajo es muy grande o pequeño. Desde artículos individuales hasta limpiezas completas de propiedad.",
     "items": {
@@ -82,6 +87,7 @@
     }
   },
   "about": {
+    "eyebrow": "Por Qué Nosotros",
     "h2": "¿Por Qué Elegir Julio Junk Removal?",
     "paragraph": "Entendemos que la chatarra se acumula, pero retirarla no debería ser un dolor de cabeza. Julio Junk ofrece una experiencia de retiro premium, sin preocupaciones.",
     "benefits": [
@@ -98,6 +104,7 @@
     "statLabel": "de satisfacción en más de 2,000 trabajos."
   },
   "howItWorks": {
+    "eyebrow": "Proceso Simple",
     "h2": "Cómo Funciona",
     "subtitle": "La forma más fácil de recuperar tu espacio.",
     "steps": [
@@ -108,6 +115,9 @@
     ]
   },
   "pricing": {
+    "eyebrow": "Tarifas con Valor",
+    "mostPopular": "Más Popular",
+    "perks": ["Estimado gratis en el lugar", "Mano de obra incluida", "Costos de desecho cubiertos"],
     "h2": "Precios Simples y Transparentes",
     "subtitle": "Cobramos según el volumen — cuánto espacio ocupa en nuestro camión. Sin costos ocultos, sin sorpresas.",
     "tiers": [
@@ -133,6 +143,7 @@
     "footNote": "¿Trabajo grande o comercial? Llámanos para una cotización personalizada."
   },
   "testimonials": {
+    "eyebrow": "Reseñas",
     "h2": "Lo Que Dicen Nuestros Clientes",
     "subtitle": "Por eso somos el servicio mejor calificado en la zona.",
     "badge": "4.9/5 Estrellas",
@@ -156,6 +167,7 @@
     ]
   },
   "faq": {
+    "eyebrow": "Preguntas Frecuentes",
     "h2": "Preguntas Frecuentes",
     "items": [
       {
@@ -191,25 +203,47 @@
     "ctaSecondary": "{phone}",
     "note": "También disponible por WhatsApp · Respuesta en menos de 1 hora"
   },
+  "ctaBlock": {
+    "services": {
+      "heading": "¿Listo para Despejar tu Espacio?",
+      "subtitle": "Obtén un estimado gratis sin compromiso en minutos.",
+      "primary": "Obtener Estimado Gratis",
+      "secondary": "Llamar Ahora"
+    },
+    "about": {
+      "heading": "¿Listo para Trabajar con Nosotros?",
+      "subtitle": "Obtén tu estimado gratis hoy — sin presión, sin compromiso.",
+      "primary": "Obtener Estimado Gratis",
+      "secondary": "Llamar Ahora"
+    }
+  },
   "footer": {
-    "tagline": "Servicios de retiro de chatarra para propiedades residenciales y comerciales. Hacemos que ordenar sea sin esfuerzo.",
+    "tagline": "Servicios premium de retiro de chatarra para propiedades residenciales y comerciales. Hacemos que ordenar sea sin esfuerzo.",
+    "linksTitle": "Enlaces",
     "servicesTitle": "Servicios",
-    "companyTitle": "Empresa",
+    "contactTitle": "Contáctanos",
+    "navLinks": [
+      { "label": "Inicio", "href": "/" },
+      { "label": "Servicios", "href": "/services" },
+      { "label": "Nosotros", "href": "/about" },
+      { "label": "Contacto", "href": "/contact" },
+      { "label": "Obtener Cotización", "href": "/contact" },
+      { "label": "Precios", "href": "/#pricing" },
+      { "label": "Preguntas Frecuentes", "href": "/#faq" }
+    ],
     "serviceLinks": [
-      { "label": "Retiro Residencial", "href": "#services" },
-      { "label": "Retiro Comercial", "href": "#services" },
-      { "label": "Limpieza de Propiedades", "href": "#services" },
-      { "label": "Retiro de Muebles", "href": "#services" },
-      { "label": "Retiro de Electrodomésticos", "href": "#services" },
-      { "label": "Escombros de Construcción", "href": "#services" }
+      { "label": "Retiro Residencial", "href": "/services" },
+      { "label": "Limpieza Comercial", "href": "/services" },
+      { "label": "Escombros de Construcción", "href": "/services" },
+      { "label": "Residuos de Jardín", "href": "/services" },
+      { "label": "Muebles y Electrodomésticos", "href": "/services" },
+      { "label": "Reciclaje y Donaciones", "href": "/services" },
+      { "label": "Limpieza de Herencias", "href": "/services" },
+      { "label": "Limpieza de Garaje y Ático", "href": "/services" }
     ],
-    "companyLinks": [
-      { "label": "Sobre Nosotros", "href": "#about" },
-      { "label": "Contáctanos", "href": "#contact" },
-      { "label": "Áreas de Servicio", "href": "#service-areas" },
-      { "label": "Política de Privacidad", "href": "/privacy" }
-    ],
-    "copyright": "© 2025 Julio Junk Removal. Licenciado y Eco-Certificado."
+    "trustBadges": ["Licenciados y Asegurados", "Eco-Certificados", "Acreditados BBB"],
+    "copyright": "© {year} Julio Junk Removal. Todos los derechos reservados.",
+    "certLine": "Licenciados y Asegurados · Eco-Certificados · Acreditados BBB"
   },
   "contactForm": {
     "h2": "Obtén Tu Estimado Gratis",
@@ -222,9 +256,157 @@
     "submitting": "Enviando...",
     "successTitle": "¡Solicitud Recibida!",
     "successMessage": "Te contactaremos en menos de 1 hora para confirmar tu cita.",
-    "errorMessage": "Algo salió mal. Por favor llámanos directamente."
+    "errorMessage": "Algo salió mal. Por favor llámanos directamente.",
+    "eyebrow": "Estimado Gratis",
+    "fullFormH2": "Cuéntanos Sobre Tu Proyecto",
+    "nameLabel": "Nombre Completo",
+    "phoneLabel": "Número de Teléfono",
+    "emailLabel": "Correo Electrónico",
+    "serviceLabel": "Servicio Necesario",
+    "messageLabel": "Describe Lo Que Necesitas Retirar",
+    "nameInputPlaceholder": "Juan García",
+    "phoneInputPlaceholder": "(555) 000-0000",
+    "emailInputPlaceholder": "tu@ejemplo.com",
+    "messageInputPlaceholder": "Ej. Sofá viejo, electrodomésticos rotos, residuos del jardín...",
+    "serviceDefault": "Selecciona un servicio...",
+    "serviceOptions": [
+      { "value": "residential", "label": "Retiro Residencial de Chatarra" },
+      { "value": "commercial", "label": "Limpieza Comercial" },
+      { "value": "construction", "label": "Escombros de Construcción" },
+      { "value": "yard", "label": "Residuos de Jardín" },
+      { "value": "furniture", "label": "Muebles y Electrodomésticos" },
+      { "value": "cleanout", "label": "Limpieza de Herencia / Propiedad" },
+      { "value": "other", "label": "Otro" }
+    ],
+    "fullSubmit": "Enviar Solicitud y Obtener Estimado Gratis",
+    "note": "Sin obligación · Respuesta en menos de 1 hora · También disponible en",
+    "errorWithPhone": "Algo salió mal. Por favor llámanos directamente al {phone}.",
+    "fullSuccessMessage": "Te contactaremos en menos de 1 hora para confirmar tu cita y darte tu estimado gratis.",
+    "callNow": "Llamar Ahora"
   },
   "whatsapp": {
     "ariaLabel": "Chatear por WhatsApp"
+  },
+  "servicesPage": {
+    "hero": {
+      "badge": "LO QUE HACEMOS",
+      "h1Part1": "Servicios",
+      "h1Part2": "Completos de Retiro",
+      "subtitle": "Desde un solo artículo hasta una limpieza total de propiedad — lo manejamos todo de manera profesional, eficiente y con una sonrisa.",
+      "ctaPrimary": "Obtener Estimado Gratis"
+    },
+    "categories": {
+      "bookCta": "Reservar Este Servicio",
+      "serviceLabel": "Servicio",
+      "trust": [
+        { "value": "2,000+", "label": "Trabajos Completados" },
+        { "value": "98%", "label": "Tasa de Satisfacción" },
+        { "value": "Mismo Día", "label": "Disponible" },
+        { "value": "Licenciados", "label": "y Asegurados" }
+      ],
+      "items": [
+        {
+          "title": "Retiro Residencial de Chatarra",
+          "copy": "Retiramos artículos no deseados de tu hogar de forma rápida y eficiente — ningún trabajo es muy grande o muy pequeño.",
+          "items": ["Muebles viejos", "Sofás y colchones", "Electrodomésticos", "TVs y electrónicos", "Limpieza de garaje", "Limpieza de ático", "Limpieza de sótano"]
+        },
+        {
+          "title": "Retiro Comercial de Chatarra",
+          "copy": "Servicio confiable de retiro para negocios, oficinas, bodegas y propiedades comerciales de cualquier tamaño.",
+          "items": ["Limpieza de oficinas", "Retiro de mobiliario de oficina", "Limpieza de bodegas", "Limpieza de locales comerciales", "Limpieza para administradores de propiedades", "Desecho de inventario"]
+        },
+        {
+          "title": "Retiro de Escombros de Construcción",
+          "copy": "Limpieza rápida y confiable para proyectos de renovación y construcción. Manejamos tablaroca, madera, azulejos y más.",
+          "items": ["Tablaroca", "Madera y tablones", "Materiales de piso y azulejo", "Residuos de renovación", "Desechos de construcción"]
+        },
+        {
+          "title": "Retiro de Residuos de Jardín",
+          "copy": "Mantén tus espacios exteriores limpios y ordenados durante todo el año con un servicio profesional de retiro.",
+          "items": ["Ramas de árboles", "Residuos de jardín", "Hojas y desechos verdes", "Cercas viejas", "Residuos de jardinería"]
+        },
+        {
+          "title": "Servicios de Limpieza Total",
+          "copy": "Soluciones completas de limpieza de propiedades para cualquier situación — herencias, desalojos, ejecuciones hipotecarias y más.",
+          "items": ["Limpieza de casas", "Limpieza de garajes", "Limpieza de unidades de almacenamiento", "Limpieza de herencias", "Limpieza de ejecuciones hipotecarias", "Limpieza por desalojo"]
+        },
+        {
+          "title": "Retiro de Muebles",
+          "copy": "Retiramos muebles de todos los tamaños — desde piezas individuales hasta sets completos — con disponibilidad el mismo día.",
+          "items": ["Sofás y seccionales", "Camas y colchones", "Mesas y sillas", "Cómodas y armarios", "Muebles de oficina", "Muebles de exterior"]
+        },
+        {
+          "title": "Retiro de Electrodomésticos",
+          "copy": "Retiro responsable de electrodomésticos viejos. Reciclamos y donamos siempre que sea posible para mantenerlos fuera del relleno.",
+          "items": ["Refrigeradores y congeladores", "Lavadoras y secadoras", "Estufas y hornos", "Lavavajillas", "Aires acondicionados", "Calentadores de agua"]
+        },
+        {
+          "title": "Reciclaje y Donaciones",
+          "copy": "Estamos comprometidos con prácticas eco-amigables — donando artículos útiles a organizaciones locales y reciclando al máximo.",
+          "items": ["Desecho ecológico", "Servicios de reciclaje", "Entregas a organizaciones benéficas", "Meta de cero relleno sanitario"]
+        }
+      ]
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "badge": "NUESTRA HISTORIA",
+      "h1Prefix": "Sobre",
+      "h1Highlight": "Julio Junk",
+      "subtitle": "Un negocio familiar de retiro de chatarra construido sobre el trabajo duro, la honestidad y el compromiso de dejar cada espacio más limpio de como lo encontramos."
+    },
+    "story": {
+      "eyebrow": "Quiénes Somos",
+      "h2": "Retiro de Chatarra Premium en el que Puedes Confiar",
+      "p1": "Julio Junk Removal fue fundado con una misión simple: hacer que ordenar sea fácil para propietarios y negocios. Lo que comenzó como una operación de un camión creció hasta convertirse en un servicio local de confianza con cientos de clientes satisfechos.",
+      "p2": "Creemos que el retiro de chatarra no debería ser estresante. Desde el momento en que llamas hasta el momento en que barremos después de nosotros, nuestro equipo ofrece una experiencia premium y sin preocupaciones cada vez.",
+      "bullets": ["Completamente licenciados y asegurados", "Servicio el mismo día disponible", "Prácticas de desecho eco-amigables", "Operación 7 días a la semana"],
+      "badge1": "Licenciados",
+      "badge2": "y Completamente Asegurados"
+    },
+    "values": {
+      "eyebrow": "Lo Que Nos Mueve",
+      "h2": "Nuestros Valores Fundamentales",
+      "items": [
+        { "title": "Profesionalismo Primero", "copy": "Cada trabajo se maneja con cuidado, puntualidad y respeto por tu propiedad." },
+        { "title": "Compromiso Eco-Amigable", "copy": "Donamos, reciclamos y desviamos tanto como sea posible de los rellenos sanitarios en cada trabajo." },
+        { "title": "Precios Transparentes", "copy": "Sin cargos ocultos. Ofrecemos estimados por adelantado sin obligación de contratar." },
+        { "title": "Orientados a la Comunidad", "copy": "Trabajamos con organizaciones benéficas locales y centros de reciclaje para retribuir a la comunidad." }
+      ]
+    },
+    "video": {
+      "eyebrow": "En Acción",
+      "h2": "Míranos en Acción",
+      "subtitle": "Mira cómo manejamos cada trabajo — desde la recogida hasta el barrido final — con cuidado y eficiencia.",
+      "comingSoon": "Video próximamente"
+    },
+    "map": {
+      "eyebrow": "Visítanos",
+      "h2": "Sede Principal",
+      "findUs": "Encuéntranos",
+      "subtext": "Vamos a donde estás — no necesitas cargar nada tú mismo. Reserva en línea o llámanos.",
+      "serviceAreaLabel": "Área de Servicio",
+      "hoursLabel": "Horario",
+      "phoneLabel": "Teléfono",
+      "getDirections": "Cómo Llegar",
+      "serving": "Sirviendo {city} y sus alrededores"
+    }
+  },
+  "contactPage": {
+    "hero": {
+      "badge": "ESTIMADO GRATIS",
+      "h1Prefix": "Obtén Tu",
+      "h1Highlight": "Estimado Gratis",
+      "subtitle": "Completa el formulario y te contactamos en menos de 1 hora — o llámanos directamente para precios instantáneos."
+    },
+    "info": {
+      "h2": "Información de Contacto",
+      "subtitle": "Contáctanos por cualquier canal — respondemos rápido.",
+      "phoneLabel": "Teléfono",
+      "whatsappLabel": "WhatsApp",
+      "emailLabel": "Correo",
+      "hoursLabel": "Horario",
+      "badges": ["Licenciados y Asegurados", "Eco-Certificados", "Mismo Día Disponible"]
+    }
   }
 }

@@ -16,7 +16,8 @@ const BENEFIT_ICONS = [
 
 export default function WhyChooseUs() {
   const t = useTranslations('about');
-  const benefits = t.raw('benefits') as { title: string; copy: string }[];
+  const rawBenefits = t.raw('benefits');
+  const benefits: { title: string; copy: string }[] = Array.isArray(rawBenefits) ? rawBenefits : [];
 
   return (
     <section id="about" className="py-20 md:py-[120px]" aria-labelledby="about-heading">
@@ -33,7 +34,7 @@ export default function WhyChooseUs() {
           >
             <div>
               <span className="inline-block text-secondary-container font-label font-semibold text-label-bold tracking-widest uppercase mb-3">
-                Why Us
+                {t('eyebrow')}
               </span>
               <h2 id="about-heading" className="text-headline-lg font-headline font-bold text-primary">
                 {t('h2')}

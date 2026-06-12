@@ -47,12 +47,14 @@ function ReviewCard({ review }: { review: Review }) {
 
 export default function Testimonials() {
   const t = useTranslations('testimonials');
-  const reviews = t.raw('reviews') as Review[];
+  const rawReviews = t.raw('reviews');
+  const reviews: Review[] = Array.isArray(rawReviews) ? rawReviews : [];
   // Duplicate for seamless infinite loop
   const all = [...reviews, ...reviews, ...reviews, ...reviews];
 
   return (
     <section
+      id="testimonials"
       className="py-20 md:py-[120px] bg-primary overflow-hidden relative"
       aria-labelledby="testimonials-heading"
     >
@@ -73,7 +75,7 @@ export default function Testimonials() {
           >
             <div>
               <span className="inline-block text-secondary-container font-label font-semibold text-label-bold tracking-widest uppercase mb-3">
-                Reviews
+                {t('eyebrow')}
               </span>
               <h2 id="testimonials-heading" className="text-headline-lg font-headline font-bold text-white mb-3">
                 {t('h2')}

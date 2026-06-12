@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+@font-face {
+  font-family: 'Lustra Text';
+  src: url('/fonts/lustra-text-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @layer base {
   html {
@@ -29,45 +37,53 @@
   }
 
   .btn-primary {
-    @apply bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl font-headline font-semibold
-           shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95 flex items-center justify-center gap-2;
+    @apply bg-primary text-on-primary px-8 py-4 rounded-full font-headline font-bold
+           shadow-card-hover hover:shadow-xl hover:brightness-110
+           transition-all duration-200 active:scale-95
+           flex items-center justify-center gap-2;
   }
 
   .btn-secondary {
-    @apply bg-primary text-on-primary px-8 py-4 rounded-xl font-headline font-semibold
-           shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95 flex items-center justify-center gap-2;
+    @apply bg-secondary-container text-on-secondary-container px-8 py-4 rounded-full
+           font-headline font-bold shadow-card
+           hover:brightness-105 hover:shadow-glow-mint
+           transition-all duration-200 active:scale-95
+           flex items-center justify-center gap-2;
   }
 
   .btn-ghost {
-    @apply bg-transparent text-white border-2 border-white/30 px-8 py-4 rounded-xl font-headline font-semibold
-           hover:bg-white/10 transition-all duration-200 active:scale-95 flex items-center justify-center gap-2;
+    @apply bg-transparent text-white border-2 border-white/30 px-8 py-4 rounded-full
+           font-headline font-bold hover:bg-white/10
+           transition-all duration-200 active:scale-95
+           flex items-center justify-center gap-2;
   }
 
   .card {
-    @apply bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-200;
+    @apply bg-white rounded-2xl shadow-card hover:shadow-card-hover
+           border border-outline-variant/40
+           transition-all duration-200;
   }
 
-  /* Shimmer / pulse for primary CTA buttons */
   .btn-shimmer {
-    @apply relative overflow-hidden;
+    @apply relative overflow-hidden rounded-full font-headline font-bold
+           text-on-secondary-container;
     background: linear-gradient(
       90deg,
-      #fd761a 0%,
-      #ff9a50 40%,
-      #fd761a 60%,
-      #fd761a 100%
+      #88deb1 0%,
+      #a8ebca 40%,
+      #88deb1 60%,
+      #88deb1 100%
     );
     background-size: 200% auto;
     animation: shimmer 2.4s linear infinite;
   }
 
-  /* Section accent underline (used in footer column headers) */
   .footer-col-title::after {
     content: '';
     display: block;
     width: 2rem;
     height: 2px;
-    background-color: #fd761a;
+    background-color: #88deb1;
     margin-top: 0.5rem;
     border-radius: 1px;
   }
@@ -79,12 +95,13 @@
   100% { background-position: -200% center; }
 }
 
-/* Infinite horizontal scroll for testimonials carousel */
+/* Infinite horizontal scroll — shared keyframe */
 @keyframes ticker {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
+/* Testimonials carousel — 35s */
 .animate-ticker {
   animation: ticker 35s linear infinite;
 }
@@ -93,8 +110,10 @@
   animation-play-state: paused;
 }
 
-
-
+/* Announcement banner — 28s (ajusta aquí la velocidad del banner) */
+.animate-banner {
+  animation: ticker 28s linear infinite;
+}
 
 /* ── Services horizontal scroll carousel ── */
 .services-scroll {
@@ -104,4 +123,3 @@
 .services-scroll::-webkit-scrollbar {
   display: none;
 }
-

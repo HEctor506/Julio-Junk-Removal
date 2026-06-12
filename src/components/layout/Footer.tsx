@@ -1,26 +1,9 @@
+import Image from 'next/image';
+import { getTranslations } from 'next-intl/server';
 import { siteConfig } from '@/lib/config';
 import { Link } from '@/navigation';
 
-const NAV_LINKS = [
-  { label: 'Home', href: '/' },
-  { label: 'Services', href: '/services' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Contact Us', href: '/contact' },
-  { label: 'Get a Quote', href: '/contact' },
-  { label: 'Pricing', href: '/#pricing' },
-  { label: 'FAQ', href: '/#faq' },
-];
-
-const SERVICE_LINKS = [
-  { label: 'Residential Removal', href: '/services' },
-  { label: 'Commercial Cleanout', href: '/services' },
-  { label: 'Construction Debris', href: '/services' },
-  { label: 'Yard Waste', href: '/services' },
-  { label: 'Furniture & Appliances', href: '/services' },
-  { label: 'Recycling & Donation', href: '/services' },
-  { label: 'Estate Cleanouts', href: '/services' },
-  { label: 'Garage & Attic Cleanouts', href: '/services' },
-];
+type NavLink = { label: string; href: string };
 
 function ColTitle({ children }: { children: React.ReactNode }) {
   return (
@@ -47,23 +30,35 @@ function SocialIcon({ href, label, children }: { href: string; label: string; ch
   );
 }
 
-export default function Footer() {
+export default async function Footer() {
+  const t = await getTranslations('footer');
+  const navLinks = t.raw('navLinks') as NavLink[];
+  const serviceLinks = t.raw('serviceLinks') as NavLink[];
+  const trustBadges = t.raw('trustBadges') as string[];
+  const year = new Date().getFullYear();
+
   return (
-    <footer style={{ backgroundColor: '#0D1825' }} className="w-full text-white">
+    <footer style={{ backgroundColor: '#011f1c' }} className="w-full text-white">
       <div className="max-w-container mx-auto px-4 md:px-10 pt-16 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
 
           {/* ── Col 1: Brand ── */}
           <div className="space-y-5">
-            <Link href="/" className="flex items-center gap-2 group" aria-label="Julio Junk Removal">
-              <span className="text-outline font-mono text-sm select-none opacity-70">⌐_AUTO</span>
+            <Link href="/" className="flex items-center gap-2 group" aria-label="Julio Junk Removal — Home">
+              <Image
+                src="/images/logo-dark.png"
+                alt=""
+                width={140}
+                height={44}
+                className="h-[100px] w-auto brightness-0 invert"
+              />
               <span className="font-headline font-bold text-xl tracking-tight text-white group-hover:text-secondary-container transition-colors">
                 JULIO JUNK
               </span>
             </Link>
 
             <p className="text-sm text-white/60 leading-relaxed max-w-xs">
-              Premium junk removal and logistics services for residential and commercial properties. We make decluttering effortless.
+              {t('tagline')}
             </p>
 
             {/* Social icons */}
@@ -92,7 +87,7 @@ export default function Footer() {
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-2">
-              {['Licensed & Insured', 'Eco-Certified', 'BBB Accredited'].map((badge) => (
+              {trustBadges.map((badge) => (
                 <span
                   key={badge}
                   className="inline-flex items-center gap-1 border border-white/20 text-white/70 text-xs px-3 py-1.5 rounded-full"
@@ -108,10 +103,10 @@ export default function Footer() {
 
           {/* ── Col 2: Links ── */}
           <div>
-            <ColTitle>Links</ColTitle>
+            <ColTitle>{t('linksTitle')}</ColTitle>
             <ul className="space-y-3">
-              {NAV_LINKS.map((link) => (
-                <li key={link.label}>
+              {navLinks.map((link) => (
+                <li key={link.href + link.label}>
                   <Link
                     href={link.href}
                     className="text-sm text-white/60 hover:text-white transition-colors duration-200"
@@ -125,9 +120,9 @@ export default function Footer() {
 
           {/* ── Col 3: Services ── */}
           <div>
-            <ColTitle>Services</ColTitle>
+            <ColTitle>{t('servicesTitle')}</ColTitle>
             <ul className="space-y-3">
-              {SERVICE_LINKS.map((link) => (
+              {serviceLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
@@ -142,7 +137,7 @@ export default function Footer() {
 
           {/* ── Col 4: Contact Us ── */}
           <div>
-            <ColTitle>Contact Us</ColTitle>
+            <ColTitle>{t('contactTitle')}</ColTitle>
             <ul className="space-y-4 mb-5">
               {/* Phone */}
               <li className="flex items-start gap-3">
@@ -188,7 +183,7 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* Mini map placeholder */}
+            {/* Mini map */}
             <div className="rounded-xl overflow-hidden border border-white/10 h-28">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3022.215151767!2d-74.00594!3d40.71278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1700000000000"
@@ -207,10 +202,10 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
           <p className="text-xs text-white/40">
-            © {new Date().getFullYear()} Julio Junk Removal. All rights reserved.
+            {t('copyright', { year })}
           </p>
           <p className="text-xs text-white/40">
-            Licensed & Insured · Eco-Certified · BBB Accredited
+            {t('certLine')}
           </p>
         </div>
       </div>

@@ -63,7 +63,8 @@ function FAQItem({ q, a, isOpen, onToggle, index }: {
 
 export default function FAQ() {
   const t = useTranslations('faq');
-  const items = t.raw('items') as { q: string; a: string }[];
+  const rawItems = t.raw('items');
+  const items: { q: string; a: string }[] = Array.isArray(rawItems) ? rawItems : [];
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -77,7 +78,7 @@ export default function FAQ() {
           className="text-center mb-14 space-y-3"
         >
           <span className="inline-block text-secondary-container font-label font-semibold text-label-bold tracking-widest uppercase">
-            FAQ
+            {t('eyebrow')}
           </span>
           <h2 id="faq-heading" className="text-headline-lg font-headline font-bold text-primary">
             {t('h2')}

@@ -4,6 +4,8 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import AboutHero from '@/components/pages/about/AboutHero';
 import AboutStory from '@/components/pages/about/AboutStory';
 import AboutValues from '@/components/pages/about/AboutValues';
+import AboutVideo from '@/components/pages/about/AboutVideo';
+import AboutMap from '@/components/pages/about/AboutMap';
 
 export default function AboutPage() {
   return (
@@ -13,6 +15,8 @@ export default function AboutPage() {
         <AboutHero />
         <AboutStory />
         <AboutValues />
+        <AboutVideo />
+        <AboutMap />
       </main>
       <Footer />
       <WhatsAppButton />

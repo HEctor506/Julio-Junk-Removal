@@ -45,7 +45,7 @@ export default function ContactForm() {
           className="text-center mb-10 space-y-3"
         >
           <span className="inline-block text-secondary-container font-label font-semibold text-label-bold tracking-widest uppercase">
-            Free Estimate
+            {t('eyebrow')}
           </span>
           <h2 id="contact-heading" className="text-headline-lg font-headline font-bold text-primary">
             {t('h2')}
@@ -149,7 +149,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={state === 'submitting'}
-                className="w-full btn-shimmer text-on-secondary-container py-4 rounded-xl font-headline font-semibold disabled:opacity-60 disabled:cursor-not-allowed disabled:animate-none flex items-center justify-center gap-2"
+                className="w-full btn-shimmer py-4 disabled:opacity-60 disabled:cursor-not-allowed disabled:animate-none flex items-center justify-center gap-2"
               >
                 {state === 'submitting' ? t('submitting') : t('submit')}
                 {state !== 'submitting' && (

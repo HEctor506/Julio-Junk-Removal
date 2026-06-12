@@ -1,20 +1,20 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'motion/react';
+import { Link } from '@/navigation';
 
 type ServiceKey = 'residential' | 'commercial' | 'yard' | 'construction' | 'cleanout' | 'furniture' | 'appliances' | 'recycling';
 type ServiceItemData = { h3: string; copy: string; items: string[] };
 
 const SERVICE_IMAGES: Record<ServiceKey, string> = {
   residential: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDoA89doiH7LveFRl56NlMN_2DO9KhtDoba7cyFrnWANKdVTsyVcLNob3vniN4SVNtwex4CDMkRzifPdpY9VFpIBIfXUqzJI8GTAfLablqCxwwfe3ngr0s_nRfoHz5r0-FcUiPmKRrAW7zCGC443VI6za_3R6QtJFNHfjTIE2M3EAnKwWw70l5NjhOgLz6eElVrF4CoF_NIXi51GFD6GMq5ij3WWMwuejF8fvVvSdLS60L4AA4Q9cKmcIxFkeYJxV-ld6hgWUU7Eqc',
-  commercial: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAIRrtk0DcZ01tFUZ_iwm16CVZTV8wk32inRW7vOUH4D4AsUqegTc9RIqUxJy3bRyabkTZCoacS6f3U1FLUyxWap-aSgkuHPE3_dXVJQR0Tq4YF6QC0GR_AA9DkcP5dapkuKJ7qhbK530In7xmJjDaaDg1VIVmQKVW37R38prWK5Pqfg1TLnuNXCx8SyDQEzZCXEW9XSR9IwEkn43oYr6bgah8siitB7U4UbeWBz9x4BokPkQ1ULM-cSd24_NU5v7fnk0dt587z-gA',
-  yard: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBuokji2Au9_qcisuAe45bU6_kjpDabtDq5NxSBnO98dVXs4d2OSPNb3U_W9Wc-WLO9e_iZ3mzucJQ3tL1bbjq3Cs8xgvS5Te6sPIAbgJoEo_U0EH2EunfJyQ5ceJIeY0aUMRIGIm-Yosvutenyfra5OeW_LuFPq4HEHdrAxqQw_f9To026bTKOiLb4izemXHTgHC5Xa217IuwQSFEw-cPTU9fEDhUy-hykUS6lMGJ9pLOqdGDgf82a2UlYM15QdIfv3W9vk_tE6oM',
-  construction: 'https://www.junkhappens.com/wp-content/uploads/2017/08/Effective-Construction-Debris-Removal.jpg',
-  cleanout: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDoA89doiH7LveFRl56NlMN_2DO9KhtDoba7cyFrnWANKdVTsyVcLNob3vniN4SVNtwex4CDMkRzifPdpY9VFpIBIfXUqzJI8GTAfLablqCxwwfe3ngr0s_nRfoHz5r0-FcUiPmKRrAW7zCGC443VI6za_3R6QtJFNHfjTIE2M3EAnKwWw70l5NjhOgLz6eElVrF4CoF_NIXi51GFD6GMq5ij3WWMwuejF8fvVvSdLS60L4AA4Q9cKmcIxFkeYJxV-ld6hgWUU7Eqc',
+  commercial: '/images/image8.jpeg',
+  yard: '/images/photo11.jpeg',
+  construction: '/images/photo12.jpeg',
+  cleanout: '/images/scene12.jpeg',
   furniture: 'https://byejunk.com/wp-content/uploads/2018/09/junk-furniture-003.jpeg',
-  appliances: 'https://www.jdogjunkremoval.com/wp-content/uploads/2019/11/appliance-540x540.jpg',
+  appliances: '/images/image6.jpeg',
   recycling: 'https://www.junkhappens.com/wp-content/uploads/2019/01/Junk-Removal.jpg',
 };
 
@@ -23,162 +23,139 @@ const SERVICE_KEYS: ServiceKey[] = [
   'cleanout', 'furniture', 'appliances', 'recycling',
 ];
 
-const captionVariants = {
-  idle: { y: '100%' },
-  hover: { y: 0 },
-};
-
-const mobileDetailsVariants = {
-  collapsed: { opacity: 0, y: 14 },
-  expanded: { opacity: 1, y: 0 },
-};
-
-const mobileTitleVariants = {
-  collapsed: { y: 0 },
-  expanded: { y: -124 },
-};
-
-function ServiceCard({
-  serviceKey,
-  data,
-  isExpanded,
-  onToggle,
-}: {
-  serviceKey: ServiceKey;
-  data: ServiceItemData;
-  isExpanded: boolean;
-  onToggle: () => void;
-}) {
-
-  return (
-    <>
-      <motion.figure
-        className="hidden md:block snap-start shrink-0 relative overflow-hidden rounded-2xl md:w-[320px] md:h-[440px] cursor-pointer"
-        initial="idle"
-        whileHover="hover"
-      >
-        <ServiceImage serviceKey={serviceKey} alt={data.h3} />
-
-        {/* Gradient overlay slides up from below on desktop hover. */}
-        <motion.figcaption
-          className="absolute bottom-0 left-0 right-0 pt-20 px-5 pb-5 bg-gradient-to-t from-black/90 via-black/60 to-transparent text-white will-change-transform"
-          variants={captionVariants}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <ServiceCopy data={data} />
-        </motion.figcaption>
-      </motion.figure>
-
-      <motion.button
-        type="button"
-        className="md:hidden snap-start shrink-0 relative overflow-hidden rounded-2xl w-[260px] h-[380px] text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary-container focus-visible:ring-offset-2"
-        aria-expanded={isExpanded}
-        aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${data.h3}`}
-        onClick={onToggle}
-        whileTap={{ scale: 0.985 }}
-      >
-        <ServiceImage serviceKey={serviceKey} alt="" />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent text-white">
-          <motion.h3
-            className="absolute inset-x-5 bottom-5 text-base font-headline font-bold leading-tight will-change-transform"
-            initial={false}
-            animate={isExpanded ? 'expanded' : 'collapsed'}
-            variants={mobileTitleVariants}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {data.h3}
-          </motion.h3>
-          <motion.div
-            className="absolute inset-x-5 bottom-5 will-change-transform"
-            aria-hidden={!isExpanded}
-            initial={false}
-            animate={isExpanded ? 'expanded' : 'collapsed'}
-            variants={mobileDetailsVariants}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <ServiceCopy data={data} hideTitle />
-          </motion.div>
-        </div>
-      </motion.button>
-    </>
-  );
+function ServiceIcon({ serviceKey }: { serviceKey: ServiceKey }) {
+  const icons: Record<ServiceKey, React.ReactNode> = {
+    residential: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" /><path d="M9 21V12h6v9" />
+      </svg>
+    ),
+    commercial: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="18" rx="1" /><path d="M8 3v18M16 3v18M2 9h20M2 15h20" />
+      </svg>
+    ),
+    yard: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 22V12" /><path d="M5 12a7 7 0 0014 0c0-4-3-8-7-10C8 4 5 8 5 12z" />
+      </svg>
+    ),
+    construction: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+      </svg>
+    ),
+    cleanout: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polyline points="3 6 5 6 21 6" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v6M14 11v6" /><path d="M9 6V4h6v2" />
+      </svg>
+    ),
+    furniture: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M20 9V6a2 2 0 00-2-2H6a2 2 0 00-2 2v3" /><path d="M2 11a2 2 0 012-2h16a2 2 0 012 2v4H2v-4z" /><path d="M6 19v-4M18 19v-4" />
+      </svg>
+    ),
+    appliances: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="5" y="2" width="14" height="20" rx="2" /><path d="M15 7h.01M9 7h.01" /><rect x="9" y="11" width="6" height="8" rx="1" />
+      </svg>
+    ),
+    recycling: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polyline points="1 4 1 10 7 10" /><polyline points="23 20 23 14 17 14" /><path d="M20.49 9A9 9 0 005.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 013.51 15" />
+      </svg>
+    ),
+  };
+  return <>{icons[serviceKey]}</>;
 }
 
-function ServiceImage({ serviceKey, alt }: { serviceKey: ServiceKey; alt: string }) {
+function ServiceCard({ serviceKey, data, index }: { serviceKey: ServiceKey; data: ServiceItemData; index: number }) {
   return (
-    <img
-      src={SERVICE_IMAGES[serviceKey]}
-      alt={alt}
-      className="absolute inset-0 w-full h-full object-cover"
-      loading="lazy"
-    />
-  );
-}
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: (index % 4) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      className="group bg-white/[0.05] rounded-2xl overflow-hidden flex flex-col border border-white/[0.07] hover:border-white/[0.14] transition-colors duration-300"
+    >
+      {/* Image — zoom on hover via CSS group */}
+      <div className="overflow-hidden h-48 shrink-0">
+        <img
+          src={SERVICE_IMAGES[serviceKey]}
+          alt={data.h3}
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]"
+          loading="lazy"
+        />
+      </div>
 
-function ServiceCopy({ data, hideTitle = false }: { data: ServiceItemData; hideTitle?: boolean }) {
-  return (
-    <>
-      {!hideTitle && (
-        <h3 className="text-base font-headline font-bold leading-tight mb-2">
+      {/* Info */}
+      <div className="p-5 flex flex-col flex-1 gap-3">
+        <span className="text-secondary-container">
+          <ServiceIcon serviceKey={serviceKey} />
+        </span>
+        <h3 className="text-white font-headline font-bold text-headline-md leading-snug">
           {data.h3}
         </h3>
-      )}
-      <p className="text-sm font-body text-white/80 leading-snug mb-3">
-        {data.copy}
-      </p>
-      <span className="text-xs font-semibold text-secondary-container tracking-wide uppercase">
-        Get a Free Quote
-      </span>
-    </>
+        <p className="text-white/55 text-body-md font-body leading-relaxed flex-1">
+          {data.copy}
+        </p>
+        <Link
+          href="/services"
+          className="inline-flex items-center gap-1.5 text-secondary-container font-label font-semibold text-label-bold tracking-wide uppercase transition-all duration-200 hover:gap-3 group/link"
+          aria-label={`Learn more about ${data.h3}`}
+        >
+          Learn More
+          <svg className="w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </Link>
+      </div>
+    </motion.article>
   );
 }
 
 export default function Services() {
   const t = useTranslations('services');
   const getItem = (key: ServiceKey): ServiceItemData => t.raw(`items.${key}`) as ServiceItemData;
-  const [expandedKey, setExpandedKey] = useState<ServiceKey | null>(null);
 
   return (
-    <section id="services" className="section-padding container-max" aria-labelledby="services-heading">
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-12 space-y-4"
-      >
-        <span className="inline-block text-secondary-container font-label font-semibold text-label-bold tracking-widest uppercase">
-          What We Do
-        </span>
-        <h2 id="services-heading" className="text-headline-lg font-headline font-bold text-primary">
-          {t('h2')}
-        </h2>
-        <p className="text-body-lg font-body text-on-surface-variant max-w-2xl mx-auto">
-          {t('subtitle')}
-        </p>
-      </motion.div>
+    <section id="services" className="py-20 md:py-[120px] bg-on-surface" aria-labelledby="services-heading">
+      <div className="max-w-container mx-auto px-4 md:px-10">
 
-      {/* Horizontal scroll carousel */}
-      <div className="services-scroll flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-4 md:-mx-10 px-4 md:px-10 pb-4">
-        {SERVICE_KEYS.map((key) => {
-          const data = getItem(key);
-          return (
+        {/* Header — two column */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-end gap-6 md:gap-16 mb-12"
+        >
+          <div className="shrink-0">
+            <span className="inline-block text-secondary-container font-label font-semibold text-label-bold tracking-widest uppercase mb-3">
+              {t('eyebrow')}
+            </span>
+            <h2 id="services-heading" className="text-display-mobile md:text-headline-lg font-headline font-bold text-white">
+              {t('h2')}
+            </h2>
+          </div>
+          <p className="text-body-lg font-body text-white/55 md:max-w-sm md:pb-1">
+            {t('subtitle')}
+          </p>
+        </motion.div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {SERVICE_KEYS.map((key, i) => (
             <ServiceCard
               key={key}
               serviceKey={key}
-              data={data}
-              isExpanded={expandedKey === key}
-              onToggle={() => setExpandedKey(expandedKey === key ? null : key)}
+              data={getItem(key)}
+              index={i}
             />
-          );
-        })}
-      </div>
+          ))}
+        </div>
 
-      <p className="text-center text-sm text-on-surface-variant/40 mt-4 select-none md:hidden">
-        Swipe to explore
-      </p>
+      </div>
     </section>
   );
 }

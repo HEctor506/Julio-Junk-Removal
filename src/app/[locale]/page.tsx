@@ -27,7 +27,6 @@ export default function HomePage() {
           <Pricing />
           <Testimonials />
           <FAQ />
-          <ContactForm />
           <FinalCTA />
         </Suspense>
       </main>

@@ -5,7 +5,8 @@ import { motion } from 'motion/react';
 
 export default function HowItWorks() {
   const t = useTranslations('howItWorks');
-  const steps = t.raw('steps') as { number: string; title: string; copy: string }[];
+  const rawSteps = t.raw('steps');
+  const steps: { number: string; title: string; copy: string }[] = Array.isArray(rawSteps) ? rawSteps : [];
 
   return (
     <section className="section-padding bg-surface-container-low" aria-labelledby="how-it-works-heading">
@@ -18,7 +19,7 @@ export default function HowItWorks() {
           className="text-center mb-14"
         >
           <span className="inline-block text-secondary-container font-label font-semibold text-label-bold tracking-widest uppercase mb-3">
-            Simple Process
+            {t('eyebrow')}
           </span>
           <h2 id="how-it-works-heading" className="text-headline-lg font-headline font-bold text-primary mb-4">
             {t('h2')}

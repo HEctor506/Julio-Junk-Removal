@@ -1,18 +1,15 @@
 'use client';
 
 import { motion } from 'motion/react';
-
-const STATS = [
-  { value: '2,000+', label: 'Jobs Completed' },
-  { value: '98%', label: 'Satisfaction Rate' },
-  { value: '4.9★', label: 'Google Rating' },
-  { value: '7 Days', label: 'We Operate' },
-];
+import { useTranslations } from 'next-intl';
 
 export default function AboutStory() {
+  const t = useTranslations('aboutPage.story');
+  const rawBullets = t.raw('bullets');
+  const bullets: string[] = Array.isArray(rawBullets) ? rawBullets : [];
+
   return (
     <>
-      {/* Our Story */}
       <section className="py-20 md:py-[120px]">
         <div className="max-w-container mx-auto px-4 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -36,8 +33,8 @@ export default function AboutStory() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="absolute -bottom-8 right-0 lg:-right-6 bg-white p-5 rounded-2xl shadow-xl border border-outline-variant/20"
               >
-                <p className="text-headline-md font-headline font-bold text-secondary-container">Licensed</p>
-                <p className="text-sm text-on-surface-variant">& Fully Insured</p>
+                <p className="text-headline-md font-headline font-bold text-secondary-container">{t('badge1')}</p>
+                <p className="text-sm text-on-surface-variant">{t('badge2')}</p>
               </motion.div>
             </motion.div>
 
@@ -49,19 +46,15 @@ export default function AboutStory() {
               className="space-y-6"
             >
               <span className="inline-block text-secondary-container font-label font-semibold text-label-bold tracking-widest uppercase">
-                Who We Are
+                {t('eyebrow')}
               </span>
               <h2 className="text-headline-lg font-headline font-bold text-primary">
-                Premium Junk Removal You Can Trust
+                {t('h2')}
               </h2>
-              <p className="text-body-lg font-body text-on-surface-variant">
-                Julio Junk Removal was founded with a simple mission: make decluttering effortless for homeowners and businesses alike. What started as a one-truck operation has grown into a trusted local service with hundreds of satisfied clients.
-              </p>
-              <p className="text-body-lg font-body text-on-surface-variant">
-                We believe junk removal shouldn&apos;t be stressful. From the moment you call to the moment we sweep up after ourselves, our team delivers a premium, worry-free experience every single time.
-              </p>
+              <p className="text-body-lg font-body text-on-surface-variant">{t('p1')}</p>
+              <p className="text-body-lg font-body text-on-surface-variant">{t('p2')}</p>
               <ul className="space-y-3">
-                {['Fully licensed and insured', 'Same-day service available', 'Eco-friendly disposal practices', '7 days a week operation'].map((item) => (
+                {bullets.map((item) => (
                   <li key={item} className="flex items-center gap-3 text-body-md font-body text-on-surface">
                     <svg className="w-5 h-5 text-secondary-container shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
                     {item}
@@ -69,26 +62,6 @@ export default function AboutStory() {
                 ))}
               </ul>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="bg-primary py-16" aria-label="Company statistics">
-        <div className="max-w-container mx-auto px-4 md:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {STATS.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-              >
-                <p className="text-headline-lg md:text-display-mobile font-headline font-bold text-secondary-container">{stat.value}</p>
-                <p className="text-sm text-white/70 mt-1 font-semibold">{stat.label}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
