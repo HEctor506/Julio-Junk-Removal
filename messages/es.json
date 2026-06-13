@@ -96,13 +96,10 @@
     "paragraph": "Entendemos que la chatarra se acumula, pero retirarla no debería ser un dolor de cabeza. Julio Junk ofrece una experiencia de retiro premium, sin preocupaciones.",
     "benefits": [
       { "title": "Servicio el Mismo Día", "copy": "Reserva antes del mediodía, listo antes del anochecer." },
-      { "title": "Estimados Gratis", "copy": "Precio transparente, sin sorpresas." },
+
       { "title": "Precios Accesibles", "copy": "Tarifas competitivas para trabajo de calidad." },
       { "title": "Licenciados y Asegurados", "copy": "Protección total para tu propiedad." },
-      { "title": "Disponibles 7 Días", "copy": "Incluidos fines de semana y días festivos." },
-      { "title": "Servicio Eco-Amigable", "copy": "Donamos y reciclamos antes de ir al relleno sanitario." },
-      { "title": "Rápido y Confiable", "copy": "Llegamos a tiempo, cada vez." },
-      { "title": "Residencial y Comercial", "copy": "Sin importar el tamaño del trabajo." }
+      { "title": "Servicio Eco-Amigable", "copy": "Donamos y reciclamos antes de ir al relleno sanitario." }
     ],
     "statValue": "98%",
     "statLabel": "de satisfacción en más de 2,000 trabajos."
@@ -142,8 +139,8 @@
         "cta": "Obtener Precio"
       }
     ],
-    "includes": "Todos los precios incluyen mano de obra, transporte y costos de desecho. Estimado gratis en el lugar, sin obligación de contratar.",
-    "cta": "Obtener Mi Estimado Gratis",
+    "includes": "Todos los precios incluyen mano de obra, transporte y costos de desecho. Estimado en el lugar, sin obligación de contratar.",
+    "cta": "Obtener Mi Estimado",
     "footNote": "¿Trabajo grande o comercial? Llámanos para una cotización personalizada."
   },
   "testimonials": {
@@ -236,7 +233,8 @@
     ],
     "trustBadges": ["Licenciados y Asegurados", "Eco-Certificados", "Acreditados BBB"],
     "copyright": "© {year} Julio Junk Removal. Todos los derechos reservados.",
-    "certLine": "Licenciados y Asegurados · Eco-Certificados · Acreditados BBB"
+    "certLine": "Licenciados y Asegurados · Eco-Certificados · Acreditados BBB",
+    "getDirections": "Cómo llegar"
   },
   "contactForm": {
     "h2": "Obtén Tu Estimado Gratis",

@@ -28,20 +28,22 @@ export default function HowItWorks() {
         </motion.div>
 
         <div className="relative">
-          {/* Connector line (desktop) */}
+          {/* Connector line — solo desktop, no aplica en carrusel mobile */}
           <div
             className="hidden md:block absolute top-10 left-[12.5%] w-3/4 h-px bg-gradient-to-r from-transparent via-outline-variant to-transparent -z-10"
             aria-hidden="true"
           />
 
-          <ol className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {/* MOBILE: grid-flow-col + auto-cols-[82vw] → carrusel horizontal de 1 fila
+              DESKTOP (md+): md:grid-flow-row md:grid-cols-4 → grid normal de 4 columnas */}
+          <ol className="grid grid-flow-col auto-cols-[65vw] overflow-x-auto overscroll-x-contain gap-6 pb-3 -mx-4 px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid-flow-row md:auto-cols-auto md:grid-cols-4 md:overflow-visible md:pb-0 md:mx-0 md:px-0">
             {steps.map((step, i) => (
               <motion.li
                 key={step.number}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="bg-white p-8 rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 text-center space-y-4 border border-outline-variant/20 group"
               >
                 <div

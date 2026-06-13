@@ -5,8 +5,9 @@ import { useTranslations } from 'next-intl';
 import { siteConfig } from '@/lib/config';
 import { Link } from '@/navigation';
 
-const buildMapUrl = (query: string) =>
-  `https://maps.google.com/maps?q=${encodeURIComponent(query)}&hl=en&z=14&output=embed`;
+// URL embed oficial de Google Maps para el listing de Julio Junk Removal
+// Usa el place ID del negocio (FID) para forzar que muestre el listing, no un pin genérico
+const MAP_EMBED_URL = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.9!2d-118.0405815!3d33.835649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9adc18a1f99ef51%3A0x729536e5212a192a!2sJulio%20Junk%20removal!5e0!3m2!1sen!2sus!4v1718831234567!5m2!1sen!2sus';
 
 export default function AboutMap() {
   const t = useTranslations('aboutPage.map');
@@ -69,23 +70,22 @@ export default function AboutMap() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="grid grid-cols-1 lg:grid-cols-2 rounded-3xl overflow-hidden shadow-xl border border-outline-variant/20"
         >
-          {/* Map */}
-          <div className="h-72 lg:h-auto min-h-[360px]">
+          {/* DESKTOP: iframe embed con place ID del negocio */}
+          <div className="hidden lg:block lg:h-auto min-h-[360px]">
             <iframe
-              src={buildMapUrl(siteConfig.mapQuery)}
+              src={MAP_EMBED_URL}
               width="100%"
               height="100%"
-              style={{ border: 0, filter: 'saturate(1.1) contrast(1.05)' }}
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Julio Junk Removal service area"
-              className="w-full h-full"
+              className="w-full h-full border-0 saturate-[1.1] contrast-[1.05]"
             />
           </div>
 
-          {/* Info panel */}
-          <div className="bg-primary p-10 md:p-14 flex flex-col justify-center gap-8">
+{/* Info panel */}
+          <div className="bg-primary p-8 md:p-10 lg:p-14 flex flex-col justify-center gap-8">
             <div className="space-y-2">
               <span className="text-secondary-container font-label font-semibold text-label-bold tracking-widest uppercase">
                 {t('findUs')}

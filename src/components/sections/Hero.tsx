@@ -52,9 +52,9 @@ export default function Hero() {
               priority={current === 0}
               sizes="100vw"
               //cambiando el opacity se cambia la difuminacion de las imagenes
-              className="object-cover grayscale opacity-25"
+              className="object-cover object-center grayscale opacity-25"
               initial={{ scale: 1 }}
-              animate={{ scale: 1.11 }}
+              animate={{ scale: 1.08 }}
               transition={{ duration: AUTOPLAY_INTERVAL / 1000, ease: 'linear' }}
             />
           </motion.div>
@@ -111,7 +111,7 @@ export default function Hero() {
             className="text-display-mobile md:text-display-lg font-display font-bold leading-tight text-white"
           >
             {t('h1Line1')}
-            <br className="hidden md:block" />
+            <br />
             <span className="text-secondary-container">{t('h1Line2')}</span>
           </motion.h1>
 
@@ -120,7 +120,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="max-w-2xl text-[22px] font-weight font-body font-semibold text-[#ffffff] [text-shadow:0_2px_14px_rgba(0,0,0,0.55)]"
+            className="max-w-2xl text-[16px] md:text-[22px] font-weight font-body font-semibold text-[#ffffff] [text-shadow:0_2px_14px_rgba(0,0,0,0.55)]"
           >
             {t('subtitle')}
           </motion.p>

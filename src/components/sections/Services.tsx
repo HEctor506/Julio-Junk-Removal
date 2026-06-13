@@ -72,10 +72,10 @@ function ServiceIcon({ serviceKey }: { serviceKey: ServiceKey }) {
 function ServiceCard({ serviceKey, data, index, className = '' }: { serviceKey: ServiceKey; data: ServiceItemData; index: number; className?: string }) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: (index % 4) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.4, delay: (index % 4) * 0.08 }}
       className={`group bg-white/[0.05] rounded-2xl overflow-hidden flex flex-col border border-white/[0.07] hover:border-white/[0.14] transition-colors duration-300 ${className}`}
     >
       {/* Image — zoom on hover via CSS group */}
@@ -144,19 +144,25 @@ export default function Services() {
         </motion.div>
 
         {/*
-          MOBILE (<sm): flex row con overflow-x-auto + snap — carrusel horizontal sin scrollbar visible.
-            -mx-4 px-4 extiende el área de scroll hasta los bordes del viewport.
-          DESKTOP (sm+): las clases sm: convierten el flex en grid 2-col → 4-col en lg.
+          MOBILE (<sm): carrusel horizontal — flex row, scroll suave, sin scrollbar visible.
+          DESKTOP (sm+): grid 2 columnas → 4 columnas en lg.
+          Se usan max-sm: para aislar estilos mobile y evitar conflictos con el grid.
         */}
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 -mx-4 px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:snap-none sm:pb-0">
+        {/*
+          MOBILE: grid-flow-col + auto-cols-[82vw] crea un carrusel horizontal de 1 fila.
+            [touch-action:pan-x] le indica al browser que este elemento solo captura
+            gestos horizontales — evita que el scroll vertical de la página interfiera.
+          DESKTOP (sm+): sm:grid-flow-row + sm:grid-cols-2 → lg:grid-cols-4 vuelve al grid normal.
+        */}
+        {/* overscroll-x-contain evita que el scroll horizontal encadene al padre,
+            sin bloquear el scroll vertical de la página cuando el dedo está sobre el carrusel */}
+        <div className="grid grid-flow-col auto-cols-[82vw] overflow-x-auto overscroll-x-contain gap-4 pb-3 -mx-4 px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid-flow-row sm:auto-cols-auto sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:gap-5 sm:pb-0 sm:mx-0 sm:px-0">
           {SERVICE_KEYS.map((key, i) => (
-            // MOBILE: shrink-0 + w-[80vw] + snap-start fijan el card como slide del carrusel
             <ServiceCard
               key={key}
               serviceKey={key}
               data={getItem(key)}
               index={i}
-              className="shrink-0 w-[80vw] snap-start sm:w-auto sm:shrink"
             />
           ))}
         </div>
@@ -167,7 +173,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-[100px] relative overflow-hidden rounded-2xl border border-secondary-container/20 bg-gradient-to-br from-primary-container via-primary to-[#011f1b] p-7 md:p-9 flex flex-col sm:flex-row items-center gap-6 group"
+          className="mt-[100px] relative overflow-hidden rounded-2xl border border-secondary-container/20 bg-gradient-to-br from-primary-container via-primary to-[#011f1b] p-5 md:p-9 flex flex-row items-center gap-4 md:gap-6 group"
         >
           {/* Ambient glow top-left */}
           <div className="pointer-events-none absolute -top-16 -left-16 w-64 h-64 rounded-full bg-secondary-container/10 blur-3xl" />
@@ -175,8 +181,8 @@ export default function Services() {
           <div className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary-container/50 to-transparent" />
 
           {/* Icon */}
-          <div className="shrink-0 w-16 h-16 rounded-full bg-secondary-container/15 border border-secondary-container/25 flex items-center justify-center text-secondary-container shadow-glow-mint/30">
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <div className="shrink-0 w-11 h-11 md:w-16 md:h-16 rounded-full bg-secondary-container/15 border border-secondary-container/25 flex items-center justify-center text-secondary-container shadow-glow-mint/30">
+            <svg className="w-5 h-5 md:w-7 md:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <rect x="1" y="3" width="15" height="13" rx="1" />
               <path d="M16 8h4l3 4v4h-7V8z" />
               <circle cx="5.5" cy="18.5" r="2.5" />
@@ -184,12 +190,17 @@ export default function Services() {
             </svg>
           </div>
 
-          {/* Text */}
-          <div className="flex-1 text-center sm:text-left">
-            <h3 className="text-white font-headline font-bold text-headline-md leading-snug">
+          {/* Text
+              Para cambiar tamaño en MOBILE: editar el primer valor  → text-[15px]
+              Para cambiar tamaño en DESKTOP: editar el valor md:    → md:text-headline-md
+              Valores disponibles del design system: text-label-bold(13px) · text-body-md(16px) · text-body-lg(18px) · text-headline-md(24px) · text-headline-lg(32px)
+              También podés usar px directos: text-[14px], text-[16px], etc.
+          */}
+          <div className="flex-1 text-left">
+            <h3 className="text-white font-headline font-bold text-[16px] md:text-headline-md leading-snug">
               {t('ctaCard.title')}
             </h3>
-            <p className="text-white/55 text-body-md font-body mt-1.5">
+            <p className="text-white/55 text-[12px] md:text-body-md font-body mt-1">
               {t('ctaCard.desc')}
             </p>
           </div>
@@ -198,9 +209,9 @@ export default function Services() {
           <Link
             href="/contact"
             aria-label={t('ctaCard.cta')}
-            className="shrink-0 w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary transition-all duration-300 hover:scale-110 hover:shadow-glow-mint group-hover:translate-x-0.5"
+            className="shrink-0 w-9 h-9 md:w-14 md:h-14 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary transition-all duration-300 hover:scale-110 hover:shadow-glow-mint group-hover:translate-x-0.5"
           >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </Link>

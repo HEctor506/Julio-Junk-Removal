@@ -46,7 +46,7 @@ const config: Config = {
       },
       fontSize: {
         'display-lg':     ['56px', { lineHeight: '1.05', letterSpacing: '-0.02em', fontWeight: '700' }],
-        'display-mobile': ['36px', { lineHeight: '1.1',  letterSpacing: '-0.01em', fontWeight: '700' }],
+        'display-mobile': ['32px', { lineHeight: '1.1',  letterSpacing: '-0.01em', fontWeight: '700' }],
         'headline-lg':    ['32px', { lineHeight: '1.15', fontWeight: '700' }],
         'headline-md':    ['24px', { lineHeight: '1.3',  fontWeight: '700' }],
         'body-lg':        ['18px', { lineHeight: '1.65', fontWeight: '500' }],

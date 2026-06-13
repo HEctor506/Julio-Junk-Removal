@@ -122,7 +122,7 @@ export default function Nav() {
       <div className="flex md:hidden justify-between items-center h-16 px-4">
         <Link href="/" aria-label="Julio Junk Removal — Home">
           <Image
-            src="/images/logo-dark.png"
+            src="/images/Horizontal-02.png"
             alt="Julio Junk Removal"
             width={120}
             height={38}

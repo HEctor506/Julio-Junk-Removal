@@ -60,21 +60,21 @@ export default async function Footer() {
 
             {/* Social icons */}
             <div className="flex gap-3">
-              <SocialIcon href={siteConfig.facebook} label="Facebook">
+              {/* <SocialIcon href={siteConfig.facebook} label="Facebook">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
-              </SocialIcon>
+              </SocialIcon> */}
               <SocialIcon href={siteConfig.instagram} label="Instagram">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
               </SocialIcon>
-              <SocialIcon href={siteConfig.tiktok} label="TikTok">
+              {/* <SocialIcon href={siteConfig.tiktok} label="TikTok">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.53V6.74a4.85 4.85 0 01-1.01-.05z" />
                 </svg>
-              </SocialIcon>
+              </SocialIcon> */}
               <SocialIcon href={siteConfig.whatsappHref} label="WhatsApp">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.143c1.589.943 3.133 1.415 4.75 1.416 5.482 0 9.94-4.458 9.944-9.94.002-2.656-1.032-5.153-2.91-7.034-1.878-1.882-4.375-2.915-7.03-2.917-5.483 0-9.942 4.459-9.944 9.941-.001 1.704.436 3.367 1.266 4.837l-1.013 3.7 3.799-.996z" />
@@ -183,16 +183,29 @@ export default async function Footer() {
             {/* Mini map */}
             <div className="rounded-xl overflow-hidden border border-white/10 h-28">
               <iframe
-                src="https://maps.google.com/maps?q=Julio+Junk+removal&z=15&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.9!2d-118.0405815!3d33.835649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9adc18a1f99ef51%3A0x729536e5212a192a!2sJulio%20Junk%20removal!5e0!3m2!1sen!2sus!4v1718831234567!5m2!1sen!2sus"
                 width="100%"
                 height="100%"
-                style={{ border: 0 }}
+                className="border-0"
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Service area map"
               />
             </div>
+            {/* Get Directions — fallback útil en mobile si el iframe no carga */}
+            <a
+              href="https://www.google.com/maps/place/Julio+Junk+removal/@33.8465913,-118.3509048,9z/data=!4m6!3m5!1s0x9adc18a1f99ef51:0x729536e5212a192a!8m2!3d33.835649!4d-118.0405815!16s%2Fg%2F11mm7dh3pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 flex items-center gap-2 text-xs text-secondary-container hover:text-white transition-colors font-label font-semibold tracking-wide uppercase"
+            >
+              <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              {t('getDirections')}
+            </a>
           </div>
         </div>
 

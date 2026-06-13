@@ -93,13 +93,9 @@
     "paragraph": "We understand that junk accumulates, but removing it shouldn't be a headache. Julio Junk provides a premium, worry-free removal experience.",
     "benefits": [
       { "title": "Same-Day Service", "copy": "Book by noon, gone by dusk." },
-      { "title": "Free Estimates", "copy": "Upfront pricing, no surprises." },
       { "title": "Affordable Pricing", "copy": "Competitive rates for quality work." },
       { "title": "Licensed & Insured", "copy": "Full protection for your property." },
-      { "title": "7 Days a Week", "copy": "Including weekends and holidays." },
-      { "title": "Eco-Friendly Service", "copy": "We donate and recycle before heading to the landfill." },
-      { "title": "Fast & Reliable", "copy": "We show up on time, every time." },
-      { "title": "Residential & Commercial", "copy": "No matter the size of the job." }
+      { "title": "Eco-Friendly Service", "copy": "We donate and recycle before heading to the landfill." }
     ],
     "statValue": "98%",
     "statLabel": "Client satisfaction rate across 2,000+ jobs."
@@ -139,8 +135,8 @@
         "cta": "Get a Price"
       }
     ],
-    "includes": "All prices include labor, transport, and disposal fees. Free on-site estimate, no obligation to book.",
-    "cta": "Get My Free Estimate",
+    "includes": "All prices include labor, transport, and disposal fees. On-site estimate, no obligation to book.",
+    "cta": "Get My Estimate",
     "footNote": "Large or commercial job? Call us for a custom quote."
   },
   "testimonials": {
@@ -233,7 +229,8 @@
     ],
     "trustBadges": ["Licensed & Insured", "Eco-Certified", "BBB Accredited"],
     "copyright": "© {year} Julio Junk Removal. All rights reserved.",
-    "certLine": "Licensed & Insured · Eco-Certified · BBB Accredited"
+    "certLine": "Licensed & Insured · Eco-Certified · BBB Accredited",
+    "getDirections": "Get Directions"
   },
   "contactForm": {
     "h2": "Get Your Free Estimate",
