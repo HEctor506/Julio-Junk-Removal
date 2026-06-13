@@ -76,7 +76,7 @@ export default function WhyChooseUs() {
           >
             <div className="absolute -top-12 right-0 w-64 h-64 bg-secondary-container/15 rounded-full blur-3xl -z-10" aria-hidden="true" />
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS4uZmT2sVo6Ld7BQN_jYSzx_rXHWaMih0vTxjEYNZQYkS2Sw3lROGpr75bIzP3-dGbfrGeL4TZk6jAEsmRUK9hNw7bSthnEibW-ojJrWDbe1J2m6V7FvUl4-C8rJuYJ-Du4QwE-ubZ-xCobcycXvVjd71YMOn6gOwwLjHLl4a7TQx8uKNKa69a3OQj_ewZSjIQjyO9xCZLeG4FI5hKXWFMyRUd-mPFzABU8Dc1a_IIdhNRm1oMEtAoUEwasTDdsXTyIsY_8ZJrnw"
+              src="/images/scene6.jpeg"
               alt="Julio Junk Removal professional team"
               className="rounded-2xl shadow-xl w-full object-cover h-[480px]"
               loading="lazy"
