@@ -5,6 +5,9 @@ import { useTranslations } from 'next-intl';
 import { siteConfig } from '@/lib/config';
 import { Link } from '@/navigation';
 
+const buildMapUrl = (query: string) =>
+  `https://maps.google.com/maps?q=${encodeURIComponent(query)}&hl=en&z=14&output=embed`;
+
 export default function AboutMap() {
   const t = useTranslations('aboutPage.map');
 
@@ -17,7 +20,7 @@ export default function AboutMap() {
         </svg>
       ),
       label: t('serviceAreaLabel'),
-      value: `${siteConfig.city}, ${siteConfig.state} & surrounding areas`,
+      value: `${siteConfig.city}, ${siteConfig.state}`,
     },
     {
       icon: (
@@ -69,7 +72,7 @@ export default function AboutMap() {
           {/* Map */}
           <div className="h-72 lg:h-auto min-h-[360px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3022.215151767!2d-74.00594!3d40.71278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1700000000000"
+              src={buildMapUrl(siteConfig.mapQuery)}
               width="100%"
               height="100%"
               style={{ border: 0, filter: 'saturate(1.1) contrast(1.05)' }}
@@ -117,7 +120,7 @@ export default function AboutMap() {
 
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <a
-                href={`https://maps.google.com/?q=${encodeURIComponent(`${siteConfig.city}, ${siteConfig.state}`)}`}
+                href="https://www.google.com/maps/place/Julio+Junk+removal/@33.8465913,-118.3509048,9z/data=!4m6!3m5!1s0x9adc18a1f99ef51:0x729536e5212a192a!8m2!3d33.835649!4d-118.0405815!16s%2Fg%2F11mm7dh3pl"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-shimmer text-on-secondary-container px-6 py-3 rounded-full font-headline font-bold text-center flex items-center justify-center gap-2 active:scale-95"

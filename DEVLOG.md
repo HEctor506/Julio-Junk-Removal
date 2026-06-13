@@ -917,3 +917,105 @@ src/components/pages/contact/ContactHero.tsx     ← pt-20 → pt-[104px] md:pt-
 
 ### Commit relacionado
 - Pendiente.
+
+---
+
+## Sesion 10 — 2026-06-13
+
+### Bug: `Cannot find module './favicon.ico.json'`
+
+#### Síntoma
+Al correr `npm run dev`, el servidor compilaba pero tiraba este error al navegar a cualquier ruta:
+
+```
+⨯ Error: Cannot find module './favicon.ico.json'
+    at C:\...\.next\server\app\[locale]\page.js:34:12
+    at async Module.generateMetadata (./src/app/[locale]/layout.tsx:23:15)
+```
+
+Persistía incluso después de borrar la carpeta `.next`.
+
+#### Causa raíz
+Next.js 14.2.x genera automáticamente un `require('./favicon.ico.json')` en el bundle compilado de `[locale]/page.js`. Este archivo `.json` es un artefacto interno que Next.js crea cuando encuentra un `favicon.ico` en el directorio `app/`. Sin el `favicon.ico`, Next.js genera la referencia igualmente pero el `.json` nunca existe → module not found.
+
+El patrón es exclusivo de proyectos donde:
+- No hay `app/layout.tsx` (solo `app/[locale]/layout.tsx`)
+- No hay ningún `favicon.ico` en el proyecto
+- Se usa next-intl con `app/[locale]/`
+
+#### Fix
+Crear un `favicon.ico` mínimo válido en `src/app/` para que Next.js pueda generar el `.json` correctamente.
+
+Se escribió un ICO de 70 bytes (1×1 pixel, color `#013e37`) vía PowerShell:
+
+```powershell
+$bytes = [byte[]](
+    0x00, 0x00, 0x01, 0x00, 0x01, 0x00,  # ICONDIR header
+    0x01, 0x01, 0x00, 0x00, 0x01, 0x00, 0x20, 0x00,
+    0x30, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00,  # ICONDIRENTRY
+    0x28, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00,
+    0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x20, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  # BITMAPINFOHEADER
+    0x37, 0x3E, 0x01, 0xFF,  # pixel BGRA = #013e37
+    0x00, 0x00, 0x00, 0x00   # AND mask
+)
+[System.IO.File]::WriteAllBytes("src\app\favicon.ico", $bytes)
+```
+
+> **Nota:** Cuando el cliente entregue el logo final, reemplazar este placeholder por un `favicon.ico` real (16×16 y 32×32, generado desde el logo).
+
+---
+
+### Bug: `import '/globals.css'` — ruta absoluta incorrecta
+
+#### Síntoma
+Error de TypeScript en `[locale]/layout.tsx`:
+```
+Cannot find module or type declarations for side-effect import of '/globals.css'
+```
+
+#### Causa
+La ruta `/globals.css` es absoluta (relativa a la raíz del sistema). El archivo está en `src/app/globals.css`, y el layout en `src/app/[locale]/layout.tsx`. La ruta relativa correcta sube un nivel: `../globals.css`.
+
+#### Fix
+```ts
+// ANTES:
+import '/globals.css';
+
+// DESPUÉS:
+import '../globals.css';
+```
+
+---
+
+### Bug: TypeScript no reconoce imports de archivos `.css`
+
+#### Síntoma
+Después de corregir la ruta, TypeScript seguía marcando error:
+```
+Cannot find module or type declarations for side-effect import of '../globals.css'
+```
+
+#### Causa
+Con `moduleResolution: "bundler"` en `tsconfig.json`, TypeScript es estricto con los tipos de archivos importables. No hay ninguna declaración que le diga que `.css` es un módulo válido. Next.js maneja estos imports a nivel de bundler (webpack), pero el type-checker de TypeScript los desconoce.
+
+#### Fix
+Crear `src/types.d.ts` con una declaración global:
+
+```ts
+declare module '*.css';
+```
+
+El `tsconfig.json` incluye `"**/*.ts"` en `include`, por lo que este archivo se detecta automáticamente sin ninguna configuración adicional.
+
+#### Archivos creados/modificados
+```
+src/app/favicon.ico              ← NUEVO (70 bytes, placeholder brand-colored)
+src/app/[locale]/layout.tsx      ← import '../globals.css' (ruta corregida)
+src/types.d.ts                   ← NUEVO (declare module '*.css')
+```
+
+### Commit relacionado
+- Pendiente.

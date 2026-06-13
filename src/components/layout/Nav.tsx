@@ -109,6 +109,7 @@ export default function Nav() {
 
         {/* Lang switch — fuera del grupo central */}
         <button
+          type="button"
           onClick={switchLocale}
           className="ml-4 text-label-bold font-label font-semibold transition-colors px-2 py-1 rounded border text-white/60 border-white/20 hover:text-secondary-container hover:border-secondary-container/40"
           aria-label={`Switch to ${altLocale.toUpperCase()}`}
@@ -131,6 +132,7 @@ export default function Nav() {
         </Link>
         <div className="flex items-center gap-2">
           <button
+            type="button"
             onClick={switchLocale}
             className="text-label-bold font-label font-semibold border px-2 py-1 rounded transition-colors text-white/80 border-white/30 hover:text-secondary-container"
             aria-label={`Switch to ${altLocale.toUpperCase()}`}
@@ -138,10 +140,10 @@ export default function Nav() {
             {t('langSwitch')}
           </button>
           <button
+            type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             className="p-2 text-white transition-colors hover:text-secondary-container"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={menuOpen}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               {menuOpen ? (

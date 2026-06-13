@@ -9,13 +9,13 @@ export default function FinalCTA() {
   const t = useTranslations('finalCta');
 
   return (
-    <section className="mb-20 md:mb-[120px] px-4 md:px-10 max-w-container mx-auto" aria-label="Call to action">
+    <section className="pt-20 md:pt-[120px] mb-20 md:mb-[120px] px-4 md:px-10 max-w-6xl mx-auto" aria-label="Call to action">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="bg-primary-container rounded-3xl p-10 md:p-24 text-center space-y-8 relative overflow-hidden"
+        className="bg-primary-container rounded-3xl p-1 md:p-2 text-center space-y-8 relative overflow-hidden"
       >
         {/* Decorative orbs */}
         <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-secondary-container/15 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
@@ -27,7 +27,7 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-display-mobile md:text-display-lg font-display font-bold text-white max-w-4xl mx-auto relative"
+          className="text-display-mobile md:text-[44px] font-display font-bold text-white max-w-4xl mx-auto relative"
         >
           {t('h2')}
         </motion.h2>

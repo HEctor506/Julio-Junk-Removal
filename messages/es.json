@@ -150,19 +150,20 @@
     "badgeSub": "Basado en 240+ reseñas de Google",
     "reviews": [
       {
-        "text": "¡Julio y su equipo fueron increíbles! Llegaron puntualmente, fueron muy respetuosos con nuestro hogar y vaciaron nuestro sótano en menos de dos horas. ¡Los recomiendo ampliamente!",
-        "author": "Sarah Mitchell",
-        "role": "Propietaria"
+        "text": "¡Súper amables! Gran comunicación, precio accesible y servicio rápido. ¡Muy recomendados!",
+        "author": "Denise Dimas"
       },
       {
-        "text": "Como administrador de propiedades, necesito proveedores confiables. Julio Junk es mi primera opción para cada limpieza. Son eficientes, profesionales y su precio siempre es justo.",
-        "author": "James Davis",
-        "role": "Administrador de Propiedades"
+        "text": "Vinieron 4 chicos que desmantelaron un enorme centro de entretenimiento de roble. Se llevaron todo y dejaron todo limpio. Muy buena gente e hicieron un excelente trabajo.",
+        "author": "Martha Landry"
       },
       {
-        "text": "Necesitaba retirar una gran pila de residuos de jardín y escombros de construcción. Me dieron precio por teléfono y estaban aquí en 4 horas. ¡Servicio excepcional!",
-        "author": "Robert King",
-        "role": "Contratista General"
+        "text": "Julio hizo un trabajo increíble limpiando mi casa. Fue profesional, dedicado y muy eficiente. Excelente actitud, respetuoso y fue más allá de lo esperado. Sin duda la mejor empresa de retiro de chatarra. ¡Altamente recomendado!",
+        "author": "Rodel Jeson"
+      },
+      {
+        "text": "Rápido en responder, muy razonable con el precio. Cumplió con la recogida el mismo día. Me mantuvo informada sobre su hora de llegada. Muy amable, educado y limpio. Lo recomiendo al 100% y definitivamente volvería a llamarlos.",
+        "author": "Martha Sandoval"
       }
     ]
   },

@@ -32,7 +32,7 @@ export default function Hero() {
     <section
       id="home"
       aria-label="Hero"
-      className="relative min-h-[90svh] flex items-center pt-20 pb-24 overflow-hidden"
+      className="relative min-h-[90svh] flex items-center pt-[150px] md:pt-[160px] pb-24 overflow-hidden"
     >
       {/* ── Ken Burns background ── */}
       <div aria-hidden="true" className="absolute inset-0 -z-10">
@@ -119,7 +119,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="max-w-xl text-body-lg  md:text-headline-md  font-body font-normal text-[#b4e4c8] [text-shadow:0_2px_14px_rgba(0,0,0,0.55)]"
+            className="max-w-2xl text-[22px] font-weight font-body font-semibold text-[#ffffff] [text-shadow:0_2px_14px_rgba(0,0,0,0.55)]"
           >
             {t('subtitle')}
           </motion.p>

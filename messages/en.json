@@ -150,19 +150,19 @@
     "badgeSub": "Based on 240+ Google Reviews",
     "reviews": [
       {
-        "text": "Julio and his team were fantastic! They arrived exactly on time, were incredibly respectful of our home, and cleared our entire basement in under two hours. Highly recommend!",
-        "author": "Sarah Mitchell",
-        "role": "Homeowner"
+        "text": "Reached out to Julio about removing some cinder blocks and he quoted me the best price, he arrived a little late but it is Saturday traffic, no worries. Him and his team worked fast and did a great job. Thank you Julio",
+        "author": "Tim Phan"
       },
       {
-        "text": "As a property manager, I need reliable vendors. Julio Junk is my go-to for every cleanout. They are efficient, professional, and their pricing is always fair. Five stars every time.",
-        "author": "James Davis",
-        "role": "Property Manager"
+        "text": "We had 4 guys who dismantled a huge oak entertainment center. They hauled everything away and cleaned up everything. Very nice guys and did a great job.",
+        "author": "Martha Landry"
       },
       {
-        "text": "Needed a massive pile of yard waste and old construction debris removed. They gave me a quote over the phone and were here within 4 hours. Exceptional service!",
-        "author": "Robert King",
-        "role": "General Contractor"
+        "text": "Julio did an amazing job cleaning my house. He was professional, hardworking, and very efficient. Great attitude, respectful, and went above and beyond. Hands down the best junk removal company—highly recommended!",
+        "author": "Rodel Jeson"
+      },{
+        "text": "Fast to respond, very reasonable with price. True to same day pick up. Constantly communicating with me on time he would arrive. Very friendly, polite, clean. I do 100% recommend and definitely call back for more removal when needed",
+        "author": "Martha Sandoval" 
       }
     ]
   },
@@ -388,7 +388,7 @@
       "subtext": "We come to you — no need to haul anything yourself. Book online or give us a call.",
       "serviceAreaLabel": "Service Area",
       "hoursLabel": "Hours",
-      "phoneLabel": "Phone",
+      "phoneLabel": "Phone",  
       "getDirections": "Get Directions",
       "serving": "Serving {city} & Beyond"
     }

@@ -15,31 +15,30 @@ function StarRating() {
   );
 }
 
-type Review = { text: string; author: string; role: string };
+type Review = { text: string; author: string };
 
 function ReviewCard({ review }: { review: Review }) {
   const initials = (name: string) =>
     name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase();
 
   return (
-    <article className="bg-white text-on-surface p-7 rounded-2xl shadow-card flex-shrink-0 w-[340px] md:w-[380px] space-y-5 border border-outline-variant/20">
-      <StarRating />
-      <blockquote>
-        <p className="text-body-md font-body text-on-surface-variant leading-relaxed">
-          &ldquo;{review.text}&rdquo;
-        </p>
-      </blockquote>
-      <footer className="flex items-center gap-4 border-t border-outline-variant/30 pt-4">
+    <article className="bg-white text-on-surface p-7 rounded-2xl shadow-card flex-shrink-0 w-[340px] md:w-[380px] flex flex-col justify-between gap-5 border border-outline-variant/20">
+      <div className="space-y-4">
+        <StarRating />
+        <blockquote>
+          <p className="text-body-md font-body text-on-surface-variant leading-relaxed">
+            &ldquo;{review.text}&rdquo;
+          </p>
+        </blockquote>
+      </div>
+      <footer className="flex items-center gap-3 border-t border-outline-variant/30 pt-4">
         <div
-          className="w-11 h-11 bg-primary rounded-full flex items-center justify-center text-white font-headline font-bold text-sm shrink-0"
+          className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-headline font-bold text-sm shrink-0"
           aria-hidden="true"
         >
           {initials(review.author)}
         </div>
-        <div>
-          <cite className="font-headline font-bold not-italic text-on-surface">{review.author}</cite>
-          <p className="text-xs text-on-surface-variant uppercase tracking-widest mt-0.5">{review.role}</p>
-        </div>
+        <cite className="font-headline font-bold not-italic text-on-surface">{review.author}</cite>
       </footer>
     </article>
   );

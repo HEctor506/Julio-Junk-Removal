@@ -20,8 +20,7 @@ function FAQItem({ q, a, isOpen, onToggle, index }: {
       } bg-white`}
     >
       <button
-        onClick={onToggle}
-        aria-expanded={isOpen}
+        onClick={onToggle}  
         className="flex justify-between items-center w-full p-6 text-left group"
       >
         <h3 className={`font-headline font-bold pr-4 transition-colors duration-200 ${isOpen ? 'text-primary' : 'text-on-surface group-hover:text-primary'}`}>
@@ -65,7 +64,7 @@ export default function FAQ() {
   const t = useTranslations('faq');
   const rawItems = t.raw('items');
   const items: { q: string; a: string }[] = Array.isArray(rawItems) ? rawItems : [];
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section id="faq" className="section-padding bg-surface-container-low" aria-labelledby="faq-heading">

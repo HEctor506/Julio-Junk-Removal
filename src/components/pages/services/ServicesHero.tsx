@@ -10,7 +10,7 @@ export default function ServicesHero() {
 
   return (
     <section
-      className="relative min-h-[55vh] flex items-center pt-[104px] md:pt-[120px] pb-24 overflow-hidden"
+      className="relative min-h-[55vh] flex items-center pt-[150px] md:pt-[160px] pb-24 overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #013e37 0%, #015748 100%)' }}
     >
       <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(rgba(136,222,177,0.08) 1px, transparent 0)', backgroundSize: '36px 36px' }} aria-hidden="true" />

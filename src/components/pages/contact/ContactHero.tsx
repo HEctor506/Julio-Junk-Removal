@@ -8,7 +8,7 @@ export default function ContactHero() {
 
   return (
     <section
-      className="relative min-h-[40vh] flex items-center pt-[104px] md:pt-[120px] pb-16 overflow-hidden"
+      className="relative min-h-[40vh] flex items-center pt-[150px] md:pt-[160px] pb-16 overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #013e37 0%, #015748 100%)' }}
     >
       <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 0)', backgroundSize: '36px 36px' }} aria-hidden="true" />

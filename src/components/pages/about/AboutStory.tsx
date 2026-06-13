@@ -21,7 +21,7 @@ export default function AboutStory() {
               className="relative"
             >
               <img
-                src=""
+                src="/images/scene3.jpeg"
                 alt="Julio Junk Removal team"
                 className="rounded-2xl shadow-xl w-full object-cover h-[500px]"
                 loading="lazy"

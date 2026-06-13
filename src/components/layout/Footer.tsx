@@ -46,11 +46,11 @@ export default async function Footer() {
           <div className="space-y-5">
             <Link href="/" className="flex items-center gap-2 group" aria-label="Julio Junk Removal — Home">
               <Image
-                src="/images/logo-dark.png"
+                src="/images/Horizontal-02.png"
                 alt=""
                 width={140}
                 height={44}
-                className="h-[210px] w-auto brightness-0 invert"
+                className="h-[90px] w-auto brightness-0 invert"
               />
             </Link>
 
@@ -183,7 +183,7 @@ export default async function Footer() {
             {/* Mini map */}
             <div className="rounded-xl overflow-hidden border border-white/10 h-28">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3022.215151767!2d-74.00594!3d40.71278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1700000000000"
+                src="https://maps.google.com/maps?q=Julio+Junk+removal&z=15&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
