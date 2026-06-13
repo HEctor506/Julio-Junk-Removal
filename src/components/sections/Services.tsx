@@ -69,14 +69,14 @@ function ServiceIcon({ serviceKey }: { serviceKey: ServiceKey }) {
   return <>{icons[serviceKey]}</>;
 }
 
-function ServiceCard({ serviceKey, data, index }: { serviceKey: ServiceKey; data: ServiceItemData; index: number }) {
+function ServiceCard({ serviceKey, data, index, className = '' }: { serviceKey: ServiceKey; data: ServiceItemData; index: number; className?: string }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: (index % 4) * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      className="group bg-white/[0.05] rounded-2xl overflow-hidden flex flex-col border border-white/[0.07] hover:border-white/[0.14] transition-colors duration-300"
+      className={`group bg-white/[0.05] rounded-2xl overflow-hidden flex flex-col border border-white/[0.07] hover:border-white/[0.14] transition-colors duration-300 ${className}`}
     >
       {/* Image — zoom on hover via CSS group */}
       <div className="overflow-hidden h-48 shrink-0">
@@ -143,17 +143,68 @@ export default function Services() {
           </p>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/*
+          MOBILE (<sm): flex row con overflow-x-auto + snap — carrusel horizontal sin scrollbar visible.
+            -mx-4 px-4 extiende el área de scroll hasta los bordes del viewport.
+          DESKTOP (sm+): las clases sm: convierten el flex en grid 2-col → 4-col en lg.
+        */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 -mx-4 px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:snap-none sm:pb-0">
           {SERVICE_KEYS.map((key, i) => (
+            // MOBILE: shrink-0 + w-[80vw] + snap-start fijan el card como slide del carrusel
             <ServiceCard
               key={key}
               serviceKey={key}
               data={getItem(key)}
               index={i}
+              className="shrink-0 w-[80vw] snap-start sm:w-auto sm:shrink"
             />
           ))}
         </div>
+
+        {/* CTA Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-[100px] relative overflow-hidden rounded-2xl border border-secondary-container/20 bg-gradient-to-br from-primary-container via-primary to-[#011f1b] p-7 md:p-9 flex flex-col sm:flex-row items-center gap-6 group"
+        >
+          {/* Ambient glow top-left */}
+          <div className="pointer-events-none absolute -top-16 -left-16 w-64 h-64 rounded-full bg-secondary-container/10 blur-3xl" />
+          {/* Top accent line */}
+          <div className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary-container/50 to-transparent" />
+
+          {/* Icon */}
+          <div className="shrink-0 w-16 h-16 rounded-full bg-secondary-container/15 border border-secondary-container/25 flex items-center justify-center text-secondary-container shadow-glow-mint/30">
+            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="1" y="3" width="15" height="13" rx="1" />
+              <path d="M16 8h4l3 4v4h-7V8z" />
+              <circle cx="5.5" cy="18.5" r="2.5" />
+              <circle cx="18.5" cy="18.5" r="2.5" />
+            </svg>
+          </div>
+
+          {/* Text */}
+          <div className="flex-1 text-center sm:text-left">
+            <h3 className="text-white font-headline font-bold text-headline-md leading-snug">
+              {t('ctaCard.title')}
+            </h3>
+            <p className="text-white/55 text-body-md font-body mt-1.5">
+              {t('ctaCard.desc')}
+            </p>
+          </div>
+
+          {/* Arrow button → /contact */}
+          <Link
+            href="/contact"
+            aria-label={t('ctaCard.cta')}
+            className="shrink-0 w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary transition-all duration-300 hover:scale-110 hover:shadow-glow-mint group-hover:translate-x-0.5"
+          >
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </motion.div>
 
       </div>
     </section>

@@ -19,7 +19,6 @@ export default function HomePage() {
       <Nav />
       <main>
         <Hero />
-        <TrustBar />
         <Suspense>
           <Services />
           <WhyChooseUs />

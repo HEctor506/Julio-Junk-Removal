@@ -5,7 +5,9 @@
     "description": "Fast & affordable junk removal in {city}. Free estimates, licensed & insured. Furniture, appliances, construction debris and more. Call now!"
   },
   "banner": {
-    "message": "Moving soon? Let us handle the junk before the big day."
+    "message1": "Eco-Certified Haulers",
+    "message2": "Available 7 Days a Week",
+    "message3": "Licensed & Insured"
   },
   "nav": {
     "brand": "JULIO JUNK",
@@ -22,20 +24,14 @@
     "badge": "#1 RATED REMOVAL SERVICE",
     "h1Line1": "Fast & Affordable",
     "h1Line2": "Junk Removal",
-    "subtitle": "Same-day junk removal for homes, businesses, and construction projects. We lift, load, and haul so you don't have to.",
-    "ctaPrimary": "Get Free Estimate",
-    "ctaSecondary": "Call Now",
-    "trust1": "500+ Happy Clients",
-    "trust2": "Eco-Certified Haulers",
-    "trust3": "Available 7 Days a Week"
+    "subtitle": "Same-day junk removal for homes, businesses, and job sites. We haul it all.",
+    "ctaPrimary": "Get Estimate",
+    "ctaSecondary": "Call Now"
+  
   },
   "trustBar": {
-    "stat1Value": "2,000+",
-    "stat1Label": "Jobs Completed",
     "stat2Value": "98%",
     "stat2Label": "Satisfaction Rate",
-    "stat3Value": "10+",
-    "stat3Label": "Years Experience",
     "stat4Value": "Licensed",
     "stat4Label": "& Insured"
   },
@@ -43,6 +39,11 @@
     "eyebrow": "What We Offer",
     "h2": "Comprehensive Removal Services",
     "subtitle": "No job is too big or small. From single items to full property cleanouts.",
+    "ctaCard": {
+      "title": "Not sure which service you need?",
+      "desc": "Contact us and we'll help you find the perfect solution for your needs.",
+      "cta": "Get Free Advice"
+    },
     "items": {
       "residential": {
         "h3": "Residential Junk Removal",
@@ -182,18 +183,6 @@
       {
         "q": "Do you offer same-day service?",
         "a": "Yes! We offer same-day service based on availability. Book before noon and we can be there before dusk. Call to confirm availability."
-      },
-      {
-        "q": "Are you licensed and insured?",
-        "a": "Absolutely. Julio Junk Removal is fully licensed and insured. Your property is protected throughout the entire removal process."
-      },
-      {
-        "q": "Do you work on weekends?",
-        "a": "Yes! We operate 7 days a week, including weekends and most holidays. Call to schedule at your convenience."
-      },
-      {
-        "q": "How long does the service take?",
-        "a": "Most residential jobs are completed in 1–2 hours. Larger cleanouts or commercial jobs may take longer. We'll give you a time estimate when you schedule."
       }
     ]
   },

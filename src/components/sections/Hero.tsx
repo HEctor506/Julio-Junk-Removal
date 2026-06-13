@@ -10,7 +10,7 @@ import { Link } from '@/navigation';
 const MotionImage = motion.create(Image);
 
 const SLIDES = [
-  { src: '/images/camion.jpg' },
+  { src: '/images/Camionete-julio-mejorada.png' },
   { src: '/images/scene12.jpeg' },
   { src: '/images/image19.jpeg' },
 ];
@@ -32,7 +32,7 @@ export default function Hero() {
     <section
       id="home"
       aria-label="Hero"
-      className="relative min-h-[90svh] flex items-center pt-[150px] md:pt-[160px] pb-24 overflow-hidden"
+      className="relative min-h-svh flex items-center pt-[150px] md:pt-[160px] pb-24 overflow-hidden"
     >
       {/* ── Ken Burns background ── */}
       <div aria-hidden="true" className="absolute inset-0 -z-10">
@@ -51,7 +51,8 @@ export default function Hero() {
               fill
               priority={current === 0}
               sizes="100vw"
-              className="object-cover grayscale opacity-60"
+              //cambiando el opacity se cambia la difuminacion de las imagenes
+              className="object-cover grayscale opacity-25"
               initial={{ scale: 1 }}
               animate={{ scale: 1.11 }}
               transition={{ duration: AUTOPLAY_INTERVAL / 1000, ease: 'linear' }}
@@ -152,7 +153,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Trust indicators */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -162,7 +163,7 @@ export default function Hero() {
             <span className="font-semibold text-sm">♻️ {t('trust2')}</span>
             <span className="hidden sm:block opacity-30">|</span>
             <span className="font-semibold text-sm">📅 {t('trust3')}</span>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

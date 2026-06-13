@@ -1,11 +1,13 @@
 {
   "meta": {
     "title": "Julio Junk Removal | Servicio el Mismo Día en {city}",
-    "titleDefault": "Julio Junk Removal | Retiro de Chatarra Rápido y Económico",
-    "description": "Retiro de chatarra rápido y económico en {city}. Estimados gratis, licenciados y asegurados. Muebles, electrodomésticos, escombros y más. ¡Llama ahora!"
+    "titleDefault": "Julio Junk Removal | Retiro de desechos Rápido y Confiable",
+    "description": "Retiro de desechos rápido y económico en {city}. Estimados licenciados y asegurados. Muebles, electrodomésticos, escombros y más. ¡Llama ahora!"
   },
   "banner": {
-    "message": "¿Mudándote pronto? Nosotros nos encargamos de la chatarra antes del gran día."
+    "message1": "Transportistas Eco-Certificados",
+    "message2": "Disponibles 7 dias a la semana",
+    "message3": "Licenciados y Asegurados"
   },
   "nav": {
     "brand": "JULIO JUNK",
@@ -20,14 +22,11 @@
   },
   "hero": {
     "badge": "SERVICIO #1 EN LA ZONA",
-    "h1Line1": "Retiro de Chatarra",
-    "h1Line2": "Rápido y Económico",
-    "subtitle": "Retiro de chatarra el mismo día para casas, negocios y obras de construcción. Nosotros levantamos, cargamos y llevamos para que tú no tengas que hacerlo.",
-    "ctaPrimary": "Obtener Estimado Gratis",
-    "ctaSecondary": "Llamar Ahora",
-    "trust1": "500+ Clientes Satisfechos",
-    "trust2": "Transportistas Eco-Certificados",
-    "trust3": "Disponibles 7 Días a la Semana"
+    "h1Line1": "Retiro Sin Complicaciones",
+    "h1Line2": "Rápido y Confiable",
+    "subtitle": "Retiro el mismo día de objetos no deseados para hogares, negocios y obras. Nosotros cargamos y retiramos todo.",
+    "ctaPrimary": "Obtener Estimado",
+    "ctaSecondary": "Llamar Ahora"
   },
   "trustBar": {
     "stat1Value": "2,000+",
@@ -43,6 +42,11 @@
     "eyebrow": "Lo Que Ofrecemos",
     "h2": "Servicios Completos de Retiro",
     "subtitle": "Ningún trabajo es muy grande o pequeño. Desde artículos individuales hasta limpiezas completas de propiedad.",
+    "ctaCard": {
+      "title": "¿No estás seguro qué servicio necesitas?",
+      "desc": "Contáctanos y te ayudaremos a encontrar la solución perfecta para ti.",
+      "cta": "Obtener Asesoría Gratuita"
+    },
     "items": {
       "residential": {
         "h3": "Retiro Residencial",
@@ -182,18 +186,6 @@
       {
         "q": "¿Ofrecen servicio el mismo día?",
         "a": "¡Sí! Ofrecemos servicio el mismo día cuando hay disponibilidad. Reserva antes del mediodía y podemos llegar antes del anochecer. Llama para confirmar disponibilidad."
-      },
-      {
-        "q": "¿Están licenciados y asegurados?",
-        "a": "Absolutamente. Julio Junk Removal está completamente licenciado y asegurado. Tu propiedad está protegida durante todo el proceso de retiro."
-      },
-      {
-        "q": "¿Atienden fines de semana?",
-        "a": "¡Sí! Operamos los 7 días de la semana, incluyendo fines de semana y la mayoría de los días festivos. Llama para programar cuando sea conveniente para ti."
-      },
-      {
-        "q": "¿Cuánto tiempo tarda el servicio?",
-        "a": "La mayoría de los trabajos residenciales se completan en 1–2 horas. Las limpiezas más grandes o trabajos comerciales pueden tomar más tiempo. Te daremos una estimación de tiempo cuando programes."
       }
     ]
   },

@@ -12,7 +12,9 @@ function Separator() {
 
 export default function Banner() {
   const t = useTranslations('banner');
-  const MESSAGE = t('message');
+  const MESSAGE1 = t('message1');
+  const MESSAGE2 = t('message2');
+  const MESSAGE3 = t('message3');
   return (
     <div
       className="w-full overflow-hidden bg-secondary-container border-t border-white/10"
@@ -23,10 +25,15 @@ export default function Banner() {
         {Array.from({ length: REPEATS }).map((_, i) => (
           <span
             key={i}
-            className="flex items-center shrink-0 text-label-bold font-headline font-bold text-primary-container' tracking-widest uppercase whitespace-nowrap"
+            className="flex items-center shrink-0 gap-[0px] text-label-bold font-headline font-bold text-primary-container' tracking-widest uppercase whitespace-nowrap"
           >
-            {MESSAGE}
             <Separator />
+            <span>{MESSAGE1}</span>
+            <Separator />
+            <span>{MESSAGE2}</span>
+            <Separator />
+            <span>{MESSAGE3}</span>
+
           </span>
         ))}
       </div>
