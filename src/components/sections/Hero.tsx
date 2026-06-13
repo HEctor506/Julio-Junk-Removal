@@ -158,8 +158,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="flex flex-wrap gap-6 pt-4 text-white"
           >
-            <span className="font-semibold text-sm">⭐ {t('trust1')}</span>
-            <span className="hidden sm:block opacity-30">|</span>
+
             <span className="font-semibold text-sm">♻️ {t('trust2')}</span>
             <span className="hidden sm:block opacity-30">|</span>
             <span className="font-semibold text-sm">📅 {t('trust3')}</span>
