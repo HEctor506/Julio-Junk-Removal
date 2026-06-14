@@ -93,7 +93,7 @@
   "about": {
     "eyebrow": "Por Qué Nosotros",
     "h2": "¿Por Qué Elegir Julio Junk Removal?",
-    "paragraph": "Entendemos que la chatarra se acumula, pero retirarla no debería ser un dolor de cabeza. Julio Junk ofrece una experiencia de retiro premium, sin preocupaciones.",
+    "paragraph": "Entendemos que la desecho se acumula, pero retirarla no debería ser un dolor de cabeza. Julio Junk ofrece una experiencia de retiro premium, sin preocupaciones.",
     "benefits": [
       { "title": "Servicio el Mismo Día", "copy": "Reserva antes del mediodía, listo antes del anochecer." },
 
@@ -159,7 +159,7 @@
         "author": "Martha Landry"
       },
       {
-        "text": "Julio hizo un trabajo increíble limpiando mi casa. Fue profesional, dedicado y muy eficiente. Excelente actitud, respetuoso y fue más allá de lo esperado. Sin duda la mejor empresa de retiro de chatarra. ¡Altamente recomendado!",
+        "text": "Julio hizo un trabajo increíble limpiando mi casa. Fue profesional, dedicado y muy eficiente. Excelente actitud, respetuoso y fue más allá de lo esperado. Sin duda la mejor empresa de retiro de desecho. ¡Altamente recomendado!",
         "author": "Rodel Jeson"
       },
       {
@@ -174,10 +174,10 @@
     "items": [
       {
         "q": "¿Cómo cobran el servicio de retiro?",
-        "a": "Cobramos según el volumen que ocupa tu chatarra en nuestro camión. El precio incluye mano de obra, transporte y costos de desecho. Ofrecemos estimados gratuitos y sin obligación en el lugar."
+        "a": "Cobramos según el volumen que ocupa tu desecho en nuestro camión. El precio incluye mano de obra, transporte y costos de desecho. Ofrecemos estimados gratuitos y sin obligación en el lugar."
       },
       {
-        "q": "¿Qué pasa con mi chatarra después de retirarla?",
+        "q": "¿Qué pasa con mi desecho después de retirarla?",
         "a": "Estamos comprometidos con prácticas eco-amigables. Clasificamos todo lo que retiramos — donamos los artículos utilizables a organizaciones benéficas locales y reciclamos tanto como sea posible."
       },
       {
@@ -188,7 +188,7 @@
   },
   "finalCta": {
     "h2": "¿Listo para Recuperar Tu Espacio Hoy?",
-    "paragraph": "Obtén un estimado gratuito en minutos. Sin presión, solo un servicio profesional de retiro de chatarra a tu puerta.",
+    "paragraph": "Obtén un estimado gratuito en minutos. Sin presión, solo un servicio profesional de retiro de desecho a tu puerta.",
     "ctaPrimary": "Obtener Mi Estimado Gratis",
     "ctaSecondary": "{phone}",
     "note": "También disponible por WhatsApp · Respuesta en menos de 1 hora"
@@ -208,7 +208,7 @@
     }
   },
   "footer": {
-    "tagline": "Servicios premium de retiro de chatarra para propiedades residenciales y comerciales. Hacemos que ordenar sea sin esfuerzo.",
+    "tagline": "Servicios premium de retiro de desecho para propiedades residenciales y comerciales. Hacemos que ordenar sea sin esfuerzo.",
     "linksTitle": "Enlaces",
     "servicesTitle": "Servicios",
     "contactTitle": "Contáctanos",
@@ -344,13 +344,13 @@
       "badge": "NUESTRA HISTORIA",
       "h1Prefix": "Sobre",
       "h1Highlight": "Julio Junk",
-      "subtitle": "Un negocio familiar de retiro de chatarra construido sobre el trabajo duro, la honestidad y el compromiso de dejar cada espacio más limpio de como lo encontramos."
+      "subtitle": "Un negocio familiar de retiro de desecho construido sobre el trabajo duro, la honestidad y el compromiso de dejar cada espacio más limpio de como lo encontramos."
     },
     "story": {
       "eyebrow": "Quiénes Somos",
       "h2": "Retiro de Chatarra Premium en el que Puedes Confiar",
       "p1": "Julio Junk Removal fue fundado con una misión simple: hacer que ordenar sea fácil para propietarios y negocios. Lo que comenzó como una operación de un camión creció hasta convertirse en un servicio local de confianza con cientos de clientes satisfechos.",
-      "p2": "Creemos que el retiro de chatarra no debería ser estresante. Desde el momento en que llamas hasta el momento en que barremos después de nosotros, nuestro equipo ofrece una experiencia premium y sin preocupaciones cada vez.",
+      "p2": "Creemos que el retiro de desecho no debería ser estresante. Desde el momento en que llamas hasta el momento en que barremos después de nosotros, nuestro equipo ofrece una experiencia premium y sin preocupaciones cada vez.",
       "bullets": ["Completamente licenciados y asegurados", "Servicio el mismo día disponible", "Prácticas de desecho eco-amigables", "Operación 7 días a la semana"],
       "badge1": "Licenciados",
       "badge2": "y Completamente Asegurados"
