@@ -2,6 +2,20 @@
 
 Sitio web para el cliente **Julio Junk Removal**, negocio de retiro de chatarra. Objetivo principal: convertir visitas en llamadas. SEO local es crítico.
 
+## 📋 Registro de sesiones — DEVLOG.md
+
+**Ninguna sesión se considera terminada hasta actualizar `DEVLOG.md`.**
+
+Al cerrar cada requerimiento, agregar una entrada en `DEVLOG.md` con:
+- Fecha y número de sesión
+- Resumen de qué se hizo
+- IA utilizada (Claude / Codex)
+- Cambios técnicos clave (decisiones, antes/después, patrones)
+- Archivos modificados
+- Problemas encontrados y cómo se resolvieron
+- Pendientes
+- Commit relacionado
+
 ## ⚠️ Fuente de verdad visual
 
 Antes de hacer cualquier cambio visual (colores, tipografía, espaciado, componentes, animaciones), leer obligatoriamente:

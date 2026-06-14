@@ -28,7 +28,7 @@ No debe tomar decisiones de arquitectura ni iniciar refactors grandes.
 
 ## Actualización de sesiones
 
-Al terminar cada requerimiento actualizar `project_log.md` agregando:
+Al terminar cada requerimiento actualizar `DEVLOG.md` agregando:
 
 - Fecha
 - Objetivo
@@ -42,7 +42,7 @@ Al terminar cada requerimiento actualizar `project_log.md` agregando:
 
 Regla final:
 
-Ninguna sesión se considera terminada hasta actualizar `project_log.md`.
+Ninguna sesión se considera terminada hasta actualizar `DEVLOG.md`.
 
 Mantener el log corto, técnico y acumulativo.
 
@@ -1015,6 +1015,145 @@ El `tsconfig.json` incluye `"**/*.ts"` en `include`, por lo que este archivo se 
 src/app/favicon.ico              ← NUEVO (70 bytes, placeholder brand-colored)
 src/app/[locale]/layout.tsx      ← import '../globals.css' (ruta corregida)
 src/types.d.ts                   ← NUEVO (declare module '*.css')
+```
+
+### Commit relacionado
+- Pendiente.
+
+---
+
+## Sesión 11 — 2026-06-13
+
+### Resumen
+Mejoras a la versión mobile: carruseles horizontales en Services, HowItWorks y Pricing; 3D cards en Pricing con card popular centrada al cargar; fix de padding en FinalCTA; correcciones en Hero (line break h1, subtitle responsive); Google Maps con place ID en lugar de coordenadas; AboutMap sin mapa en mobile.
+
+### IA utilizada
+Claude.
+
+---
+
+### Patrón carrusel horizontal (mobile-only)
+
+Patrón reutilizable establecido. Convierte cualquier grid vertical en carrusel sin librerías:
+
+```tsx
+// MOBILE: carrusel — DESKTOP: grid normal
+<div className="
+  grid grid-flow-col auto-cols-[82vw] overflow-x-auto overscroll-x-contain
+  gap-4 pb-3 -mx-4 px-4
+  [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+  sm:grid-flow-row sm:auto-cols-auto sm:grid-cols-2 lg:grid-cols-4
+  sm:overflow-visible sm:gap-5 sm:pb-0 sm:mx-0 sm:px-0
+">
+```
+
+- `overscroll-x-contain` — evita scroll chaining sin bloquear scroll vertical de la página
+- Animaciones Framer Motion en carrusel: **solo `opacity`**, nunca `y` (causa saltos al scroll horizontal)
+
+**Tamaños usados:**
+
+| Sección | `auto-cols` | Breakpoint desktop |
+|---------|-------------|-------------------|
+| Services | `[82vw]` | `sm:` |
+| HowItWorks | `[65vw]` | `md:` |
+| Pricing | `[77vw]` | `md:` |
+
+---
+
+### Pricing — 3D cards + card popular centrada en mobile
+
+#### 3D card effect
+
+```tsx
+// Card popular
+'bg-gradient-to-br from-secondary-container/[0.18] to-secondary-container/[0.04] border border-secondary-container/50 [box-shadow:0_0_0_1px_rgba(136,222,177,0.25),0_2px_0_rgba(136,222,177,0.15)_inset,0_12px_28px_rgba(0,0,0,0.55),0_32px_80px_rgba(136,222,177,0.18)]'
+
+// Card regular
+'bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/[0.1] [box-shadow:0_0_0_1px_rgba(255,255,255,0.06),0_2px_0_rgba(255,255,255,0.08)_inset,0_12px_28px_rgba(0,0,0,0.45),0_32px_64px_rgba(0,0,0,0.4)]'
+```
+
+Overlay interior en cada card:
+```tsx
+<div className="pointer-events-none absolute inset-0 rounded-2xl overflow-hidden" aria-hidden="true">
+  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-secondary-container/60 to-transparent" />
+  <div className="absolute inset-0 bg-gradient-to-b from-white/[0.07] via-transparent to-black/[0.06]" />
+</div>
+```
+
+#### Centrar card popular en mobile al cargar
+
+```tsx
+const carouselRef = useRef<HTMLDivElement>(null);
+
+useEffect(() => {
+  const el = carouselRef.current;
+  if (!el || window.innerWidth >= 768) return; // solo mobile
+  requestAnimationFrame(() => {
+    const firstCard = el.firstElementChild as HTMLElement | null;
+    if (!firstCard) return;
+    const cardWidth = firstCard.offsetWidth;
+    const gap = parseFloat(getComputedStyle(el).columnGap) || 24;
+    const paddingLeft = parseFloat(getComputedStyle(el).paddingLeft) || 0;
+    // Centra la segunda card (índice 1 = "popular")
+    el.scrollLeft = paddingLeft + cardWidth + gap - (el.offsetWidth - cardWidth) / 2;
+  });
+}, []);
+```
+
+`requestAnimationFrame` es obligatorio — lee dimensiones reales post-paint. Incluir `paddingLeft` en la fórmula o el scroll queda desplazado.
+
+---
+
+### FinalCTA — fix padding mobile
+
+```tsx
+// ANTES (bug): p-1 md:p-2  ← casi sin padding, se veía aplastado
+// AHORA:       p-8 md:p-16
+```
+
+---
+
+### Hero — correcciones mobile
+
+**Line break h1:** `<br className="hidden md:block" />` → `<br />` — en mobile las dos líneas se pegaban.
+
+**Subtitle responsive:** `text-[22px]` → `text-[16px] md:text-[22px]`
+
+**Imágenes:** `object-cover object-center` con `fill` — llenan el hero en todas las pantallas.
+
+---
+
+### Google Maps — patrón correcto
+
+- **MAL:** `?q=33.835649,-118.0405815&output=embed` — pin genérico sin nombre del negocio
+- **BIEN:** `maps/embed?pb=...!1s[FID]!2s[Business+Name]...` — listing oficial
+
+Place FID del negocio: `0x9adc18a1f99ef51:0x729536e5212a192a`
+
+---
+
+### AboutMap — sin mapa en mobile
+
+Iframe `hidden lg:block` — solo desktop. En mobile el botón "Get Directions" del panel es suficiente. No agregar placeholder tappable adicional (se ve feo).
+
+### Footer — "Get Directions" link
+
+Agregado debajo del mini mapa, apunta al listing oficial de Google Maps. Claves i18n: `footer.getDirections`.
+
+---
+
+### Archivos modificados
+```
+src/components/sections/Services.tsx      ← carrusel mobile
+src/components/sections/HowItWorks.tsx    ← carrusel mobile
+src/components/sections/Pricing.tsx       ← carrusel mobile + 3D cards + centrado popular
+src/components/sections/FinalCTA.tsx      ← padding fix (p-1 → p-8)
+src/components/sections/Hero.tsx          ← br fix + subtitle responsive + object-cover
+src/components/pages/about/AboutMap.tsx   ← embed pb= URL + iframe solo desktop
+src/components/layout/Footer.tsx          ← embed pb= URL + Get Directions link
+messages/en.json                          ← footer.getDirections
+messages/es.json                          ← footer.getDirections
+DEVLOG.md                                 ← ACTUALIZADO
 ```
 
 ### Commit relacionado

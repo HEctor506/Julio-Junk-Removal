@@ -119,7 +119,7 @@ export default function Services() {
   const getItem = (key: ServiceKey): ServiceItemData => t.raw(`items.${key}`) as ServiceItemData;
 
   return (
-    <section id="services" className="py-20 md:py-[120px] bg-on-surface" aria-labelledby="services-heading">
+    <section id="services" className="py-[65px] md:py-[90px] bg-on-surface" aria-labelledby="services-heading">
       <div className="max-w-container mx-auto px-4 md:px-10">
 
         {/* Header — two column */}

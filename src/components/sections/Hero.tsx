@@ -32,7 +32,7 @@ export default function Hero() {
     <section
       id="home"
       aria-label="Hero"
-      className="relative min-h-svh flex items-center pt-[150px] md:pt-[160px] pb-24 overflow-hidden"
+      className="relative min-h-[0px] md:min-h-svh flex items-center pt-[120px] md:pt-[10px] pb-16 md:pb-16 overflow-hidden"
     >
       {/* ── Ken Burns background ── */}
       <div aria-hidden="true" className="absolute inset-0 -z-10">
@@ -52,7 +52,7 @@ export default function Hero() {
               priority={current === 0}
               sizes="100vw"
               //cambiando el opacity se cambia la difuminacion de las imagenes
-              className="object-cover object-center grayscale opacity-25"
+              className="object-cover object-center grayscale opacity-50"
               initial={{ scale: 1 }}
               animate={{ scale: 1.08 }}
               transition={{ duration: AUTOPLAY_INTERVAL / 1000, ease: 'linear' }}
@@ -88,7 +88,7 @@ export default function Hero() {
 
       {/* ── Content ── */}
       <div className="max-w-container mx-auto px-4 md:px-10 w-full relative z-10">
-        <div className="max-w-3xl space-y-8">
+        <div className="max-w-3xl space-y-4 md:space-y-8">
 
           {/* Badge */}
           <motion.div
@@ -130,11 +130,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 pt-2"
+            className="flex flex-col sm:flex-row gap-4 pt-2 items-start"
           >
             <Link
               href="/contact"
-              className="btn-shimmer px-8 py-5 shadow-xl hover:brightness-110 active:scale-95 transition-transform flex items-center justify-center gap-3"
+              className="btn-shimmer px-11 py-3 md:px-8 md:py-5 shadow-xl hover:brightness-110 active:scale-95 transition-transform flex items-center justify-center gap-3"
             >
               {t('ctaPrimary')}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,7 +143,7 @@ export default function Hero() {
             </Link>
             <Link
               href={siteConfig.phoneHref}
-              className="bg-white/15 border-2 border-white/30 text-white px-8 py-5 rounded-full font-headline font-bold shadow-xl hover:bg-white/25 active:scale-95 transition-all flex items-center justify-center gap-3 backdrop-blur-sm"
+              className="bg-white/15 border-2 border-white/30 text-white px-16 py-3 rounded-full font-headline font-bold shadow-xl hover:bg-white/25 active:scale-95 transition-all flex items-center justify-center gap-3 backdrop-blur-sm"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28l1.5 4.5-2.3 1.1a11 11 0 005.5 5.5l1.1-2.3 4.5 1.5V19a2 2 0 01-2 2h-1C9.7 21 3 14.3 3 6V5z" />
