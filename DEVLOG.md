@@ -1851,3 +1851,26 @@ tailwind.config.ts                   ← (opcional) agregar display-xl
 
 ### Commit relacionado
 - Pendiente (cambios aún no implementados).
+
+## Sesion 12 - 16/06/2026
+
+### Language swicth navegation
+
+Lo que pasa es que `next-intl`  detecta el idioma de tu navegador automáticamente.
+
+Tu navegador tiene el español como idioma principal (Accept-Language: es), entonces el middleware lo detecta y te redirige a /es automáticamente al entrar.
+
+Un visitante con el navegador en inglés verá / (sin prefijo). Tú ves /es porque tu navegador está en español.
+
+Para confirmarlo: abre la URL en modo incógnito o en un navegador con idioma en inglés — verás que carga en / directo.
+
+Si quieres que nadie sea redirigido automáticamente sin importar el idioma del navegador, puedes desactivar esa detección añadiendo una línea:
+
+
+export default createMiddleware({
+  locales: ['en', 'es'],
+  defaultLocale: 'en',
+  localePrefix: 'as-needed',
+  localeDetection: false,  // ← desactiva la detección automática por navegador
+});
+Con eso, todos ven inglés por defecto y solo van a /es si hacen clic en el botón de idioma. Tú decides si eso es lo que quieres.

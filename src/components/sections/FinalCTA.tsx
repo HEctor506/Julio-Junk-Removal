@@ -9,13 +9,13 @@ export default function FinalCTA() {
   const t = useTranslations('finalCta');
 
   return (
-    <section className="pt-20 md:pt-[120px] mb-20 md:mb-[120px] px-4 md:px-10 max-w-6xl mx-auto" aria-label="Call to action">
+    <section className="py-20 md:py-[120px] bg-on-primary" aria-label="Call to action">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="bg-primary-container rounded-3xl p-8 md:p-16 text-center space-y-8 relative overflow-hidden"
+        className="bg-primary-container rounded-3xl p-8 md:p-16 text-center space-y-8 relative overflow-hidden max-w-6xl mx-auto px-4 md:px-10"
       >
         {/* Decorative orbs */}
         <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-secondary-container/15 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
