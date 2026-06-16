@@ -13,10 +13,11 @@ const inter = Inter({
 
 type Props = {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata({ params: { locale } }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'meta' });
   const city = `${siteConfig.city}, ${siteConfig.state}`;
 
@@ -68,7 +69,8 @@ export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'es' }];
 }
 
-export default async function LocaleLayout({ children, params: { locale } }: Props) {
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await params;
   const messages = await getMessages();
 
   const jsonLd = {

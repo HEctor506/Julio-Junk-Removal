@@ -307,6 +307,83 @@ Dos correcciones puntuales: comportamiento accordion en el carousel mobile de Se
 
 ---
 
+## Sesión 12 — 2026-06-15
+
+### Resumen
+Sesión de análisis y planificación de ajustes visuales en desktop: logo del navbar más grande, texto del Hero anclado a la izquierda, y headline más grande. No se aplicaron cambios — el dev los implementará manualmente.
+
+### IA utilizada
+Claude.
+
+---
+
+### Cambios identificados (pendientes de implementar)
+
+#### 1. Navbar — logo más grande en desktop (`src/components/layout/Nav.tsx`)
+
+- **Línea 79:** aumentar alto del contenedor de `h-[100px]` a `h-[120px]` para que el logo tenga espacio vertical.
+- **Línea 96:** el logo ya tiene `h-[190px]` — este valor se puede ajustar según necesidad visual. El contenedor limitaba su tamaño visible.
+
+> Nota: mobile no se toca. El logo mobile está en un bloque separado (`md:hidden`, línea 122) con `h-9 w-auto`.
+
+#### 2. Hero — texto anclado a la izquierda en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 90:** reemplazar `mx-auto` por `md:mx-0` y ajustar padding a `md:pl-20 md:pr-10`.
+
+```tsx
+// ANTES:
+<div className="max-w-container mx-auto px-4 md:px-10 w-full relative z-10">
+
+// DESPUÉS:
+<div className="max-w-container mx-auto md:mx-0 px-4 md:pl-20 md:pr-10 w-full relative z-10">
+```
+
+> Mobile: `mx-auto` y `px-4` siguen activos porque solo se overridea con `md:`.
+
+#### 3. Hero — headline más grande en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 111:** actualmente usa `md:text-display-lg` = 56px (definido en `tailwind.config.ts`).
+- Dos opciones:
+
+**Opción A — agregar tamaño en `tailwind.config.ts`:**
+```ts
+'display-xl': ['72px', { lineHeight: '1.0', letterSpacing: '-0.025em', fontWeight: '700' }],
+```
+Luego en Hero: `md:text-display-xl`
+
+**Opción B — inline rápido:**
+```tsx
+className="text-display-mobile md:text-[68px] md:leading-[1.05] md:tracking-tight ..."
+```
+
+> Mobile: `text-display-mobile` = 32px queda intacto.
+
+---
+
+### Regla documentada: cómo distinguir mobile vs desktop en estos archivos
+
+| Archivo | Patrón mobile | Patrón desktop |
+|---|---|---|
+| Nav.tsx | bloque `md:hidden` (línea 122) | bloque `hidden md:flex` (línea 79) |
+| Hero.tsx | clases sin prefijo / `sm:` | clases con prefijo `md:` |
+
+Todo lo que tenga prefijo `md:` solo aplica en ≥768px. Sin prefijo = mobile first (aplica en todos los tamaños).
+
+---
+
+### Archivos a modificar
+```
+src/components/layout/Nav.tsx        ← h-[100px] → h-[120px] (línea 79)
+src/components/sections/Hero.tsx     ← mx-auto → md:mx-0 + pl-20 (línea 90)
+                                     ← headline size (línea 111)
+tailwind.config.ts                   ← (opcional) agregar display-xl
+```
+
+### Commit relacionado
+- Pendiente (cambios aún no implementados).
+
+---
+
 ## Sesion 04 — 2026-06-12
 
 ### Resumen
@@ -490,6 +567,83 @@ messages/es.json                       ← MODIFICADO (agregada clave nav.review
 
 ---
 
+## Sesión 12 — 2026-06-15
+
+### Resumen
+Sesión de análisis y planificación de ajustes visuales en desktop: logo del navbar más grande, texto del Hero anclado a la izquierda, y headline más grande. No se aplicaron cambios — el dev los implementará manualmente.
+
+### IA utilizada
+Claude.
+
+---
+
+### Cambios identificados (pendientes de implementar)
+
+#### 1. Navbar — logo más grande en desktop (`src/components/layout/Nav.tsx`)
+
+- **Línea 79:** aumentar alto del contenedor de `h-[100px]` a `h-[120px]` para que el logo tenga espacio vertical.
+- **Línea 96:** el logo ya tiene `h-[190px]` — este valor se puede ajustar según necesidad visual. El contenedor limitaba su tamaño visible.
+
+> Nota: mobile no se toca. El logo mobile está en un bloque separado (`md:hidden`, línea 122) con `h-9 w-auto`.
+
+#### 2. Hero — texto anclado a la izquierda en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 90:** reemplazar `mx-auto` por `md:mx-0` y ajustar padding a `md:pl-20 md:pr-10`.
+
+```tsx
+// ANTES:
+<div className="max-w-container mx-auto px-4 md:px-10 w-full relative z-10">
+
+// DESPUÉS:
+<div className="max-w-container mx-auto md:mx-0 px-4 md:pl-20 md:pr-10 w-full relative z-10">
+```
+
+> Mobile: `mx-auto` y `px-4` siguen activos porque solo se overridea con `md:`.
+
+#### 3. Hero — headline más grande en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 111:** actualmente usa `md:text-display-lg` = 56px (definido en `tailwind.config.ts`).
+- Dos opciones:
+
+**Opción A — agregar tamaño en `tailwind.config.ts`:**
+```ts
+'display-xl': ['72px', { lineHeight: '1.0', letterSpacing: '-0.025em', fontWeight: '700' }],
+```
+Luego en Hero: `md:text-display-xl`
+
+**Opción B — inline rápido:**
+```tsx
+className="text-display-mobile md:text-[68px] md:leading-[1.05] md:tracking-tight ..."
+```
+
+> Mobile: `text-display-mobile` = 32px queda intacto.
+
+---
+
+### Regla documentada: cómo distinguir mobile vs desktop en estos archivos
+
+| Archivo | Patrón mobile | Patrón desktop |
+|---|---|---|
+| Nav.tsx | bloque `md:hidden` (línea 122) | bloque `hidden md:flex` (línea 79) |
+| Hero.tsx | clases sin prefijo / `sm:` | clases con prefijo `md:` |
+
+Todo lo que tenga prefijo `md:` solo aplica en ≥768px. Sin prefijo = mobile first (aplica en todos los tamaños).
+
+---
+
+### Archivos a modificar
+```
+src/components/layout/Nav.tsx        ← h-[100px] → h-[120px] (línea 79)
+src/components/sections/Hero.tsx     ← mx-auto → md:mx-0 + pl-20 (línea 90)
+                                     ← headline size (línea 111)
+tailwind.config.ts                   ← (opcional) agregar display-xl
+```
+
+### Commit relacionado
+- Pendiente (cambios aún no implementados).
+
+---
+
 ## Sesion 05 — 2026-06-12
 
 ### Resumen
@@ -634,6 +788,83 @@ DEVLOG.md                               ← ACTUALIZADO
 
 ---
 
+## Sesión 12 — 2026-06-15
+
+### Resumen
+Sesión de análisis y planificación de ajustes visuales en desktop: logo del navbar más grande, texto del Hero anclado a la izquierda, y headline más grande. No se aplicaron cambios — el dev los implementará manualmente.
+
+### IA utilizada
+Claude.
+
+---
+
+### Cambios identificados (pendientes de implementar)
+
+#### 1. Navbar — logo más grande en desktop (`src/components/layout/Nav.tsx`)
+
+- **Línea 79:** aumentar alto del contenedor de `h-[100px]` a `h-[120px]` para que el logo tenga espacio vertical.
+- **Línea 96:** el logo ya tiene `h-[190px]` — este valor se puede ajustar según necesidad visual. El contenedor limitaba su tamaño visible.
+
+> Nota: mobile no se toca. El logo mobile está en un bloque separado (`md:hidden`, línea 122) con `h-9 w-auto`.
+
+#### 2. Hero — texto anclado a la izquierda en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 90:** reemplazar `mx-auto` por `md:mx-0` y ajustar padding a `md:pl-20 md:pr-10`.
+
+```tsx
+// ANTES:
+<div className="max-w-container mx-auto px-4 md:px-10 w-full relative z-10">
+
+// DESPUÉS:
+<div className="max-w-container mx-auto md:mx-0 px-4 md:pl-20 md:pr-10 w-full relative z-10">
+```
+
+> Mobile: `mx-auto` y `px-4` siguen activos porque solo se overridea con `md:`.
+
+#### 3. Hero — headline más grande en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 111:** actualmente usa `md:text-display-lg` = 56px (definido en `tailwind.config.ts`).
+- Dos opciones:
+
+**Opción A — agregar tamaño en `tailwind.config.ts`:**
+```ts
+'display-xl': ['72px', { lineHeight: '1.0', letterSpacing: '-0.025em', fontWeight: '700' }],
+```
+Luego en Hero: `md:text-display-xl`
+
+**Opción B — inline rápido:**
+```tsx
+className="text-display-mobile md:text-[68px] md:leading-[1.05] md:tracking-tight ..."
+```
+
+> Mobile: `text-display-mobile` = 32px queda intacto.
+
+---
+
+### Regla documentada: cómo distinguir mobile vs desktop en estos archivos
+
+| Archivo | Patrón mobile | Patrón desktop |
+|---|---|---|
+| Nav.tsx | bloque `md:hidden` (línea 122) | bloque `hidden md:flex` (línea 79) |
+| Hero.tsx | clases sin prefijo / `sm:` | clases con prefijo `md:` |
+
+Todo lo que tenga prefijo `md:` solo aplica en ≥768px. Sin prefijo = mobile first (aplica en todos los tamaños).
+
+---
+
+### Archivos a modificar
+```
+src/components/layout/Nav.tsx        ← h-[100px] → h-[120px] (línea 79)
+src/components/sections/Hero.tsx     ← mx-auto → md:mx-0 + pl-20 (línea 90)
+                                     ← headline size (línea 111)
+tailwind.config.ts                   ← (opcional) agregar display-xl
+```
+
+### Commit relacionado
+- Pendiente (cambios aún no implementados).
+
+---
+
 ## Sesion 06 — 2026-06-12
 
 ### Cambio puntual: TrustBar stat3 + labels uppercase
@@ -653,6 +884,83 @@ src/components/sections/TrustBar.tsx   CountUp de stat3 simplificado + uppercase
 
 ### Commit relacionado
 - Pendiente.
+
+---
+
+## Sesión 12 — 2026-06-15
+
+### Resumen
+Sesión de análisis y planificación de ajustes visuales en desktop: logo del navbar más grande, texto del Hero anclado a la izquierda, y headline más grande. No se aplicaron cambios — el dev los implementará manualmente.
+
+### IA utilizada
+Claude.
+
+---
+
+### Cambios identificados (pendientes de implementar)
+
+#### 1. Navbar — logo más grande en desktop (`src/components/layout/Nav.tsx`)
+
+- **Línea 79:** aumentar alto del contenedor de `h-[100px]` a `h-[120px]` para que el logo tenga espacio vertical.
+- **Línea 96:** el logo ya tiene `h-[190px]` — este valor se puede ajustar según necesidad visual. El contenedor limitaba su tamaño visible.
+
+> Nota: mobile no se toca. El logo mobile está en un bloque separado (`md:hidden`, línea 122) con `h-9 w-auto`.
+
+#### 2. Hero — texto anclado a la izquierda en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 90:** reemplazar `mx-auto` por `md:mx-0` y ajustar padding a `md:pl-20 md:pr-10`.
+
+```tsx
+// ANTES:
+<div className="max-w-container mx-auto px-4 md:px-10 w-full relative z-10">
+
+// DESPUÉS:
+<div className="max-w-container mx-auto md:mx-0 px-4 md:pl-20 md:pr-10 w-full relative z-10">
+```
+
+> Mobile: `mx-auto` y `px-4` siguen activos porque solo se overridea con `md:`.
+
+#### 3. Hero — headline más grande en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 111:** actualmente usa `md:text-display-lg` = 56px (definido en `tailwind.config.ts`).
+- Dos opciones:
+
+**Opción A — agregar tamaño en `tailwind.config.ts`:**
+```ts
+'display-xl': ['72px', { lineHeight: '1.0', letterSpacing: '-0.025em', fontWeight: '700' }],
+```
+Luego en Hero: `md:text-display-xl`
+
+**Opción B — inline rápido:**
+```tsx
+className="text-display-mobile md:text-[68px] md:leading-[1.05] md:tracking-tight ..."
+```
+
+> Mobile: `text-display-mobile` = 32px queda intacto.
+
+---
+
+### Regla documentada: cómo distinguir mobile vs desktop en estos archivos
+
+| Archivo | Patrón mobile | Patrón desktop |
+|---|---|---|
+| Nav.tsx | bloque `md:hidden` (línea 122) | bloque `hidden md:flex` (línea 79) |
+| Hero.tsx | clases sin prefijo / `sm:` | clases con prefijo `md:` |
+
+Todo lo que tenga prefijo `md:` solo aplica en ≥768px. Sin prefijo = mobile first (aplica en todos los tamaños).
+
+---
+
+### Archivos a modificar
+```
+src/components/layout/Nav.tsx        ← h-[100px] → h-[120px] (línea 79)
+src/components/sections/Hero.tsx     ← mx-auto → md:mx-0 + pl-20 (línea 90)
+                                     ← headline size (línea 111)
+tailwind.config.ts                   ← (opcional) agregar display-xl
+```
+
+### Commit relacionado
+- Pendiente (cambios aún no implementados).
 
 ---
 
@@ -720,6 +1028,83 @@ src/app/globals.css                ← .animate-banner (28s)
 
 ### Commit relacionado
 - Pendiente.
+
+---
+
+## Sesión 12 — 2026-06-15
+
+### Resumen
+Sesión de análisis y planificación de ajustes visuales en desktop: logo del navbar más grande, texto del Hero anclado a la izquierda, y headline más grande. No se aplicaron cambios — el dev los implementará manualmente.
+
+### IA utilizada
+Claude.
+
+---
+
+### Cambios identificados (pendientes de implementar)
+
+#### 1. Navbar — logo más grande en desktop (`src/components/layout/Nav.tsx`)
+
+- **Línea 79:** aumentar alto del contenedor de `h-[100px]` a `h-[120px]` para que el logo tenga espacio vertical.
+- **Línea 96:** el logo ya tiene `h-[190px]` — este valor se puede ajustar según necesidad visual. El contenedor limitaba su tamaño visible.
+
+> Nota: mobile no se toca. El logo mobile está en un bloque separado (`md:hidden`, línea 122) con `h-9 w-auto`.
+
+#### 2. Hero — texto anclado a la izquierda en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 90:** reemplazar `mx-auto` por `md:mx-0` y ajustar padding a `md:pl-20 md:pr-10`.
+
+```tsx
+// ANTES:
+<div className="max-w-container mx-auto px-4 md:px-10 w-full relative z-10">
+
+// DESPUÉS:
+<div className="max-w-container mx-auto md:mx-0 px-4 md:pl-20 md:pr-10 w-full relative z-10">
+```
+
+> Mobile: `mx-auto` y `px-4` siguen activos porque solo se overridea con `md:`.
+
+#### 3. Hero — headline más grande en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 111:** actualmente usa `md:text-display-lg` = 56px (definido en `tailwind.config.ts`).
+- Dos opciones:
+
+**Opción A — agregar tamaño en `tailwind.config.ts`:**
+```ts
+'display-xl': ['72px', { lineHeight: '1.0', letterSpacing: '-0.025em', fontWeight: '700' }],
+```
+Luego en Hero: `md:text-display-xl`
+
+**Opción B — inline rápido:**
+```tsx
+className="text-display-mobile md:text-[68px] md:leading-[1.05] md:tracking-tight ..."
+```
+
+> Mobile: `text-display-mobile` = 32px queda intacto.
+
+---
+
+### Regla documentada: cómo distinguir mobile vs desktop en estos archivos
+
+| Archivo | Patrón mobile | Patrón desktop |
+|---|---|---|
+| Nav.tsx | bloque `md:hidden` (línea 122) | bloque `hidden md:flex` (línea 79) |
+| Hero.tsx | clases sin prefijo / `sm:` | clases con prefijo `md:` |
+
+Todo lo que tenga prefijo `md:` solo aplica en ≥768px. Sin prefijo = mobile first (aplica en todos los tamaños).
+
+---
+
+### Archivos a modificar
+```
+src/components/layout/Nav.tsx        ← h-[100px] → h-[120px] (línea 79)
+src/components/sections/Hero.tsx     ← mx-auto → md:mx-0 + pl-20 (línea 90)
+                                     ← headline size (línea 111)
+tailwind.config.ts                   ← (opcional) agregar display-xl
+```
+
+### Commit relacionado
+- Pendiente (cambios aún no implementados).
 
 ---
 
@@ -867,6 +1252,83 @@ messages/es.json                              ← ctaBlock agregado (ES)
 
 ---
 
+## Sesión 12 — 2026-06-15
+
+### Resumen
+Sesión de análisis y planificación de ajustes visuales en desktop: logo del navbar más grande, texto del Hero anclado a la izquierda, y headline más grande. No se aplicaron cambios — el dev los implementará manualmente.
+
+### IA utilizada
+Claude.
+
+---
+
+### Cambios identificados (pendientes de implementar)
+
+#### 1. Navbar — logo más grande en desktop (`src/components/layout/Nav.tsx`)
+
+- **Línea 79:** aumentar alto del contenedor de `h-[100px]` a `h-[120px]` para que el logo tenga espacio vertical.
+- **Línea 96:** el logo ya tiene `h-[190px]` — este valor se puede ajustar según necesidad visual. El contenedor limitaba su tamaño visible.
+
+> Nota: mobile no se toca. El logo mobile está en un bloque separado (`md:hidden`, línea 122) con `h-9 w-auto`.
+
+#### 2. Hero — texto anclado a la izquierda en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 90:** reemplazar `mx-auto` por `md:mx-0` y ajustar padding a `md:pl-20 md:pr-10`.
+
+```tsx
+// ANTES:
+<div className="max-w-container mx-auto px-4 md:px-10 w-full relative z-10">
+
+// DESPUÉS:
+<div className="max-w-container mx-auto md:mx-0 px-4 md:pl-20 md:pr-10 w-full relative z-10">
+```
+
+> Mobile: `mx-auto` y `px-4` siguen activos porque solo se overridea con `md:`.
+
+#### 3. Hero — headline más grande en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 111:** actualmente usa `md:text-display-lg` = 56px (definido en `tailwind.config.ts`).
+- Dos opciones:
+
+**Opción A — agregar tamaño en `tailwind.config.ts`:**
+```ts
+'display-xl': ['72px', { lineHeight: '1.0', letterSpacing: '-0.025em', fontWeight: '700' }],
+```
+Luego en Hero: `md:text-display-xl`
+
+**Opción B — inline rápido:**
+```tsx
+className="text-display-mobile md:text-[68px] md:leading-[1.05] md:tracking-tight ..."
+```
+
+> Mobile: `text-display-mobile` = 32px queda intacto.
+
+---
+
+### Regla documentada: cómo distinguir mobile vs desktop en estos archivos
+
+| Archivo | Patrón mobile | Patrón desktop |
+|---|---|---|
+| Nav.tsx | bloque `md:hidden` (línea 122) | bloque `hidden md:flex` (línea 79) |
+| Hero.tsx | clases sin prefijo / `sm:` | clases con prefijo `md:` |
+
+Todo lo que tenga prefijo `md:` solo aplica en ≥768px. Sin prefijo = mobile first (aplica en todos los tamaños).
+
+---
+
+### Archivos a modificar
+```
+src/components/layout/Nav.tsx        ← h-[100px] → h-[120px] (línea 79)
+src/components/sections/Hero.tsx     ← mx-auto → md:mx-0 + pl-20 (línea 90)
+                                     ← headline size (línea 111)
+tailwind.config.ts                   ← (opcional) agregar display-xl
+```
+
+### Commit relacionado
+- Pendiente (cambios aún no implementados).
+
+---
+
 ## Sesion 09 — 2026-06-12
 
 ### Hero padding con navbar + banner (patrón reutilizable)
@@ -917,6 +1379,83 @@ src/components/pages/contact/ContactHero.tsx     ← pt-20 → pt-[104px] md:pt-
 
 ### Commit relacionado
 - Pendiente.
+
+---
+
+## Sesión 12 — 2026-06-15
+
+### Resumen
+Sesión de análisis y planificación de ajustes visuales en desktop: logo del navbar más grande, texto del Hero anclado a la izquierda, y headline más grande. No se aplicaron cambios — el dev los implementará manualmente.
+
+### IA utilizada
+Claude.
+
+---
+
+### Cambios identificados (pendientes de implementar)
+
+#### 1. Navbar — logo más grande en desktop (`src/components/layout/Nav.tsx`)
+
+- **Línea 79:** aumentar alto del contenedor de `h-[100px]` a `h-[120px]` para que el logo tenga espacio vertical.
+- **Línea 96:** el logo ya tiene `h-[190px]` — este valor se puede ajustar según necesidad visual. El contenedor limitaba su tamaño visible.
+
+> Nota: mobile no se toca. El logo mobile está en un bloque separado (`md:hidden`, línea 122) con `h-9 w-auto`.
+
+#### 2. Hero — texto anclado a la izquierda en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 90:** reemplazar `mx-auto` por `md:mx-0` y ajustar padding a `md:pl-20 md:pr-10`.
+
+```tsx
+// ANTES:
+<div className="max-w-container mx-auto px-4 md:px-10 w-full relative z-10">
+
+// DESPUÉS:
+<div className="max-w-container mx-auto md:mx-0 px-4 md:pl-20 md:pr-10 w-full relative z-10">
+```
+
+> Mobile: `mx-auto` y `px-4` siguen activos porque solo se overridea con `md:`.
+
+#### 3. Hero — headline más grande en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 111:** actualmente usa `md:text-display-lg` = 56px (definido en `tailwind.config.ts`).
+- Dos opciones:
+
+**Opción A — agregar tamaño en `tailwind.config.ts`:**
+```ts
+'display-xl': ['72px', { lineHeight: '1.0', letterSpacing: '-0.025em', fontWeight: '700' }],
+```
+Luego en Hero: `md:text-display-xl`
+
+**Opción B — inline rápido:**
+```tsx
+className="text-display-mobile md:text-[68px] md:leading-[1.05] md:tracking-tight ..."
+```
+
+> Mobile: `text-display-mobile` = 32px queda intacto.
+
+---
+
+### Regla documentada: cómo distinguir mobile vs desktop en estos archivos
+
+| Archivo | Patrón mobile | Patrón desktop |
+|---|---|---|
+| Nav.tsx | bloque `md:hidden` (línea 122) | bloque `hidden md:flex` (línea 79) |
+| Hero.tsx | clases sin prefijo / `sm:` | clases con prefijo `md:` |
+
+Todo lo que tenga prefijo `md:` solo aplica en ≥768px. Sin prefijo = mobile first (aplica en todos los tamaños).
+
+---
+
+### Archivos a modificar
+```
+src/components/layout/Nav.tsx        ← h-[100px] → h-[120px] (línea 79)
+src/components/sections/Hero.tsx     ← mx-auto → md:mx-0 + pl-20 (línea 90)
+                                     ← headline size (línea 111)
+tailwind.config.ts                   ← (opcional) agregar display-xl
+```
+
+### Commit relacionado
+- Pendiente (cambios aún no implementados).
 
 ---
 
@@ -1019,6 +1558,83 @@ src/types.d.ts                   ← NUEVO (declare module '*.css')
 
 ### Commit relacionado
 - Pendiente.
+
+---
+
+## Sesión 12 — 2026-06-15
+
+### Resumen
+Sesión de análisis y planificación de ajustes visuales en desktop: logo del navbar más grande, texto del Hero anclado a la izquierda, y headline más grande. No se aplicaron cambios — el dev los implementará manualmente.
+
+### IA utilizada
+Claude.
+
+---
+
+### Cambios identificados (pendientes de implementar)
+
+#### 1. Navbar — logo más grande en desktop (`src/components/layout/Nav.tsx`)
+
+- **Línea 79:** aumentar alto del contenedor de `h-[100px]` a `h-[120px]` para que el logo tenga espacio vertical.
+- **Línea 96:** el logo ya tiene `h-[190px]` — este valor se puede ajustar según necesidad visual. El contenedor limitaba su tamaño visible.
+
+> Nota: mobile no se toca. El logo mobile está en un bloque separado (`md:hidden`, línea 122) con `h-9 w-auto`.
+
+#### 2. Hero — texto anclado a la izquierda en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 90:** reemplazar `mx-auto` por `md:mx-0` y ajustar padding a `md:pl-20 md:pr-10`.
+
+```tsx
+// ANTES:
+<div className="max-w-container mx-auto px-4 md:px-10 w-full relative z-10">
+
+// DESPUÉS:
+<div className="max-w-container mx-auto md:mx-0 px-4 md:pl-20 md:pr-10 w-full relative z-10">
+```
+
+> Mobile: `mx-auto` y `px-4` siguen activos porque solo se overridea con `md:`.
+
+#### 3. Hero — headline más grande en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 111:** actualmente usa `md:text-display-lg` = 56px (definido en `tailwind.config.ts`).
+- Dos opciones:
+
+**Opción A — agregar tamaño en `tailwind.config.ts`:**
+```ts
+'display-xl': ['72px', { lineHeight: '1.0', letterSpacing: '-0.025em', fontWeight: '700' }],
+```
+Luego en Hero: `md:text-display-xl`
+
+**Opción B — inline rápido:**
+```tsx
+className="text-display-mobile md:text-[68px] md:leading-[1.05] md:tracking-tight ..."
+```
+
+> Mobile: `text-display-mobile` = 32px queda intacto.
+
+---
+
+### Regla documentada: cómo distinguir mobile vs desktop en estos archivos
+
+| Archivo | Patrón mobile | Patrón desktop |
+|---|---|---|
+| Nav.tsx | bloque `md:hidden` (línea 122) | bloque `hidden md:flex` (línea 79) |
+| Hero.tsx | clases sin prefijo / `sm:` | clases con prefijo `md:` |
+
+Todo lo que tenga prefijo `md:` solo aplica en ≥768px. Sin prefijo = mobile first (aplica en todos los tamaños).
+
+---
+
+### Archivos a modificar
+```
+src/components/layout/Nav.tsx        ← h-[100px] → h-[120px] (línea 79)
+src/components/sections/Hero.tsx     ← mx-auto → md:mx-0 + pl-20 (línea 90)
+                                     ← headline size (línea 111)
+tailwind.config.ts                   ← (opcional) agregar display-xl
+```
+
+### Commit relacionado
+- Pendiente (cambios aún no implementados).
 
 ---
 
@@ -1158,3 +1774,80 @@ DEVLOG.md                                 ← ACTUALIZADO
 
 ### Commit relacionado
 - Pendiente.
+
+---
+
+## Sesión 12 — 2026-06-15
+
+### Resumen
+Sesión de análisis y planificación de ajustes visuales en desktop: logo del navbar más grande, texto del Hero anclado a la izquierda, y headline más grande. No se aplicaron cambios — el dev los implementará manualmente.
+
+### IA utilizada
+Claude.
+
+---
+
+### Cambios identificados (pendientes de implementar)
+
+#### 1. Navbar — logo más grande en desktop (`src/components/layout/Nav.tsx`)
+
+- **Línea 79:** aumentar alto del contenedor de `h-[100px]` a `h-[120px]` para que el logo tenga espacio vertical.
+- **Línea 96:** el logo ya tiene `h-[190px]` — este valor se puede ajustar según necesidad visual. El contenedor limitaba su tamaño visible.
+
+> Nota: mobile no se toca. El logo mobile está en un bloque separado (`md:hidden`, línea 122) con `h-9 w-auto`.
+
+#### 2. Hero — texto anclado a la izquierda en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 90:** reemplazar `mx-auto` por `md:mx-0` y ajustar padding a `md:pl-20 md:pr-10`.
+
+```tsx
+// ANTES:
+<div className="max-w-container mx-auto px-4 md:px-10 w-full relative z-10">
+
+// DESPUÉS:
+<div className="max-w-container mx-auto md:mx-0 px-4 md:pl-20 md:pr-10 w-full relative z-10">
+```
+
+> Mobile: `mx-auto` y `px-4` siguen activos porque solo se overridea con `md:`.
+
+#### 3. Hero — headline más grande en desktop (`src/components/sections/Hero.tsx`)
+
+- **Línea 111:** actualmente usa `md:text-display-lg` = 56px (definido en `tailwind.config.ts`).
+- Dos opciones:
+
+**Opción A — agregar tamaño en `tailwind.config.ts`:**
+```ts
+'display-xl': ['72px', { lineHeight: '1.0', letterSpacing: '-0.025em', fontWeight: '700' }],
+```
+Luego en Hero: `md:text-display-xl`
+
+**Opción B — inline rápido:**
+```tsx
+className="text-display-mobile md:text-[68px] md:leading-[1.05] md:tracking-tight ..."
+```
+
+> Mobile: `text-display-mobile` = 32px queda intacto.
+
+---
+
+### Regla documentada: cómo distinguir mobile vs desktop en estos archivos
+
+| Archivo | Patrón mobile | Patrón desktop |
+|---|---|---|
+| Nav.tsx | bloque `md:hidden` (línea 122) | bloque `hidden md:flex` (línea 79) |
+| Hero.tsx | clases sin prefijo / `sm:` | clases con prefijo `md:` |
+
+Todo lo que tenga prefijo `md:` solo aplica en ≥768px. Sin prefijo = mobile first (aplica en todos los tamaños).
+
+---
+
+### Archivos a modificar
+```
+src/components/layout/Nav.tsx        ← h-[100px] → h-[120px] (línea 79)
+src/components/sections/Hero.tsx     ← mx-auto → md:mx-0 + pl-20 (línea 90)
+                                     ← headline size (línea 111)
+tailwind.config.ts                   ← (opcional) agregar display-xl
+```
+
+### Commit relacionado
+- Pendiente (cambios aún no implementados).
