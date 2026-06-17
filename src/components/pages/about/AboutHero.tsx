@@ -6,9 +6,12 @@ import { useTranslations } from 'next-intl';
 export default function AboutHero() {
   const t = useTranslations('aboutPage.hero');
 
+  {/* pt-[120px] default padding mobile */}
+  {/* md:pt-[160px] default padding desktop */}
+
   return (
     <section
-      className="relative min-h-[55vh] flex items-center pt-[104px] md:pt-[120px] pb-24 overflow-hidden"
+      className="relative min-h-[55vh] flex items-center pt-[120px] md:pt-[160px] pb-24 overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #013e37 0%, #015748 100%)' }}
     >
       <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 0)', backgroundSize: '36px 36px' }} aria-hidden="true" />

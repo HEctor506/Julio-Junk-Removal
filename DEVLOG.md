@@ -1874,3 +1874,124 @@ export default createMiddleware({
   localeDetection: false,  // ← desactiva la detección automática por navegador
 });
 Con eso, todos ven inglés por defecto y solo van a /es si hacen clic en el botón de idioma. Tú decides si eso es lo que quieres.
+
+---
+
+## Sesion 13 — 2026-06-17
+
+### Resumen
+Fix de configuracion TypeScript + testing en dispositivo movil real via red local.
+
+### IA utilizada
+Claude.
+
+---
+
+### Cambios realizados
+
+#### 1. `tsconfig.json` — `jsx: "react-jsx"` → `jsx: "preserve"`
+
+`react-jsx` transforma el JSX a nivel de TypeScript antes de que Next.js lo procese. `preserve` deja el JSX intacto para que el pipeline de Next.js (webpack/SWC) lo maneje — que es el comportamiento correcto para proyectos Next.js App Router.
+
+```json
+// ANTES:
+"jsx": "react-jsx"
+
+// AHORA:
+"jsx": "preserve"
+```
+
+#### 2. `Nav.tsx` — comentarios de codigo (cosmetico)
+
+Agregados dos comentarios inline para clarificar bloques del menu mobile:
+- `{/*Boton de 3 rayas - menu de opciones*/}` antes del boton hamburger
+- `{/*btn-shimmer es lo que le da el brillo magico*/}` antes del Link CTA
+
+Sin cambios funcionales.
+
+---
+
+### Testing mobile en red local
+
+Para acceder al sitio desde el telefono durante desarrollo:
+
+```bash
+npm run dev -- -H 0.0.0.0
+```
+
+URL en el telefono: `http://192.168.100.164:3000`
+
+Requisito: telefono y PC en la misma red WiFi.
+
+---
+
+### Archivos modificados
+```
+tsconfig.json                          <- jsx: preserve (fix Next.js)
+src/components/layout/Nav.tsx          <- comentarios cosmeticos
+DEVLOG.md                              <- ACTUALIZADO
+```
+
+### Commit relacionado
+- Pendiente.
+
+---
+
+## Sesion 14 — 2026-06-17
+
+### Resumen
+Fix de allowedDevOrigins para testing mobile, eliminacion de inline styles en heroes de Contact y Services, y ajuste de padding en ContactHero.
+
+### IA utilizada
+Claude.
+
+---
+
+### Cambios realizados
+
+#### 1. `next.config.mjs` — `allowedDevOrigins`
+
+Next.js 16 bloquea por defecto peticiones cross-origin desde dispositivos externos. Sin esta config, el telefono cargaba la pagina pero sin HMR ni assets correctos.
+
+```js
+const nextConfig = {
+  allowedDevOrigins: ['192.168.100.164'],
+  ...
+}
+```
+
+#### 2. Inline styles → clases CSS en `globals.css`
+
+ContactHero y ServicesHero tenian `style={{}}` inline que disparaban un warning del linter. Se movieron a clases en `globals.css` dentro de `@layer utilities`:
+
+| Clase | Uso |
+|---|---|
+| `.contact-hero-bg` | Gradiente `#013e37 → #015748` para ContactHero |
+| `.contact-hero-dots` | Puntos blancos `opacity-[0.06]` (ContactHero) |
+| `.service-hero-bg` | Mismo gradiente para ServicesHero |
+| `.services-hero-dots` | Puntos mint `rgba(136,222,177,0.08)` (ServicesHero) |
+
+El CSS es identico al inline original — solo cambia donde vive.
+
+#### 3. `ContactHero.tsx` — padding mobile ajustado
+
+```
+// ANTES: pt-[150px] md:pt-[160px]
+// AHORA: pt-[120px] md:pt-[160px]
+```
+
+Contenido movido mas arriba en mobile.
+
+---
+
+### Archivos modificados
+```
+next.config.mjs                                      <- allowedDevOrigins
+src/app/globals.css                                  <- 4 clases nuevas para heroes
+src/components/pages/contact/ContactHero.tsx         <- sin inline styles + pt-[120px]
+src/components/pages/services/ServicesHero.tsx       <- sin inline styles
+DEVLOG.md                                            <- ACTUALIZADO
+```
+
+### Commit relacionado
+- Pendiente.

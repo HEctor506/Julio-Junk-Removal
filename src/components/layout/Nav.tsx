@@ -139,6 +139,8 @@ export default function Nav() {
           >
             {t('langSwitch')}
           </button>
+
+          {/*Boton de 3 rayas - menu de opciones*/}
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -153,6 +155,7 @@ export default function Nav() {
               )}
             </svg>
           </button>
+
         </div>
       </div>
 
@@ -182,6 +185,9 @@ export default function Nav() {
                   {link.label}
                 </Link>
               ))}
+
+              {/*btn-shimmer es lo que le da el brillo magico 
+              */}
               <Link
                 href={siteConfig.phoneHref}
                 className="btn-shimmer text-center mt-3 py-3 active:scale-95"
@@ -189,6 +195,7 @@ export default function Nav() {
               >
                 {t('cta')}
               </Link>
+
             </div>
           </motion.nav>
         )}

@@ -6,12 +6,14 @@ import { useTranslations } from 'next-intl';
 export default function ContactHero() {
   const t = useTranslations('contactPage.hero');
 
+  {/* pt-[120px] default padding mobile */}
+  {/* md:pt-[160px] default padding desktop */}
+
   return (
     <section
-      className="relative min-h-[40vh] flex items-center pt-[150px] md:pt-[160px] pb-16 overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #013e37 0%, #015748 100%)' }}
+      className="relative min-h-[40vh] flex items-center pt-[120px] md:pt-[160px] pb-16 overflow-hidden contact-hero-bg"
     >
-      <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 0)', backgroundSize: '36px 36px' }} aria-hidden="true" />
+      <div className="absolute inset-0 opacity-[0.06] contact-hero-dots" aria-hidden="true" />
       <div className="max-w-container mx-auto px-4 md:px-10 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

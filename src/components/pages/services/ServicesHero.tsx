@@ -7,13 +7,14 @@ import { Link } from '@/navigation';
 
 export default function ServicesHero() {
   const t = useTranslations('servicesPage.hero');
-
+  
+  {/* pt-[120px] default padding mobile */}
+  {/* md:pt-[160px] default padding desktop */}
   return (
     <section
-      className="relative min-h-[55vh] flex items-center pt-[150px] md:pt-[160px] pb-24 overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #013e37 0%, #015748 100%)' }}
+      className="relative min-h-[55vh] flex items-center pt-[120px] md:pt-[160px] pb-24 overflow-hidden service-hero-bg"
     >
-      <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(rgba(136,222,177,0.08) 1px, transparent 0)', backgroundSize: '36px 36px' }} aria-hidden="true" />
+      <div className="absolute inset-0 services-hero-dots" aria-hidden="true" />
       <div className="max-w-container mx-auto px-4 md:px-10 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

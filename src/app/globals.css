@@ -64,6 +64,25 @@
            transition-all duration-200;
   }
 
+  .contact-hero-bg {
+    background: linear-gradient(135deg, #013e37 0%, #015748 100%);
+  }
+
+  .contact-hero-dots {
+    background-image: radial-gradient(#fff 1px, transparent 0);
+    background-size: 36px 36px;
+  }
+
+  .service-hero-bg {
+    background: linear-gradient(135deg, #013e37 0%, #015748 100%);
+  }
+
+  .services-hero-dots {
+    background-image: radial-gradient(rgba(136,222,177,0.08) 1px, transparent 0);
+    background-size: 36px 36px;
+  }
+
+
   .btn-shimmer {
     @apply relative overflow-hidden rounded-full font-headline font-bold
            text-on-secondary-container;
