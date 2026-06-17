@@ -122,11 +122,16 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="max-w-container mx-auto px-4 md:px-10 mt-12"
+          className="max-w-6xl mx-auto px-4 md:px-10 mt-12"
         >
-          <div className="flex flex-col md:flex-row items-center gap-6 bg-white/10 border border-white/12 backdrop-blur-sm rounded-2xl px-6 py-5 md:px-8 md:py-6">
+          {/* Card: ancho controlado por max-w-container del padre (aplica igual en mobile y desktop).
+               Para hacerla más angosta cambia "max-w-container" en el motion.div de arriba por ej. max-w-3xl, max-w-2xl, etc.
+               gap-6 = separación entre parte A y parte B en DESKTOP (flex-row).
+               En MOBILE el layout es flex-col, así que gap-6 actúa como espacio vertical entre texto y botón.
+               Para cambiar solo desktop: "gap-6 md:gap-4". Para cambiar solo mobile: "gap-4 md:gap-6". */}
+          <div className="flex flex-col md:flex-row items-center gap-[10rem] bg-white/10 border border-white/12 backdrop-blur-sm rounded-2xl px-6 py-5 md:px-12 md:py-6">
             {/* Left: Google logo + stars + text */}
-            <div className="flex items-start gap-4 flex-1">
+            <div className="flex items-start gap-4 max-w-md">
               <div className="shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-card" aria-hidden="true">
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -143,10 +148,13 @@ export default function Testimonials() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-body-md font-body text-white/80 leading-relaxed">{t('review-text')}</p>
+                {/* max-w-sm limita el ancho del texto; cambia a max-w-md/lg para más espacio */}
+                <p className="text-body-md font-body text-white/80 leading-relaxed max-w-sm">
+                  {t('review-text-1')}<br />{t('review-text-2')}
+                </p>
               </div>
             </div>
-            {/* CTA button */}
+            {/* Right: CTA button */}
             <a
               href="https://www.google.com/maps/place/Julio+Junk+removal/@33.835649,-118.0405815,9z/data=!4m18!1m9!3m8!1s0x9adc18a1f99ef51:0x729536e5212a192a!2sJulio+Junk+removal!8m2!3d33.835649!4d-118.0405815!9m1!1b1!16s%2Fg%2F11mm7dh3pl!3m7!1s0x9adc18a1f99ef51:0x729536e5212a192a!8m2!3d33.835649!4d-118.0405815!9m1!1b1!16s%2Fg%2F11mm7dh3pl?entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
