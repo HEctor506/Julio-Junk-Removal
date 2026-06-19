@@ -50,7 +50,7 @@ export default async function Footer() {
                 alt=""
                 width={140}
                 height={44}
-                className="h-[90px] w-auto brightness-0 invert"
+                className="h-[90px] w-auto"
               />
             </Link>
 

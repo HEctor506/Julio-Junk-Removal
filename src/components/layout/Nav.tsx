@@ -93,7 +93,7 @@ export default function Nav() {
             alt="Julio Junk Removal"
             width={140}
             height={54}
-            className="h-[175px] w-auto brightness-0 invert"
+            className="h-[166px] w-auto"
             priority
           />
         </Link>
@@ -126,7 +126,7 @@ export default function Nav() {
             alt="Julio Junk Removal"
             width={120}
             height={38}
-            className="h-9 w-auto brightness-0 invert"
+            className="h-9 w-auto"
             priority
           />
         </Link>
