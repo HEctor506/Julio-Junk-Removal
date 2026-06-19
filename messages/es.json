@@ -167,7 +167,8 @@
         "author": "Martha Sandoval"
       }
     ],
-    "review-text": "Tu opinión es muy importante para nosotros 🙌 Déjanos tu reseña en Google, nos ayudas a seguir creciendo y mejorando.",
+    "review-text-1": "Tu opinión es muy importante para nosotros 🙌",
+    "review-text-2": "Déjanos tu reseña en Google, ayudanos a seguir creciendo y mejorando.",
     "reviewCta": "Dejanos una Reseña en Google"
   },
   "faq": {
@@ -244,6 +245,7 @@
     "namePlaceholder": "Nombre Completo",
     "phonePlaceholder": "Número de Teléfono",
     "emailPlaceholder": "Correo Electrónico",
+    "directionPlaceholer": "Dirección",
     "messagePlaceholder": "Describe lo que necesitas retirar...",
     "submit": "Enviar Solicitud",
     "submitting": "Enviando...",
@@ -256,20 +258,24 @@
     "phoneLabel": "Número de Teléfono",
     "emailLabel": "Correo Electrónico",
     "serviceLabel": "Servicio Necesario",
+    "directionLabel": "Dirección",
     "messageLabel": "Describe Lo Que Necesitas Retirar",
     "nameInputPlaceholder": "Juan García",
     "phoneInputPlaceholder": "(555) 000-0000",
     "emailInputPlaceholder": "tu@ejemplo.com",
+    "directionInputPlaceholer": "e.g. 123 Main St, New York",
     "messageInputPlaceholder": "Ej. Sofá viejo, electrodomésticos rotos, residuos del jardín...",
     "serviceDefault": "Selecciona un servicio...",
     "serviceOptions": [
       { "value": "residential", "label": "Retiro Residencial de Desecho" },
-      { "value": "commercial", "label": "Limpieza Comercial" },
-      { "value": "construction", "label": "Escombros de Construcción" },
+      { "value": "commercial", "label": "Retiro Comercial de Desecho" },
+      { "value": "construction", "label": "Retiro de Escombros de Construcción" },
       { "value": "yard", "label": "Residuos de Jardín" },
-      { "value": "furniture", "label": "Muebles y Electrodomésticos" },
+      { "value": "furniture", "label": "Retiro de Muebles" },
       { "value": "cleanout", "label": "Limpieza de Herencia / Propiedad" },
-      { "value": "other", "label": "Otro" }
+      { "value": "appliances", "label": "Retiro de Electrodomésticos" },
+      { "value": "recycling", "label": "Servicios de Reciclaje y Donaciones" },
+      { "value": "otro", "label": "otro" }
     ],
     "fullSubmit": "Enviar Solicitud y Obtener Estimado Gratis",
     "note": "Sin obligación · Respuesta en menos de 1 hora · También disponible en",

@@ -1995,3 +1995,70 @@ DEVLOG.md                                            <- ACTUALIZADO
 
 ### Commit relacionado
 - Pendiente.
+
+---
+
+## Sesion 15 — 2026-06-17
+
+### Resumen
+Dos cambios independientes: corrección de copy en español (chatarra → desecho/residuos) e integración de Resend para envío real de emails desde el formulario de contacto.
+
+### IA utilizada
+Claude.
+
+---
+
+### 1. i18n — reemplazo de "chatarra" por "desecho" en español
+
+#### Problema
+El término "chatarra" se usaba en varios textos del sitio en español. El cliente prefiere "desecho" como término más apropiado para el negocio.
+
+#### Cambios
+- Todas las ocurrencias de `chatarra` (minúscula) → `desecho` en `messages/es.json`
+- Todas las ocurrencias de `Chatarra` (mayúscula) → `Desecho` en `messages/es.json`
+- Excepción puntual: `"Retiro de Desecho Premium en el que Puedes Confiar"` → `"Retiro de Residuos Premium en el que Puedes Confiar"` — "residuos" suena más natural en ese contexto
+
+#### Archivos modificados
+```
+messages/es.json    ← 16 reemplazos (12 minúsculas + 4 mayúsculas + 1 ajuste manual)
+```
+
+#### Commits relacionados
+- `203a054` — reemplazo minúsculas
+- `12387d6` — reemplazo mayúsculas
+- `614a8ee` — ajuste manual h2 about page
+
+---
+
+### 2. Resend — integración de email real en formulario de contacto
+
+#### Antes
+`/api/contact/route.ts` validaba los campos y hacía `console.log()`. Los datos del formulario no llegaban a ningún lado.
+
+#### Ahora
+El formulario envía un email HTML a `juliojunkremoval@gmail.com` usando Resend cada vez que un cliente completa el formulario.
+
+#### Decisiones técnicas
+
+| Decisión | Razón |
+|---|---|
+| Resend como proveedor | Gratis hasta 3,000 emails/mes, funciona en Netlify Free, SDK simple |
+| `from: leads@juliojunkremoval.com` | Dominio verificado en Resend via Cloudflare — permite remitente propio |
+| `to` viene de `siteConfig.email` | No quemado — si cambia el correo del dueño solo se toca `config.ts` |
+| Template HTML inline en route.ts | Email es server-only, no justifica un archivo .tsx separado |
+| Botones "Call Back" y "WhatsApp" en el email | El dueño puede responder al lead con un tap desde el correo |
+
+#### Variables de entorno requeridas
+```
+RESEND_API_KEY=<clave>   ← .env.local (local) y Netlify env vars (producción)
+```
+
+#### Archivos modificados
+```
+src/app/api/contact/route.ts    ← reescrito con Resend + template HTML
+package.json                    ← resend agregado como dependencia
+package-lock.json               ← actualizado
+```
+
+### Commit relacionado
+- Pendiente.

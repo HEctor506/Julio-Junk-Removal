@@ -76,7 +76,7 @@ export default function Nav() {
       }`}
     >
       {/* Desktop: compact centered layout — links | logo | links */}
-      <div className="hidden md:flex items-center justify-center h-[100px] px-10 gap-8">
+      <div className="hidden md:flex items-center justify-center h-[110px] px-10 gap-8">
         {/* Left links */}
         <nav className="flex items-center gap-7" aria-label="Main navigation left">
           {leftLinks.map((link) => (
@@ -89,11 +89,11 @@ export default function Nav() {
         {/* Center: Logo */}
         <Link href="/" aria-label="Julio Junk Removal — Home" className="shrink-0 mx-2">
           <Image
-            src="/images/logo-dark.png"
+            src="/images/new-vertical-logo.png"
             alt="Julio Junk Removal"
             width={140}
             height={54}
-            className="h-[190px] w-auto brightness-0 invert"
+            className="h-[175px] w-auto brightness-0 invert"
             priority
           />
         </Link>

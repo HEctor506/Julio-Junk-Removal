@@ -16,6 +16,15 @@ Al cerrar cada requerimiento, agregar una entrada en `DEVLOG.md` con:
 - Pendientes
 - Commit relacionado
 
+## Regla: Comentarios en código
+
+Por cada cambio que se haga en el código, agregar un comentario breve explicando **por qué** existe esa línea o decisión, especialmente en:
+- Clases utilitarias no obvias (ej. `max-w-sm`, `z-50`, `pointer-events-none`)
+- Lógica condicional o guards defensivos
+- Workarounds o decisiones de diseño que no se leen solas
+
+El comentario va **justo encima** de la línea afectada. Una línea máximo. No describir qué hace el código — explicar por qué está ahí.
+
 ## ⚠️ Fuente de verdad visual
 
 Antes de hacer cualquier cambio visual (colores, tipografía, espaciado, componentes, animaciones), leer obligatoriamente:

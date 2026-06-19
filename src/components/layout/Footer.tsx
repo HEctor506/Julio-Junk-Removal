@@ -46,7 +46,7 @@ export default async function Footer() {
           <div className="space-y-5">
             <Link href="/" className="flex items-center gap-2 group" aria-label="Julio Junk Removal — Home">
               <Image
-                src="/images/Horizontal-02.png"
+                src="/images/new-horizontal-logo.png"
                 alt=""
                 width={140}
                 height={44}
