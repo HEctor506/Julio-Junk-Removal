@@ -22,7 +22,7 @@ function ReviewCard({ review }: { review: Review }) {
     name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase();
 
   return (
-    <article className="bg-white text-on-surface p-7 rounded-2xl shadow-card flex-shrink-0 w-[340px] md:w-[380px] flex flex-col justify-between gap-5 border border-outline-variant/20">
+    <article className="bg-white text-on-surface p-7 rounded-2xl shadow-card flex-shrink-0 w-[300px] md:w-[380px] flex flex-col justify-between gap-5 border border-outline-variant/20">
       <div className="space-y-4">
         <StarRating />
         <blockquote>
@@ -106,8 +106,8 @@ export default function Testimonials() {
         {/* Infinite ticker */}
         <div className="relative overflow-hidden">
           {/* Edge fades */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-primary to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-primary to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-5 bg-gradient-to-r from-primary to-transparent z-11 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-5 bg-gradient-to-l from-primary to-transparent z-11 pointer-events-none" />
 
           <div className="flex gap-6 animate-ticker w-max px-4">
             {all.map((review, i) => (
