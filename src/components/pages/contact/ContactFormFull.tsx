@@ -17,7 +17,7 @@ export default function ContactFormFull() {
   const serviceOptions: ServiceOption[] = Array.isArray(rawOptions) ? rawOptions : [];
 
   const [state, setState] = useState<FormState>('idle');
-  const [form, setForm] = useState({ name: '', phone: '', email: '', message: '', service: '' });
+  const [form, setForm] = useState({ name: '', phone: '', email: '', message: '', service: '', direction: '' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -110,11 +110,11 @@ export default function ContactFormFull() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label htmlFor="email" className="block text-sm font-label font-semibold text-on-surface mb-1.5">{t('emailLabel')}</label>
+              <label htmlFor="email" className="block text-sm font-label font-semibold text-on-surface mb-1.5">{t('emailLabel')} *</label>
               <input id="email" name="email" type="email" autoComplete="email" placeholder={t('emailInputPlaceholder')} value={form.email} onChange={handleChange} className={inputClass} />
             </div>
             <div>
-              <label htmlFor="service" className="block text-sm font-label font-semibold text-on-surface mb-1.5">{t('serviceLabel')}</label>
+              <label htmlFor="service" className="block text-sm font-label font-semibold text-on-surface mb-1.5">{t('serviceLabel')} *</label>
               <select id="service" name="service" value={form.service} onChange={handleChange} className={inputClass}>
                 <option value="">{t('serviceDefault')}</option>
                 {serviceOptions.map((opt) => (
@@ -122,6 +122,11 @@ export default function ContactFormFull() {
                 ))}
               </select>
             </div>
+          </div>
+
+          <div>
+            <label htmlFor="direction" className="block text-sm font-label font-semibold text-on-surface mb-1.5">{t('directionLabel')}</label>
+            <input id="direction" name="direction" type="text" autoComplete="street-address" placeholder={t('directionInputPlaceholer')} value={form.direction} onChange={handleChange} className={inputClass} />
           </div>
 
           <div>

@@ -241,6 +241,8 @@
     "namePlaceholder": "Full Name",
     "phonePlaceholder": "Phone Number",
     "emailPlaceholder": "Email Address",
+    "directionPlaceholer": "Direction",
+
     "messagePlaceholder": "Describe what you need removed...",
     "submit": "Send Request",
     "submitting": "Sending...",
@@ -253,10 +255,14 @@
     "phoneLabel": "Phone Number",
     "emailLabel": "Email Address",
     "serviceLabel": "Service Needed",
+    "directionLabel": "Direction",
+
     "messageLabel": "Describe What You Need Removed",
     "nameInputPlaceholder": "John Smith",
     "phoneInputPlaceholder": "(555) 000-0000",
     "emailInputPlaceholder": "you@example.com",
+    "directionInputPlaceholer": "e.g. 123 Main St, New York",
+
     "messageInputPlaceholder": "E.g. Old sofa, broken appliances, yard debris from the backyard...",
     "serviceDefault": "Select a service...",
     "serviceOptions": [
@@ -264,8 +270,10 @@
       { "value": "commercial", "label": "Commercial Cleanout" },
       { "value": "construction", "label": "Construction Debris" },
       { "value": "yard", "label": "Yard Waste Removal" },
-      { "value": "furniture", "label": "Furniture & Appliances" },
+      { "value": "furniture", "label": "Furniture Removal" },
       { "value": "cleanout", "label": "Estate / Property Cleanout" },
+      { "value": "appliances", "label": "Appliance Removal" },
+      { "value": "recycling", "label": "Recycling & Donation Services" },
       { "value": "other", "label": "Other" }
     ],
     "fullSubmit": "Send Request & Get Free Estimate",

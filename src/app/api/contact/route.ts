@@ -8,6 +8,7 @@ interface ContactPayload {
   email: string;
   message: string;
   service?: string;
+  direction?: string;
   locale?: string;
 }
 
@@ -16,14 +17,16 @@ const serviceLabels: Record<string, string> = {
   residential: 'Residential Junk Removal',
   commercial: 'Commercial Cleanout',
   construction: 'Construction Debris',
-  yard: 'Yard Waste',
-  furniture: 'Furniture & Appliances',
+  yard: 'Yard Waste Removal',
+  furniture: 'Furniture Removal',
   cleanout: 'Estate / Property Cleanout',
+  appliances: 'Appliance Removal',
+  recycling: 'Recycling & Donation Services',
   other: 'Other',
 };
 
 function buildEmailHtml(data: ContactPayload): string {
-  const { name, phone, email, message, service } = data;
+  const { name, phone, email, message, service, direction } = data;
   const serviceLabel = service ? (serviceLabels[service] ?? service) : null;
 
   return `<!DOCTYPE html>
@@ -85,6 +88,13 @@ function buildEmailHtml(data: ContactPayload): string {
                   <td style="padding:12px 16px;background:${email ? '#ffffff' : '#f9fafb'};border-bottom:1px solid #e5e7eb;">
                     <p style="margin:0;font-size:11px;color:#6b7280;font-weight:700;text-transform:uppercase;letter-spacing:1px;">Service</p>
                     <p style="margin:4px 0 0;font-size:17px;font-weight:700;color:#013e37;">${serviceLabel}</p>
+                  </td>
+                </tr>` : ''}
+                ${direction ? `
+                <tr>
+                  <td style="padding:12px 16px;background:#f9fafb;border-bottom:1px solid #e5e7eb;">
+                    <p style="margin:0;font-size:11px;color:#6b7280;font-weight:700;text-transform:uppercase;letter-spacing:1px;">Address</p>
+                    <p style="margin:4px 0 0;font-size:17px;font-weight:700;color:#013e37;">${direction}</p>
                   </td>
                 </tr>` : ''}
                 <tr>

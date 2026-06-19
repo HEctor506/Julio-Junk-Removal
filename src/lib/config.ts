@@ -5,7 +5,7 @@ export const siteConfig = {
   whatsappHref: 'https://wa.me/16263413078',
   city: 'Los angeles',
   state: 'California',
-  email: 'Nicol-1985@hotmail.com',
+  email: 'hrugel@uees.edu.ec',
   facebook: '#',
   instagram: 'https://www.instagram.com/juliojunkr/',
   tiktok: '#',
