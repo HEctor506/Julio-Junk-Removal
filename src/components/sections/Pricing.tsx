@@ -138,6 +138,7 @@ export default function Pricing() {
               </ul>
 
               {/* CTA */}
+              {/* Boton de obtener cotización */}
               <Link
                 href="/contact"
                 className={`mt-auto text-center px-6 py-3.5 rounded-full font-headline font-bold text-label-bold tracking-wide uppercase transition-all duration-200 active:scale-95 ${

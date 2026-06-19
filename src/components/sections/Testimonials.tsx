@@ -122,16 +122,18 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="max-w-6xl mx-auto px-4 md:px-10 mt-12"
+          className="max-w-4xl mx-auto px-4 md:px-10 mt-12"
         >
-          {/* Card: ancho controlado por max-w-container del padre (aplica igual en mobile y desktop).
-               Para hacerla más angosta cambia "max-w-container" en el motion.div de arriba por ej. max-w-3xl, max-w-2xl, etc.
-               gap-6 = separación entre parte A y parte B en DESKTOP (flex-row).
-               En MOBILE el layout es flex-col, así que gap-6 actúa como espacio vertical entre texto y botón.
-               Para cambiar solo desktop: "gap-6 md:gap-4". Para cambiar solo mobile: "gap-4 md:gap-6". */}
-          <div className="flex flex-col md:flex-row items-center gap-[10rem] bg-white/10 border border-white/12 backdrop-blur-sm rounded-2xl px-6 py-5 md:px-12 md:py-6">
+          {/* Card: siempre flex-row en ambos breakpoints.
+               MOBILE: ícono | texto | botón circular (igual que ctaCard de Services).
+               DESKTOP (md+): misma estructura pero con más padding y botón shimmer con texto completo.
+               Ancho de la card: controlado por max-w-6xl del motion.div padre — cambia a max-w-3xl para angostarlo. */}
+          <div className="relative overflow-hidden flex flex-row items-center gap-4 md:gap-10 bg-gradient-to-br from-primary-container via-primary to-[#011f1b] border border-secondary-container/20 rounded-2xl px-5 py-4 md:px-12 md:py-6 group">
+            {/* Línea decorativa superior — misma que ctaCard de Services */}
+            <div className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary-container/50 to-transparent" />
+
             {/* Left: Google logo + stars + text */}
-            <div className="flex items-start gap-4 max-w-md">
+            <div className="flex items-start gap-3 md:gap-4 flex-1">
               <div className="shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-card" aria-hidden="true">
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -148,18 +150,33 @@ export default function Testimonials() {
                     </svg>
                   ))}
                 </div>
-                {/* max-w-sm limita el ancho del texto; cambia a max-w-md/lg para más espacio */}
-                <p className="text-body-md font-body text-white/80 leading-relaxed max-w-sm">
+                {/* text-[12px] en mobile para que quepa en una línea junto al botón circular */}
+                <p className="text-[12px] md:text-body-md font-body text-white/80 leading-relaxed md:max-w-sm">
                   {t('review-text-1')}<br />{t('review-text-2')}
                 </p>
               </div>
             </div>
-            {/* Right: CTA button */}
+
+            {/* Right MOBILE: botón circular con flecha — mismo patrón que ctaCard de Services */}
             <a
               href="https://www.google.com/maps/place/Julio+Junk+removal/@33.835649,-118.0405815,9z/data=!4m18!1m9!3m8!1s0x9adc18a1f99ef51:0x729536e5212a192a!2sJulio+Junk+removal!8m2!3d33.835649!4d-118.0405815!9m1!1b1!16s%2Fg%2F11mm7dh3pl!3m7!1s0x9adc18a1f99ef51:0x729536e5212a192a!8m2!3d33.835649!4d-118.0405815!9m1!1b1!16s%2Fg%2F11mm7dh3pl?entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 bg-secondary-container text-on-secondary-container px-6 py-3 rounded-full font-headline font-bold text-sm hover:brightness-105 hover:shadow-glow-mint transition-all duration-200 active:scale-95 flex items-center gap-2 whitespace-nowrap w-full md:w-auto justify-center"
+              aria-label={t('reviewCta')}
+              className="md:hidden shrink-0 w-9 h-9 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary transition-all duration-300 hover:scale-110 hover:shadow-glow-mint group-hover:translate-x-0.5"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+
+            {/* Right DESKTOP: botón shimmer con texto completo — se oculta en mobile */}
+            <a
+              href="https://www.google.com/maps/place/Julio+Junk+removal/@33.835649,-118.0405815,9z/data=!4m18!1m9!3m8!1s0x9adc18a1f99ef51:0x729536e5212a192a!2sJulio+Junk+removal!8m2!3d33.835649!4d-118.0405815!9m1!1b1!16s%2Fg%2F11mm7dh3pl!3m7!1s0x9adc18a1f99ef51:0x729536e5212a192a!8m2!3d33.835649!4d-118.0405815!9m1!1b1!16s%2Fg%2F11mm7dh3pl?entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              // btn-shimmer reemplaza bg-secondary-container y agrega el efecto de brillo animado definido en globals.css
+              className="hidden md:flex shrink-0 btn-shimmer text-on-secondary-container px-6 py-3 rounded-full font-headline font-bold text-sm hover:brightness-105 hover:shadow-glow-mint transition-all duration-200 active:scale-95 items-center gap-2 whitespace-nowrap"
             >
               {t('reviewCta')}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">

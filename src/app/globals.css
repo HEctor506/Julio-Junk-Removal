@@ -86,10 +86,11 @@
   .btn-shimmer {
     @apply relative overflow-hidden rounded-full font-headline font-bold
            text-on-secondary-container;
+    /* versión anterior — pico sutil: background: linear-gradient(90deg, #88deb1 0%, #a8ebca 40%, #88deb1 60%, #88deb1 100%); */
     background: linear-gradient(
       90deg,
       #88deb1 0%,
-      #a8ebca 40%,
+      #b4ebd0 40%,
       #88deb1 60%,
       #88deb1 100%
     );
