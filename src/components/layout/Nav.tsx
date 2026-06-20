@@ -197,7 +197,7 @@ export default function Nav() {
               </Link>
 
             </div>
-          </motion.nav>
+          </motion.nav> 
         )}
       </AnimatePresence>
     </motion.header>
