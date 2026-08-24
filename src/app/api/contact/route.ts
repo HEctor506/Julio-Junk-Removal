@@ -79,7 +79,7 @@ function buildEmailHtml(data: ContactPayload): string {
                   <td style="padding:12px 16px;background:#f9fafb;border-bottom:1px solid #e5e7eb;">
                     <p style="margin:0;font-size:11px;color:#6b7280;font-weight:700;text-transform:uppercase;letter-spacing:1px;">Email</p>
                     <p style="margin:4px 0 0;font-size:17px;font-weight:700;color:#013e37;">
-                      <a href="mailto:${email}" style="color:#013e37;text-decoration:none;">${email}</a>
+                      ${email}
                     </p>
                   </td>
                 </tr>` : ''}

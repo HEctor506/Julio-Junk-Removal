@@ -5,7 +5,7 @@ export const siteConfig = {
   whatsappHref: 'https://wa.me/16263413078',
   city: 'Los angeles',
   state: 'California',
-  email: 'juliojunkremoval@gmail.com',
+  email: 'hectorr.4002@hotmail.com',  
   facebook: '#',
   instagram: 'https://www.instagram.com/juliojunkr/',
   tiktok: '#',

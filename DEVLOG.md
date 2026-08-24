@@ -48,6 +48,38 @@ Mantener el log corto, técnico y acumulativo.
 
 ---
 
+## Sesión 13 — 2026-07-13
+
+### Objetivo
+El dueño recibió por el formulario un "lead" (Daniel Edwards) alegando que la web no tiene SEO y no aparece en Google. Verificar si es cierto, blindar el sitio y avisar al dueño.
+
+### Diagnóstico
+- El "lead" es **spam de SEO automatizado** (plantilla genérica, servicio "Other", dirección "New York" en un negocio de LA). No refleja el trabajo real.
+- SEO on-page verificado en vivo y **correcto**: `<title>`, meta description, `robots: index,follow`, Open Graph, Twitter card, hreflang en/es, JSON-LD `LocalBusiness`.
+- Fallas reales encontradas: no existían `robots.txt` ni `sitemap.xml` (el catch-all `[locale]` los servía como HTML: `<html lang="robots.txt">`); canonical relativa por falta de `metadataBase`; sitio aún no indexado en Google (falta alta en Search Console).
+
+### Cambios realizados
+- `src/app/robots.ts` (nuevo): genera `/robots.txt` nativo, `Disallow: /api/`, declara el sitemap.
+- `src/app/sitemap.ts` (nuevo): genera `/sitemap.xml` con home/about/services/contact, alternates hreflang en↔es, home priority 1.
+- `src/app/[locale]/layout.tsx`: agregado `metadataBase` → canonical y OG ahora absolutos (`https://juliojunkremoval.com`).
+
+### Verificación
+`next build` OK — `/robots.txt` y `/sitemap.xml` como rutas estáticas. `next start` + curl confirma contenido real y canonical absoluta.
+
+### Pendientes (manuales del cliente/dev)
+- Dar de alta el dominio en **Google Search Console** y enviar `sitemap.xml` (única causa real de "no aparece en Google").
+- Revisar `aggregateRating` (240 reviews / 4.9) en el JSON-LD: si no es real, ajustar para evitar penalización.
+- Agregar `og:image`.
+- Enviar mensaje de aviso al dueño para que no contrate al estafador.
+
+### IA utilizada
+Claude (Opus 4.8)
+
+### Commit relacionado
+_pendiente_
+
+---
+
 ## Sesión 01 — 2026-06-07
 
 ### Resumen

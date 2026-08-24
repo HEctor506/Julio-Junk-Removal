@@ -22,6 +22,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const city = `${siteConfig.city}, ${siteConfig.state}`;
 
   return {
+    // Sin esto, canonical y og:url salen relativos (href="/") y Next lanza warning.
+    // Con metadataBase, Next resuelve todas las URLs a absolutas https://juliojunkremoval.com/...
+    metadataBase: new URL('https://juliojunkremoval.com'),
     title: {
       default: t('titleDefault'),
       template: `%s | Julio Junk Removal`,
