@@ -158,8 +158,12 @@ export async function POST(request: NextRequest) {
       // from must use a verified domain configured in Resend
       from: `Julio Junk Removal <leads@juliojunkremoval.com>`,
       to: siteConfig.email,
+      // lets the owner hit "reply" and email the lead directly, and reads as a legit human email to spam filters
+      replyTo: body.email || undefined,
       subject: `New estimate request from ${name}`,
       html: buildEmailHtml(body),
+      // a plain-text fallback lowers spam score — HTML-only emails are a common spam signal
+      text: `New Estimate Request — Julio Junk Removal\n\nName: ${name}\nPhone: ${phone}\n${body.email ? `Email: ${body.email}\n` : ''}${body.service ? `Service: ${serviceLabels[body.service] ?? body.service}\n` : ''}${body.direction ? `Address: ${body.direction}\n` : ''}\nMessage:\n${message}`,
     });
 
     return NextResponse.json({ success: true }, { status: 200 });
